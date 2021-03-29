@@ -158,6 +158,51 @@
 
     <div class="d-flex flex-wrap col-10 px-3 py-4">
 
+    <?php
+      /*
+      * Change the value of $password if you have set a password on the root userid
+      * Change NULL to port number to use DBMS other than the default using port 3306
+      *
+      */
+      $user = 'root';
+      $password = ''; //To be completed if you have set a password to root
+      $database = 'yourmarket'; //To be completed to connect to a database. The database must exist.
+      $port = 3308; //Default must be NULL to use default port
+      $mysqli = new mysqli('127.0.0.1', $user, $password, $database, $port);
+
+      if ($mysqli->connect_error) {
+          die('Connect Error adzDZADAZDAZ (' . $mysqli->connect_errno . ') '
+                  . $mysqli->connect_error);
+      }
+      $sql = "SELECT * FROM item";
+      $result = $mysqli->query($sql);
+      //echo "number of row".$result->num_rows;
+      if ($result->num_rows > 0) {
+        // output data of each row
+        while($row = $result->fetch_assoc()) {
+          echo "<a href='#' class='card shadow-sm col-3'>
+          <img src=data:image/jpg;charset=utf8;base64," .base64_encode($row["photo"]) .">
+          <div class='card-body'>
+            <p class='card-text'>This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            <div class='d-flex justify-content-between align-items-center'>
+              <span class='price'>9 mins</span>
+              <div class='btn-group'>
+                <button type='button' class='btn btn-sm btn-outline-secondary'>View</button>
+                <button type='button' class='btn btn-sm btn-outline-secondary'>Edit</button>
+              </div>
+            </div>
+          </div>
+        </a> 
+          
+          
+          ";
+        }
+      } else {
+        echo "0 results";
+      }
+      $mysqli->close();
+    ?>
+
       <a href="#" class="card shadow-sm col-3 ">
         <img src="s-l1600.png">
         <div class="card-body">
