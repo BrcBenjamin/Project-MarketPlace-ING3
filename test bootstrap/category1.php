@@ -36,7 +36,7 @@
 		
 			<div class="d-flex flex-wrap">
 				<a href="index.html"role="button" class="btn btn-secondary rounded-0 pt-3 fs-4 border-start border-end border-1 text-center">Home</a>
-				<a href="category1.html"role="button" class="btn btn-dark pt-3 fs-4 border-start border-end border-1 text-center">Category 1</a>
+				<a href="category1.php"role="button" class="btn btn-dark pt-3 fs-4 border-start border-end border-1 text-center">Category 1</a>
 				<a href="category2.html"role="button" class="btn btn-secondary pt-3 fs-4 border-start border-end border-1 text-center">Category 2</a>
 			</div>
 
@@ -181,7 +181,7 @@
         // output data of each row
         while($row = $result->fetch_assoc()) {
           echo "<a href='#' class='card shadow-sm col-3'>
-          <div class='card image justify-content-center align-self-center overflow-hidden pt-3 border border-1' style='width:215px;height:215px;'>
+          <div class='card image justify-content-center align-self-center overflow-hidden pt-3 border-top border-1' style='width:215px;height:215px;'>
             <img src=data:image/jpeg;charset=utf8;base64," .base64_encode($row["photo"]) .">
           </div>
             
