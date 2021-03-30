@@ -206,104 +206,149 @@
       $mysqli->close();
     ?>
 
-      <a href="#" class="card shadow-sm col-3 ">
-        <img src="s-l1600.png">
-        <div class="card-body">
-          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          <div class="d-flex justify-content-between align-items-center">
-            <span class="price">9 mins</span>
-            <div class="btn-group">
-              <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-              <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+      <a href='#' class='card shadow-sm col-3'>
+        <div class='card image justify-content-center align-self-center overflow-hidden pt-3 border-top border-1' style='width:215px;height:215px;'>
+          <img src="s-l1600.png">
+        </div>
+        <div class='card-body'>
+          <p class='card-text'>This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          <div class='d-flex justify-content-between align-items-center'>
+            <span class='price'>9 mins</span>
+            <div class='btn-group'>
+              <button type='button' class='btn btn-sm btn-outline-secondary'>View</button>
+              <button type='button' class='btn btn-sm btn-outline-secondary'>Edit</button>
             </div>
           </div>
         </div>
-      </a>
+      </a> 
 
-      <a href="#" class="card shadow-sm col-3 ">
-        <img src="s-l1600.png">
-        <div class="card-body">
-          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          <div class="d-flex justify-content-between align-items-center">
-            <span class="price">9 mins</span>
-            <div class="btn-group">
-              <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-              <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+      <a href='#' class='card shadow-sm col-3'>
+        <div class='card image justify-content-center align-self-center overflow-hidden pt-3 border-top border-1' style='width:215px;height:215px;'>
+          <img src="s-l1600.png">
+        </div>
+        <div class='card-body'>
+          <p class='card-text'>This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          <div class='d-flex justify-content-between align-items-center'>
+            <span class='price'>9 mins</span>
+            <div class='btn-group'>
+              <button type='button' class='btn btn-sm btn-outline-secondary'>View</button>
+              <button type='button' class='btn btn-sm btn-outline-secondary'>Edit</button>
             </div>
           </div>
         </div>
-      </a>
+      </a> 
 
-      <a href="#" class="card shadow-sm col-3 ">
-        <img src="s-l1600.png">
-        <div class="card-body">
-          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          <div class="d-flex justify-content-between align-items-center">
-            <span class="price">9 mins</span>
-            <div class="btn-group">
-              <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-              <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+      <a href='#' class='card shadow-sm col-3'>
+        <div class='card image justify-content-center align-self-center overflow-hidden pt-3 border-top border-1' style='width:215px;height:215px;'>
+          <img src="s-l1600.png">
+        </div>
+        <div class='card-body'>
+          <p class='card-text'>This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          <div class='d-flex justify-content-between align-items-center'>
+            <span class='price'>9 mins</span>
+            <div class='btn-group'>
+              <button type='button' class='btn btn-sm btn-outline-secondary'>View</button>
+              <button type='button' class='btn btn-sm btn-outline-secondary'>Edit</button>
             </div>
           </div>
         </div>
-      </a>
+      </a> 
 
-      <div class="card shadow-sm col-3">
-        <img src="s-l1600.png">
-        <div class="card-body">
-          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          <div class="d-flex justify-content-between align-items-center">
-            <span class="price">9 mins</span>
-            <div class="btn-group">
-              <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-              <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+      <a href='#' class='card shadow-sm col-3'>
+        <div class='card image justify-content-center align-self-center overflow-hidden pt-3 border-top border-1' style='width:215px;height:215px;'>
+          <img src="s-l1600.png">
+        </div>
+        <div class='card-body'>
+          <p class='card-text'>This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          <div class='d-flex justify-content-between align-items-center'>
+            <span class='price'>9 mins</span>
+            <div class='btn-group'>
+              <button type='button' class='btn btn-sm btn-outline-secondary'>View</button>
+              <button type='button' class='btn btn-sm btn-outline-secondary'>Edit</button>
             </div>
           </div>
         </div>
-      </div>
+      </a> 
 
-      <div class="card col-3 ">
-        <img src="s-l1600.png">
-        <div class="card-body">
-          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          <div class="d-flex justify-content-between align-items-center">
-            <span class="price">9 mins</span>
-            <div class="btn-group">
-              <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-              <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+      <a href='#' class='card shadow-sm col-3'>
+        <div class='card image justify-content-center align-self-center overflow-hidden pt-3 border-top border-1' style='width:215px;height:215px;'>
+          <img src="s-l1600.png">
+        </div>
+        <div class='card-body'>
+          <p class='card-text'>This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          <div class='d-flex justify-content-between align-items-center'>
+            <span class='price'>9 mins</span>
+            <div class='btn-group'>
+              <button type='button' class='btn btn-sm btn-outline-secondary'>View</button>
+              <button type='button' class='btn btn-sm btn-outline-secondary'>Edit</button>
             </div>
           </div>
         </div>
-      </div>
+      </a> 
 
-      <div class="card shadow-sm col-3 ">
-        <img src="s-l1600.png">
-        <div class="card-body">
-          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          <div class="d-flex justify-content-between align-items-center">
-            <span class="price">9 mins</span>
-            <div class="btn-group">
-              <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-              <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+      <a href='#' class='card shadow-sm col-3'>
+        <div class='card image justify-content-center align-self-center overflow-hidden pt-3 border-top border-1' style='width:215px;height:215px;'>
+          <img src="s-l1600.png">
+        </div>
+        <div class='card-body'>
+          <p class='card-text'>This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          <div class='d-flex justify-content-between align-items-center'>
+            <span class='price'>9 mins</span>
+            <div class='btn-group'>
+              <button type='button' class='btn btn-sm btn-outline-secondary'>View</button>
+              <button type='button' class='btn btn-sm btn-outline-secondary'>Edit</button>
             </div>
           </div>
         </div>
-      </div>
+      </a> 
 
-      <div class="card shadow-sm col-3 ">
-        <img src="s-l1600.png">
-        <div class="card-body">
-          <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          <div class="d-flex justify-content-between align-items-center">
-            <span class="price">9 mins</span>
-            <div class="btn-group">
-              <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-              <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+      <a href='#' class='card shadow-sm col-3'>
+        <div class='card image justify-content-center align-self-center overflow-hidden pt-3 border-top border-1' style='width:215px;height:215px;'>
+          <img src="s-l1600.png">
+        </div>
+        <div class='card-body'>
+          <p class='card-text'>This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          <div class='d-flex justify-content-between align-items-center'>
+            <span class='price'>9 mins</span>
+            <div class='btn-group'>
+              <button type='button' class='btn btn-sm btn-outline-secondary'>View</button>
+              <button type='button' class='btn btn-sm btn-outline-secondary'>Edit</button>
             </div>
           </div>
         </div>
-      </div>
+      </a> 
 
+      <a href='#' class='card shadow-sm col-3'>
+        <div class='card image justify-content-center align-self-center overflow-hidden pt-3 border-top border-1' style='width:215px;height:215px;'>
+          <img src="s-l1600.png">
+        </div>
+        <div class='card-body'>
+          <p class='card-text'>This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          <div class='d-flex justify-content-between align-items-center'>
+            <span class='price'>9 mins</span>
+            <div class='btn-group'>
+              <button type='button' class='btn btn-sm btn-outline-secondary'>View</button>
+              <button type='button' class='btn btn-sm btn-outline-secondary'>Edit</button>
+            </div>
+          </div>
+        </div>
+      </a> 
+
+      <a href='#' class='card shadow-sm col-3'>
+        <div class='card image justify-content-center align-self-center overflow-hidden pt-3 border-top border-1' style='width:215px;height:215px;'>
+          <img src="s-l1600.png">
+        </div>
+        <div class='card-body'>
+          <p class='card-text'>This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+          <div class='d-flex justify-content-between align-items-center'>
+            <span class='price'>9 mins</span>
+            <div class='btn-group'>
+              <button type='button' class='btn btn-sm btn-outline-secondary'>View</button>
+              <button type='button' class='btn btn-sm btn-outline-secondary'>Edit</button>
+            </div>
+          </div>
+        </div>
+      </a> 
 
   </div>
 
