@@ -181,9 +181,12 @@
         // output data of each row
         while($row = $result->fetch_assoc()) {
           echo "<a href='#' class='card shadow-sm col-3'>
-          <img src=data:image/jpg;charset=utf8;base64," .base64_encode($row["photo"]) .">
+          <div class='card image justify-content-center align-self-center overflow-hidden pt-3 border border-1' style='width:215px;height:215px;'>
+            <img src=data:image/jpeg;charset=utf8;base64," .base64_encode($row["photo"]) .">
+          </div>
+            
           <div class='card-body'>
-            <p class='card-text'>This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            <p class='card-text'>" .$row["description"] ."</p>
             <div class='d-flex justify-content-between align-items-center'>
               <span class='price'>9 mins</span>
               <div class='btn-group'>
