@@ -34,28 +34,6 @@
 	 </div>
 </header>
 
-<!--Modal Interactif-->
-<div class="container">
-  <div class="modal fade" id="itemModal" role="dialog">
-    <div class="modal-dialog">
- 
-     <!-- Modal content-->
-     <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title">Article information</h4>
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-      </div>
-      <div class="modal-body">
- 
-      </div>
-      <div class="modal-footer">
-       <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-     </div>
-    </div>
-  </div>
-</div>
-
 		<div class="d-flex justify-content-between bg-secondary col-10 mx-auto p-0 m-0" style="height:45px;">
 		
 			<div class="d-flex flex-wrap">
@@ -188,7 +166,7 @@
       //echo "number of row".$result->num_rows;
       if ($result->num_rows > 0) {
         // output data of each row
-        while($row = mysqli_fetch_array($result)) {
+        while($row = $result->fetch_assoc()) {
           $id=$row["iditem"];
           echo "<a href='#'class='card shadow-sm col-3'>
           <div class='card image justify-content-center align-self-center overflow-hidden pt-3 border border-1' style='width:215px;height:215px;'>
@@ -220,6 +198,28 @@
     <p>© 2017–2021 Company, Inc. · <a href="#">Privacy</a> · <a href="#">Terms</a></p>
   </div>
 </footer>
+
+<!--Modal Interactif-->
+<div class="container">
+  <div class="modal" id="itemModal" role="dialog">
+    <div class="modal-dialog">
+ 
+     <!-- Modal content-->
+     <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Article information</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+      
+      </div>
+      <div class="modal-footer">
+       <button type="button" class="btn btn-primary" data-dismiss="modal">Add to Cart</button>
+      </div>
+     </div>
+    </div>
+  </div>
+</div>
 
   <script type='text/javascript'>
     $(document).ready(function(){
