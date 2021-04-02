@@ -20,10 +20,11 @@
 			}
 			
 		
-			$sql = " INSERT INTO `account`(`email`, `username`, `password`, `firstName`, `lastName`, `adress`, `fk_idsellingLicense`) VALUES ('$_POST[email]','$_POST[username]','$_POST[password]','$_POST[firstName]','$_POST[lastName]','$_POST[adress]',null)";
+			$sql = " DELETE FROM `item` WHERE iditem='$_POST[id]'";
 
 			 $mysqli->query($sql);	
-			 echo "Welcome $_POST[firstName] $_POST[lastName], You are a new buyer. Enjoy our website";
+			 
+			 header('Location: admin.php');
 			?>
 
 </body>

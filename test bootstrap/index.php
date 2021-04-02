@@ -25,7 +25,7 @@
 			<a class="navbar-brand align-self-center" style="height: 30px;" href="index.html">Yourmarket</a>
 
 			<div class="buttons align-self-center">
-				<button type="button" class="btn btn-primary"  >Login</button>
+				<button type="button" class="btn btn-primary"  onclick="window.location.href = 'login.html';">Login</button>
 				<button type="button" class="btn btn-primary" onclick="window.location.href = 'sign-inCustomer.html';">Sign In</button>
 			</div>
 		</div>
@@ -36,9 +36,9 @@
 		<div class="d-flex justify-content-between bg-secondary col-10 mx-auto p-0 m-0" style="height:45px;">
 		
 			<div class="d-flex flex-wrap">
-				<a href="index.html"role="button" class="btn btn-dark rounded-0 pt-3 fs-4 border-start border-end border-1 text-center">Home</a>
-				<a href="category1.html"role="button" class="btn btn-secondary pt-3 fs-4 border-start border-end border-1 text-center">Category 1</a>
-				<a href="category2.html"role="button" class="btn btn-secondary pt-3 fs-4 border-start border-end border-1 text-center">Category 2</a>
+				<a href="index.php"role="button" class="btn btn-dark rounded-0 pt-3 fs-4 border-start border-end border-1 text-center">Home</a>
+				<a href="category1.php"role="button" class="btn btn-secondary pt-3 fs-4 border-start border-end border-1 text-center">Category 1</a>
+				<a href="category2.php"role="button" class="btn btn-secondary pt-3 fs-4 border-start border-end border-1 text-center">Category 2</a>
 			</div>
 
 

@@ -20,17 +20,24 @@
 
 			
 			$sql1="SELECT `email`, `username`, `password`, `firstName`, `lastName`, `adress`, `fk_idsellingLicense` FROM `account` WHERE email='$_POST[email]'";
-			$mysqli->query($sql1);
+			$result1=$mysqli->query($sql1);
+
+			while ($row1= $result1->fetch_assoc()) {
+				
+				$adress=$row['adress'];
+				$firstName=$row['firstName'];
+				$lastName=$row['lastName'];	
+			}
 
 
-			$sql="INSERT INTO `sellinglicense`(`adress`, `firstName`, `lastName`, `dateofbirth`, `phoneNumber`, `fk_account_email`) VALUES ('adress','firstName','lastName','$_POST[dateofbirth]','$_POST[phoneNumber]','$_POST[email]')";
+			$sql="INSERT INTO `sellinglicense`(`adress`, `firstName`, `lastName`, `dateofbirth`, `phoneNumber`, `fk_account_email`) VALUES ('$adress','$firstName','$lastName','$_POST[dateofbirth]','$_POST[phoneNumber]','$_POST[email]')";
 			$mysqli->query($sql);	
 
 
 			$sql2="SELECT `idsellingLicense` FROM `sellinglicense` WHERE fk_account_email='$_POST[email]'";
 			$result=$mysqli->query($sql2);
 
-			$rep;
+			
 			while ($row= $result->fetch_assoc()) {
 				
 				$rep=$row['idsellingLicense'];	

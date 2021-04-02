@@ -32,11 +32,12 @@
 				
 				$rep=$row['idsellingLicense'];	
 			}
-			
+			echo "".$rep."";
 	
 			$sql4="UPDATE `account` SET `fk_idsellingLicense`=$rep WHERE email='$_POST[email]' ";	
 			$mysqli->query($sql4);
 
+			header('Location: admin.php');
 			 
 			?>
 
