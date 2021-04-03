@@ -51,9 +51,12 @@
 			
 		</div>
 	
+    <div class='container col-10 mx-auto pt-3 px-0'>
+            <div class='container bootstrap snippets bootdey'>
+              <div class='col-12 content'>
+                  <div class='panel panel-info panel-shadow'>
+        
 
-<div class="container col-10 mx-auto pt-3 px-0 border-start border-end border-1">
-    
     <?php
         /*
         * Change the value of $password if you have set a password on the root userid
@@ -71,24 +74,117 @@
             die('Connect Error adzDZADAZDAZ (' . $mysqli->connect_errno . ') '
                     . $mysqli->connect_error);
         }
-        $sql = "SELECT * FROM basketitem, item WHERE fk_email='" .$email ."' AND fk_iditem=iditem";
+        $sql = "SELECT * FROM basketitem, item WHERE fk_email='" .$email ."' AND fk_iditem=iditem AND (purchaseCategory=1 OR purchaseCategory=3)";
         $result = $mysqli->query($sql);
         //echo "number of row".$result->num_rows;
         if ($result->num_rows > 0) {
             // output data of each row
+            echo "
+                            <div class='panel-body'> 
+                              <div class='row text-600 text-white bg-primary py-3 fs-3'>
+                                  <div class='col-9 col-sm-5'>Bid or offer to be made</div>
+                              </div>
+                                
+                                <div class='d-flex flex-column justify-content-between col-12 gap-3'>";
             while($row = $result->fetch_assoc()) {
-            echo " Item n°" .$row["iditem"]
-            
-            ."";
+            echo "
+
+                        <div class='d-flex my-2 col-12 justify-content-between border border-1'>
+
+                          <div class='d-flex col-7 pt-4 align-self-start justify-content-center'>
+                            <div class='card border-0 image justify-content-center align-self-center overflow-hidden'  style='width:300px;height:215px;'>
+                              <img src=data:image/jpeg;charset=utf8;base64," .base64_encode($row["photo"]) .">
+                            </div>
+                              
+                            <div class='col-6 align-self-center ms-5 mb-5'>
+                              <a href='category1.php' class='fs-3 text-reset'>" .$row["name"] ."</a>
+                              <p class='pt-2 fs-5'>Condition: " .$row["conditionn"] .".<br>" .$row["description"] ."</p>
+                            </div>
+                          </div>
+
+                          <div class='d-flex flex-column align-self-end justify-content-end'>
+                            
+                            <div class='align-self-start mb-5 pb-5 fs-2'>" .$row["price"] ."€</div>
+
+                            <div class='align-self-end pe-5 fs-4 mb-4'>
+                              <a href='category1.php' class=''>Remove from basket</a>
+                            </div>
+
+                          </div>
+
+                        </div>";
             }
-        } else {
-            echo "0 results";
+            echo "
+            </div>
+          </div>";
+
         }
+
+        $sql = "SELECT * FROM basketitem, item WHERE fk_email='" .$email ."' AND fk_iditem=iditem AND purchaseCategory=2";
+        $result2 = $mysqli->query($sql);
+        if ($result2->num_rows > 0) {
+          // output data of each row
+          $totalPrice=0;
+          echo "
+                          <div class='panel-body'> 
+                            <div class='row text-600 text-white bg-primary py-3 fs-3'>
+                                <div class='col-9 col-sm-5'>Buyable now</div>
+                            </div>
+                              
+                              <div class='d-flex flex-column justify-content-between col-12 gap-3'>";
+          while($row = $result2->fetch_assoc()) {
+            $totalPrice+=$row["price"];
+          echo "
+
+                      <div class='d-flex my-2 col-12 justify-content-between border border-1'>
+                          <!--<div><input type='checkbox' name='buy'>Yes</div>-->
+                        <div class='d-flex col-7 pt-4 align-self-start justify-content-center'>
+                          <div class='card border-0 image justify-content-center align-self-center overflow-hidden'  style='width:300px;height:215px;'>
+                            <img src=data:image/jpeg;charset=utf8;base64," .base64_encode($row["photo"]) .">
+                          </div>
+                            
+                          <div class='col-6 align-self-center ms-5 mb-5'>
+                            <a href='category1.php' class='fs-3 text-reset'>" .$row["name"] ."</a>
+                            <p class='pt-2 fs-5'>Condition: " .$row["conditionn"] .".<br>" .$row["description"] ."</p>
+                          </div>
+                        </div>
+
+                        <div class='d-flex flex-column align-self-end justify-content-end'>
+                          
+                          <div class='align-self-start mb-5 pb-5 fs-2'>" .$row["price"] ."€</div>
+
+                          <div class='align-self-end pe-5 fs-4 mb-4'>
+                            <a href='category1.php' class=''>Remove from basket</a>
+                          </div>
+
+                        </div>
+
+                      </div>";
+          }
+          echo "  <div class='d-flex align-self-end me-4 mb-3 justify-content-end'>
+                          
+          <div class='panel-body d-flex flex-column p-3 align-items-center'>
+            <div class='fs-1 border-bottom border-1 mb-4'>
+              <p><span class='fw-bold'>Total: </span>" .number_format($totalPrice) ." €</p>
+            </div>
+            <div class=''>
+              <a href='payment.php' class='btn btn-success fs-3'>Go to checkout</a>
+            </div>
+          </div>
+  
+          </div>
+  
+        </div>
+            </div>
+          </div>";
+
+      }
         $mysqli->close();
     ?>
 
+    </div>
+  </div>
 </div>
-
 
   <footer class="container-fluid pt-3 bg-dark text-white">
     <div class="container">
