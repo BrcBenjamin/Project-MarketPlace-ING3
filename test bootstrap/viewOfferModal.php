@@ -8,7 +8,17 @@ if(isset($_POST['itemid'])){
 $sql = "SELECT * FROM item WHERE iditem=".$itemid;
 $result = mysqli_query($mysqli,$sql);
 
-$response = "<div class='modal-body'> <table border='0' width='100%'>";
+$response = "<div class='container'>
+<div class='modal' id='itemModal' role='dialog'>
+  <div class='modal-dialog'>
+
+<div class='modal-content'>
+    <div class='modal-header'>
+      <h4 class='modal-title'>Article information</h4>
+      <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
+    </div>
+    <div class='getFromfile'><div class='modal-body'> <table border='0' width='100%'> ";
+
 while( $row = $result->fetch_assoc()){
  $id = $row['iditem'];
  $name = $row['name'];
@@ -61,13 +71,63 @@ else {
       $response .= "' data-dismiss='modal' data-bs-dismiss='modal'>Add to Basket</button>
       </div>    
 
+      <div class='container'>
+      <div class='modal' id='confirmation' role='dialog'>
+      <div class='modal-dialog'>
+
+      <div class='modal-conten'>
+      <div class='modal-header'>
+         <h4 class='modal-title'>Article information</h4>
+         <button type='button' class='btn-close' data-bs-dismiss='modal' aria-label='Close'></button>
+      </div>
+      <div class='modal-body' id='confirmationbody'>
+         Item added in basket.
+      </div>
+
+      </div>
+      </div>
+      </div>
+      </div>
+
+   </div>
+   </div>
+    </div>
+    </div>
+    </div>
 
 
+   <script type='text/javascript'>
+
+      //$(document).ready(function(){
+  
+        $('#close').click(function(){
+                  
+          // AJAX request
+          $.ajax({
+            url: 'addToBasket.php?id=" .$_GET['id'] ."',
+            type: 'post',
+            data: {itemid:" .$itemid ."},
+            success: function(response){ 
+               if(response == false) {
+                  $('#confirmationbody').html('Problem in adding item to basket.');
+               }
+               
+
+              // Display Modal
+              //$('#confirmation').modal('show'); 
+  
+            }
+          });
+        });
+      //});
+    </script>
 
       ";
    }
 
 }
+
+
 
 
 

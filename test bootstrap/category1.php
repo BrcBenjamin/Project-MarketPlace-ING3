@@ -340,29 +340,14 @@
 </div>
 
 <!--Modal Interactif-->
-<div class="container">
-<div class="modal" id="itemModal" role="dialog">
-  <div class="modal-dialog">
-
-<div class="modal-content">
-    <div class="modal-header">
-      <h4 class="modal-title">Article information</h4>
-      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-    </div>
-    <div class="getFromfile">
-      <!-- defined by viewOfferModel.php in the ajax request-->
-    </div>
-    </div>
-  </div>
-</div>
-</div>
+<div class="modal1"></div>
 
   <script type='text/javascript'>
 
     $(document).ready(function(){
 
       $('.iteminfo').click(function(){
-        $('#itemModal').modal('toggle'); 
+        
 
         var itemid = $(this).data('id');
         
@@ -373,10 +358,10 @@
           data: {itemid: itemid},
           success: function(response){ 
             // Add response in Modal body
-            $('.getFromfile').html(response);
+            $('.modal1').html(response);
 
             // Display Modal
-            
+            $('#itemModal').modal('toggle'); 
           }
         });
       });
