@@ -3,10 +3,10 @@ include "config.php";
 
 $itemid = 0;
 if(isset($_POST['itemid'])){
-   $itemid = mysqli_real_escape_string($con,$_POST['itemid']);
+   $itemid = mysqli_real_escape_string($mysqli,$_POST['itemid']);
 }
 $sql = "SELECT * FROM item WHERE iditem=".$itemid;
-$result = mysqli_query($con,$sql);
+$result = mysqli_query($mysqli,$sql);
 
 $response = "<table border='0' width='100%'>";
 while( $row = $result->fetch_assoc()){

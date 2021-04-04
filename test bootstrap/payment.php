@@ -257,20 +257,20 @@
                             <label class="control-label" for="textinput">Card Type</label><br>
 
                             <input type="radio" class="btn-check" name="cardType" value="Visa" id="option1" autocomplete="off" checked>
-                            <label class="btn btn-light" for="option1"><img src="Marketing-Strategy-of-Visa.jpg" style="height:35px;width:50px; btn:active{background:black;}"></label>
+                            <label class="btn btn-light" for="option1"><img src="creditcard\Marketing-Strategy-of-Visa.jpg" style="height:35px;width:50px; btn:active{background:black;}"></label>
                             
                             <input type="radio" class="btn-check" name="cardType" value="MasterCard" id="option2" autocomplete="off" checked>
-                            <label class="btn btn-light" for="option2"><img src="Mastercard-new-logo.jpg" style="height:35px;width:50px;"></label>
+                            <label class="btn btn-light" for="option2"><img src="creditcard\Mastercard-new-logo.jpg" style="height:35px;width:50px;"></label>
 
                             <input type="radio" class="btn-check" name="cardType" value="American Express" id="option3" autocomplete="off" checked >
-                            <label class="btn btn-light" for="option3"><img src="facts-about-american-express.jpg" style="height:35px;width:50px; btn:active{background:black;}"></label>
+                            <label class="btn btn-light" for="option3"><img src="creditcard\facts-about-american-express.jpg" style="height:35px;width:50px; btn:active{background:black;}"></label>
                             
                             <input type="radio" class="btn-check" name="cardType" value="PayPal" id="option4" autocomplete="off" checked>
-                            <label class="btn btn-light" for="option4"><img src="paypal-logo-e1492096727260.png" style="height:35px;width:50px;"></label>
+                            <label class="btn btn-light" for="option4"><img src="creditcard\paypal-logo-e1492096727260.png" style="height:35px;width:50px;"></label>
 
                             <!--<input type="text" placeholder="Post Code" class="form-control">-->
                         </div>
-
+                        
                         <div class="">
                             <label class="control-label" for="textinput">Card Number</label>
                             <input type="text" placeholder="Card Number" class="form-control" name="cardNumber" id="cardNumber">
