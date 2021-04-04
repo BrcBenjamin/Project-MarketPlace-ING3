@@ -168,13 +168,14 @@
         // output data of each row
         while($row = $result->fetch_assoc()) {
           $id=$row["iditem"];
-          echo "<a href='#'class='card shadow-sm col-3'>
+          echo "<div class='card shadow-sm col-3'> 
           <div class='card image justify-content-center align-self-center overflow-hidden pt-3 border border-1' style='width:215px;height:215px;'>
             <img src=data:image/jpeg;charset=utf8;base64," .base64_encode($row["photo"]) .">
           </div>
             
           <div class='card-body'>
-            <p class='card-text'>" .$row["description"] ."</p>
+            <a href='itemInterface.php?iditem=".$id."'>
+            <p class='card-text'>" .$row["description"] ."</p></a>
             <div class='d-flex justify-content-between align-items-center'>
               <span class='price'>9 mins</span>
               <div class='btn-group'>
@@ -183,7 +184,11 @@
               </div>
             </div>
           </div>
+<<<<<<< Updated upstream
         </a> 
+=======
+          </div>
+>>>>>>> Stashed changes
           ";
         }
       } else {
