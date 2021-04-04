@@ -7,11 +7,10 @@
 
         <?php 
           if(isset($_GET["seller"])) {
-            echo "<a href='basket.php?id=fzefzef?seller' type='button' class='btn btn-success'>Sell</a>";
+            echo "<a href='basket.php?id=fzefzef&seller' type='button' class='btn btn-success'>Sell</a>";
           }
 
         ?>
-
                 <button type="button" class="btn btn-primary"  onclick="window.location.href = 'login.html';">Login</button>
                 <button type="button" class="btn btn-primary" onclick="window.location.href = 'sign-inCustomer.html';">Sign In</button>
                 <a href="basket.php?id=fzefzef" type="button" class="btn btn-dark">Basket</a>

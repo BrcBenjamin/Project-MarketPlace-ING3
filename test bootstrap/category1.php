@@ -25,13 +25,18 @@
   <?php include "./header.php" ?>
 </header>
 
+<?php 
+  if(isset($_GET['id'])) { 
+    $email = $_GET['id']; 
+  }
+?>
 		
 		<div class="d-flex justify-content-between bg-secondary col-10 mx-auto p-0 m-0" style="height:45px;">
 		
 			<div class="d-flex flex-wrap">
-				<a href="index.php"role="button" class="btn btn-secondary rounded-0 pt-3 fs-4 border-end border-1 text-center">Home</a>
-				<a href="category1.php"role="button" class="btn btn-dark pt-3 fs-4 border-end border-1 text-center">Category 1</a>
-				<a href="category2.php"role="button" class="btn btn-secondary pt-3 fs-4 border-end border-1 text-center">Category 2</a>
+				<a href="index.php<?php if(isset($_GET['id'])) { echo"?id=".$_GET['id']; } ?>"role="button" class="btn btn-secondary rounded-0 pt-3 fs-4 border-end border-1 text-center">Home</a>
+				<a href="category1.php<?php if(isset($_GET['id'])) { echo"?id=".$_GET['id']; } ?>"role="button" class="btn btn-dark pt-3 fs-4 border-end border-1 text-center">Category 1</a>
+				<a href="category2.php<?php if(isset($_GET['id'])) { echo"?id=".$_GET['id']; } ?>"role="button" class="btn btn-secondary pt-3 fs-4 border-end border-1 text-center">Category 2</a>
 			</div>
 
 
@@ -336,42 +341,42 @@
 
 <!--Modal Interactif-->
 <div class="container">
-  <div class="modal" id="itemModal" role="dialog">
-    <div class="modal-dialog">
- 
-     <!-- Modal content-->
-     <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title">Article information</h4>
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-      </div>
-      <div class="modal-body">
-      
-      </div>
-      <div class="modal-footer">
-       <button type="button" class="btn btn-primary" data-dismiss="modal">Add to Cart</button>
-      </div>
-     </div>
+<div class="modal" id="itemModal" role="dialog">
+  <div class="modal-dialog">
+
+<div class="modal-content">
+    <div class="modal-header">
+      <h4 class="modal-title">Article information</h4>
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="getFromfile">
+      <!-- defined by viewOfferModel.php in the ajax request-->
+    </div>
     </div>
   </div>
 </div>
+</div>
 
   <script type='text/javascript'>
-    $(document).ready(function(){
-      $('.iteminfo').click(function(){
-        var itemid = $(this).data('id');
 
+    $(document).ready(function(){
+
+      $('.iteminfo').click(function(){
+        $('#itemModal').modal('toggle'); 
+
+        var itemid = $(this).data('id');
+        
         // AJAX request
         $.ajax({
-          url: 'viewOfferModal.php',
+          url: 'viewOfferModal.php<?php if(isset($_GET['id'])) { echo"?id=".$_GET['id']; } ?>',
           type: 'post',
           data: {itemid: itemid},
           success: function(response){ 
             // Add response in Modal body
-            $('.modal-body').html(response);
+            $('.getFromfile').html(response);
 
             // Display Modal
-            $('#itemModal').modal('show'); 
+            
           }
         });
       });

@@ -8,7 +8,7 @@ if(isset($_POST['itemid'])){
 $sql = "SELECT * FROM item WHERE iditem=".$itemid;
 $result = mysqli_query($mysqli,$sql);
 
-$response = "<table border='0' width='100%'>";
+$response = "<div class='modal-body'> <table border='0' width='100%'>";
 while( $row = $result->fetch_assoc()){
  $id = $row['iditem'];
  $name = $row['name'];
@@ -38,7 +38,40 @@ while( $row = $result->fetch_assoc()){
  $response .= "</tr>";
 
 }
-$response .= "</table>";
+$response .= "</table></div> <div class='modal-footer'>
+<button type='button' id='close' class='btn btn-primary ";
+
+$mysqli->close();
+
+if(!isset($_GET['id'])) { 
+   echo "disabled' data-dismiss='modal' data-bs-dismiss='modal'>Connect to add to basket</button></div>"; 
+}
+else {
+   include "config.php";
+
+   $sql2 = "SELECT * FROM item,basketitem WHERE iditem=".$itemid ." AND fk_iditem=" .$itemid ." AND fk_email='" .$_GET['id'] ."'";
+   $result2 = mysqli_query($mysqli,$sql2);
+   
+   if ($result2->num_rows > 0) {
+      // output data of each row
+      $response.= " disabled' data-dismiss='modal' data-bs-dismiss='modal'>Item already in basket</button>
+      </div>";
+   }
+   else {
+      $response .= "' data-dismiss='modal' data-bs-dismiss='modal'>Add to Basket</button>
+      </div>    
+
+
+
+
+      ";
+   }
+
+}
+
+
 
 echo $response;
 exit;
+
+?>
