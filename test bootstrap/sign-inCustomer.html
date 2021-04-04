@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">   
+	<meta name="viewport" content="width =device-width , initial-scale = 1">
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  <link rel="stylesheet" href="index.css" type="text/css">
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
+
+	<script src="http://code.jquery.com/jquery-latest.js"></script>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">  
+
+
+</head>
+<body style="padding:0;margin:0;">
+<header>
+	<div class="container-fluid bg-light align-items-center py-2 ">
+		<div class="d-flex col-10 mx-auto align-items-center justify-content-between">
+			<a class="navbar-brand align-self-center" style="height: 30px;" href="index.html">Yourmarket</a>
+		</div>
+	</div>
+</header>
+
+<form action="sign-inCustomer.php" method="post">
+		email: <input type="text" name="email"><br>
+		username: <input type="text" name="username"><br>
+		password: <input type="password" name="password"><br>
+		firstName: <input type="text" name="firstName"><br>
+		lastName: <input type="text" name="lastName"><br>
+		adress: <input type="text" name="adress"><br>
+		<input type="checkbox" name="values" id="values" onclick="verifyCheck()"><a href="Conditions.html" >Conditions of utilisation</a> <br>
+		<input type="submit" value="submit" id="submit" disabled="disabled">
+
+		<script type="text/javascript">
+			function verifyCheck(){
+
+				if (document.getElementById("values").checked) {
+					document.getElementById("submit").disabled=false;
+				}else{
+					document.getElementById("submit").disabled=true;
+				}
+				}
+		</script>
+		
+	</form>
+<h5>Click the following button to access to the seller's page register:</h5>
+<button onclick="window.location.href = 'sign-inSeller.html';">Sign-in to sell</button><br>
+
+<h5>Click the following button to access to the seller's page register if you are a buyer:</h5>
+<button onclick="window.location.href = 'sign-inSellerforbuyers.html';">Sign-in to sell</button>
+
+</body>
+</html>
