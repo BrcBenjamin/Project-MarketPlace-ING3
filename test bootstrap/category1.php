@@ -19,25 +19,16 @@
 <body style="padding:0;margin:0;">
 	
 <header>
-	<div class="container-fluid bg-light align-items-center py-2 border-bottom border-1">
-		<div class="d-flex col-10 mx-auto align-items-center justify-content-between">
-			<a class="navbar-brand align-self-center" style="height: 30px;" href="index.html">Yourmarket</a>
-
-			<div class="buttons align-self-center">
-				<button type="button" class="btn btn-primary">Login</button>
-				<button type="button" class="btn btn-primary">Sign In</button>
-			</div>
-		</div>
-	 </div>
+  <?php include "./header.php" ?>
 </header>
 
 		
 		<div class="d-flex justify-content-between bg-secondary col-10 mx-auto p-0 m-0" style="height:45px;">
 		
 			<div class="d-flex flex-wrap">
-				<a href="index.html"role="button" class="btn btn-secondary rounded-0 pt-3 fs-4 border-start border-end border-1 text-center">Home</a>
-				<a href="category1.php"role="button" class="btn btn-dark pt-3 fs-4 border-start border-end border-1 text-center">Category 1</a>
-				<a href="category2.html"role="button" class="btn btn-secondary pt-3 fs-4 border-start border-end border-1 text-center">Category 2</a>
+				<a href="index.php"role="button" class="btn btn-secondary rounded-0 pt-3 fs-4 border-end border-1 text-center">Home</a>
+				<a href="category1.php"role="button" class="btn btn-dark pt-3 fs-4 border-end border-1 text-center">Category 1</a>
+				<a href="category2.php"role="button" class="btn btn-secondary pt-3 fs-4 border-end border-1 text-center">Category 2</a>
 			</div>
 
 
@@ -355,13 +346,8 @@
 </div>
 
 
-  <footer class="container-fluid pt-3 bg-dark text-white">
-    <div class="container">
-      <p class="float-end"><a class="text-white" href="#">Back to top</a></p>
-      <p>© 2017–2021 Company, Inc. · <a href="#">Privacy</a> · <a href="#">Terms</a></p>
-    </div>
-    
-  </footer>
+<?php include "./footer.php" ?>
+
 	
 
 </body>

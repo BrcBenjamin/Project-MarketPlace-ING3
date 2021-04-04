@@ -20,36 +20,12 @@
 <body style="padding:0;margin:0;">
 	
 <header>
-	<div class="container-fluid bg-light align-items-center py-2 border-bottom border-1">
-		<div class="d-flex col-10 mx-auto align-items-center justify-content-between">
-			<a class="navbar-brand align-self-center" style="height: 30px;" href="index.html">Yourmarket</a>
-
-			<div class="buttons align-self-center">
-				<button type="button" class="btn btn-primary"  >Login</button>
-				<button type="button" class="btn btn-primary" onclick="window.location.href = 'sign-inCustomer.html';">Sign In</button>
-                <a href="basket.php?id=2" type="button" class="btn btn-dark">Basket</a>
-			</div>
-		</div>
-	 </div>
+    <?php include "./header.php" ?>
 </header>
 
 		
-		<div class="d-flex justify-content-between bg-secondary col-10 mx-auto p-0 m-0" style="height:45px;">
-		
-			<div class="d-flex flex-wrap">
-				<a href="index.html"role="button" class="btn btn-dark rounded-0 pt-3 fs-4 border-start border-end border-1 text-center">Home</a>
-				<a href="category1.php"role="button" class="btn btn-secondary pt-3 fs-4 border-start border-end border-1 text-center">Category 1</a>
-				<a href="category2.html"role="button" class="btn btn-secondary pt-3 fs-4 border-start border-end border-1 text-center">Category 2</a>
-			</div>
+<?php include "./navbar.php" ?>
 
-
-			<form-inline class="d-flex gap-2 align-self-center pe-3">
-				<input style="width:240px;height: 30px;" class="align-self-center" type="text" placeholder="Search" aria-label="Search">
-				<button class="btn btn-dark align-self-center margin-left" type="submit">Search</button>
-			</form>
-			
-			
-		</div>
         
 	
 <div class='container col-10 mx-auto pt-3 px-0'>
@@ -338,16 +314,8 @@
     
     
 
+<?php include "./footer.php" ?>
 
-
-  <footer class="container-fluid pt-3 bg-dark text-white">
-    <div class="container">
-      <p class="float-end"><a class="text-white" href="#">Back to top</a></p>
-      <p>© 2017–2021 Company, Inc. · <a href="#">Privacy</a> · <a href="#">Terms</a></p>
-    </div>
-    
-  </footer>
-	
 
 </body>
 </html>

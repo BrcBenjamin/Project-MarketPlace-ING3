@@ -20,36 +20,12 @@
 <body style="padding:0;margin:0;">
 	
 <header>
-	<div class="container-fluid bg-light align-items-center py-2 border-bottom border-1">
-		<div class="d-flex col-10 mx-auto align-items-center justify-content-between">
-			<a class="navbar-brand align-self-center" style="height: 30px;" href="index.html">Yourmarket</a>
-
-			<div class="buttons align-self-center">
-				<button type="button" class="btn btn-primary"  >Login</button>
-				<button type="button" class="btn btn-primary" onclick="window.location.href = 'sign-inCustomer.html';">Sign In</button>
-                <a href="basket.php?id=2" type="button" class="btn btn-dark">Basket</a>
-			</div>
-		</div>
-	 </div>
+  <?php include "./header.php" ?>
 </header>
 
 		
-		<div class="d-flex justify-content-between bg-secondary col-10 mx-auto p-0 m-0" style="height:45px;">
-		
-			<div class="d-flex flex-wrap">
-				<a href="index.html"role="button" class="btn btn-dark rounded-0 pt-3 fs-4 border-start border-end border-1 text-center">Home</a>
-				<a href="category1.php"role="button" class="btn btn-secondary pt-3 fs-4 border-start border-end border-1 text-center">Category 1</a>
-				<a href="category2.html"role="button" class="btn btn-secondary pt-3 fs-4 border-start border-end border-1 text-center">Category 2</a>
-			</div>
+<?php include "./navbar.php" ?>
 
-
-			<form-inline class="d-flex gap-2 align-self-center pe-3">
-				<input style="width:240px;height: 30px;" class="align-self-center" type="text" placeholder="Search" aria-label="Search">
-				<button class="btn btn-dark align-self-center margin-left" type="submit">Search</button>
-			</form>
-			
-			
-		</div>
 	
     <div class='container col-10 mx-auto pt-3 px-0'>
             <div class='container bootstrap snippets bootdey'>
@@ -98,7 +74,12 @@
                               
                             <div class='col-6 align-self-center ms-5 mb-5'>
                               <a href='category1.php' class='fs-3 text-reset'>" .$row["name"] ."</a>
-                              <p class='pt-2 fs-5'>Condition: " .$row["conditionn"] .".<br>" .$row["description"] ."</p>
+                              <p class='pt-2 fs-5'>Condition: " .$row["conditionn"] .".<br>" .$row["description"] ."</p>";
+                              if($row["availability"] == 0) { 
+                                echo "<p class='pt-2 fs-5 text-danger'>This item is unavailable.</p>"; 
+                              }
+  
+                            echo "
                             </div>
                           </div>
 
@@ -107,7 +88,7 @@
                             <div class='align-self-start mb-5 pb-5 fs-2'>" .number_format($row["price"]) ."€</div>
 
                             <div class='align-self-end pe-5 fs-4 mb-4'>
-                              <a href='category1.php' class=''>Remove from basket</a>
+                              <a href='' onclick='javascript:removeFromBasket(" .$row["idbasket"] .")' class=''>Remove from basket</a>
                             </div>
 
                           </div>
@@ -134,9 +115,13 @@
                             </div>
                               
                               <div class='d-flex flex-column justify-content-between col-12 gap-3'>";
+          $allAvailable = true;                              
           while($row = $result2->fetch_assoc()) {
             $totalPrice += $row["price"];
-            $paymentURL .= '&iditems[]=' .$row["iditem"];
+            if($row["availability"] == 1) {
+              $paymentURL .= '&iditems[]=' .$row["iditem"];
+            }
+            
 
           echo "
 
@@ -149,8 +134,13 @@
                             
                           <div class='col-6 align-self-center ms-5 mb-5'>
                             <a href='category1.php' class='fs-3 text-reset'>" .$row["name"] ."</a>
-                            <p class='pt-2 fs-5'>Condition: " .$row["conditionn"] .".<br>" .$row["description"] ."</p>
-                          </div>
+                            <p class='pt-2 fs-5'>Condition: " .$row["conditionn"] .".<br>" .$row["description"] ."</p>";
+                            if($row["availability"] == 0) { 
+                              $allAvailable = false;
+                              echo "<p class='pt-2 fs-5 text-danger'>This item is unavailable.</p>"; 
+                            }
+
+                          echo "</div>
                         </div>
 
                         <div class='d-flex flex-column align-self-end justify-content-end'>
@@ -158,7 +148,7 @@
                           <div class='align-self-start mb-5 pb-5 fs-2'>" .number_format($row["price"]) ."€</div>
 
                           <div class='align-self-end pe-5 fs-4 mb-4'>
-                            <a href='category1.php' class=''>Remove from basket</a>
+                            <a href='' onclick='javascript:removeFromBasket(" .$row["idbasket"] .")' class=''>Remove from basket</a>
                           </div>
 
                         </div>
@@ -172,7 +162,11 @@
               <p><span class='fw-bold'>Total: </span>" .number_format($totalPrice) ." €</p>
             </div>
             <div class=''>
-              <a href='" .$paymentURL ."' class='btn btn-success fs-3'>Go to checkout</a>
+              <a href='" .$paymentURL ."' class='btn ";
+              if($allAvailable == false) {
+                echo " disabled ";
+              }
+              echo "btn-success fs-3'>Go to checkout</a>
             </div>
           </div>
   
@@ -186,17 +180,34 @@
         $mysqli->close();
     ?>
 
+
+<script>
+    function removeFromBasket(idbasket) {
+
+      console.log(idbasket);
+      $.ajax({
+        url:'removeFromBasket.php?idbasket=' +idbasket,
+        type:'get',
+        success: function(response){
+        console.log("Ajax remove from basket get method success.");
+        },
+        error: function(response){
+        //as far as i know, this function will only get triggered if there are some request errors (f.e: 404) or if the response is not in the expected format provided by the dataType parameter
+            console.log("something went wrong in remove from basket");
+        }
+        });
+          console.log("PAS 0");
+    }
+</script>
+
     </div>
   </div>
 </div>
 
-  <footer class="container-fluid pt-3 bg-dark text-white">
-    <div class="container">
-      <p class="float-end"><a class="text-white" href="#">Back to top</a></p>
-      <p>© 2017–2021 Company, Inc. · <a href="#">Privacy</a> · <a href="#">Terms</a></p>
-    </div>
-    
-  </footer>
+</div>
+
+
+<?php include "./footer.php" ?>
 	
 
 </body>
