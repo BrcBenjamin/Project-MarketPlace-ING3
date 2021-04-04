@@ -7,7 +7,7 @@
 
         <?php 
           if(isset($_GET["seller"])) {
-            echo "<a href='basket.php?id=fzefzef&seller' type='button' class='btn btn-success'>Sell</a>";
+            echo "<a href='seller.php?id=fzefzef&seller' type='button' class='btn btn-success'>Sell</a>";
           }
 
         ?>
