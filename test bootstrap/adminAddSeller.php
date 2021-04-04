@@ -8,18 +8,10 @@
 	<?php
 
 			include "config.php";
-
 			
-			$sql1="SELECT `email`, `username`, `password`, `firstName`, `lastName`, `adress`, `fk_idsellingLicense` FROM `account` WHERE email='$_POST[email]'";
-			$result1=$mysqli->query($sql1);
-
-			while ($row1= $result1->fetch_assoc()) {
-				
-				$adress=$row1['adress'];
-				$firstName=$row1['firstName'];
-				$lastName=$row1['lastName'];	
-			}
-
+			
+			$sql2 = " INSERT INTO `account`(`email`, `username`, `password`, `firstName`, `lastName`, `adress`) VALUES ('$_POST[email]','$_POST[username]','$_POST[password]','$_POST[firstName]','$_POST[lastName]','$_POST[adress]')";
+			$mysqli->query($sql2);	
 
 			$status = $statusMsg = ''; 
 			if(isset($_POST["submit"])){ 
@@ -52,8 +44,9 @@
 										            $imgContent1 = addslashes(file_get_contents($image1)); 
 										         
 										            // Insert image content into database 
-													$sql="INSERT INTO `sellinglicense`( `fk_account_email`, `adress`, `firstName`, `lastName`, `dateofbirth`, `phoneNumber`, `photo`,`background`) VALUES ('$_POST[email]','$adress','$firstName','$lastName','$_POST[dateofbirth]','$_POST[phoneNumber]','$imgContent','$imgContent1')";
-														$insert=$mysqli->query($sql);	
+										           	 $sql="INSERT INTO `sellinglicense`( `fk_account_email`, `adress`, `firstName`, `lastName`, `dateofbirth`, `phoneNumber`, `photo`,`background`) VALUES ('$_POST[email]','$_POST[adress]','$_POST[firstName]','$_POST[lastName]','$_POST[dateofbirth]','$_POST[phoneNumber]','$imgContent','$imgContent1')";
+
+													$insert=$mysqli->query($sql);	
 										             
 										            if($insert){ 
 										                $status1 = 'success'; 
@@ -91,24 +84,23 @@
 			
 			echo $statusMsg;
 
-
-			$sql2="SELECT `idsellingLicense` FROM `sellinglicense` WHERE fk_account_email='$_POST[email]'";
-			$result=$mysqli->query($sql2);
-
 			
+
+			 $sql3="SELECT `idsellingLicense` FROM `sellinglicense` WHERE fk_account_email='$_POST[email]'";
+			$result=$mysqli->query($sql3);
+
 			while ($row= $result->fetch_assoc()) {
 				
 				$rep=$row['idsellingLicense'];	
 			}
+			echo "".$rep."";
 	
-			$sql3="UPDATE `account` SET `fk_idsellingLicense`=$rep WHERE email='$_POST[email]' ";	
-			$mysqli->query($sql3);
+			$sql4="UPDATE `account` SET `fk_idsellingLicense`=$rep WHERE email='$_POST[email]' ";	
+			$mysqli->query($sql4);
 
-		 header('Location: admin.php');
-			 ?>
-
-
-		
+			header('Location: admin.php');
+			 
+			?>
 
 </body>
 </html>
