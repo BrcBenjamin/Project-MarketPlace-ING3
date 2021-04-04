@@ -26,33 +26,52 @@
 	</div>
 </header>
 
-<form action="sign-inCustomer.php" method="post">
-		email: <input type="text" name="email"><br>
-		username: <input type="text" name="username"><br>
-		password: <input type="password" name="password"><br>
-		firstName: <input type="text" name="firstName"><br>
-		lastName: <input type="text" name="lastName"><br>
-		adress: <input type="text" name="adress"><br>
-		<input type="checkbox" name="values" id="values" onclick="verifyCheck()"><a href="Conditions.html" >Conditions of utilisation</a> <br>
-		<input type="submit" value="submit" id="submit" disabled="disabled">
+<h1 class="d-flex col-2  mx-auto text-center" style="margin-top: 10%">Create a customer account:</h1>
+<h3 class="d-flex col-2  mx-auto text-center" >&emsp;&emsp;&emsp;Or create a seller account</h3>
 
-		<script type="text/javascript">
-			function verifyCheck(){
+<div class="d-flex col-6  mx-auto my-3"  >
 
-				if (document.getElementById("values").checked) {
-					document.getElementById("submit").disabled=false;
-				}else{
-					document.getElementById("submit").disabled=true;
-				}
-				}
-		</script>
+	<div class="d-flex col-6 px-auto border-start border-end border-2 justify-content-center ">
+
+		<form action="sign-inCustomer.php" method="post">
+			email: <input style="width:150px;height: 25px; " type="text" name="email"><br><br><br>
+			username: <input style="width:150px;height: 25px;" type="text" name="username"><br><br><br>
+			password: <input style="width:150px;height: 25px;" type="password" name="password"><br><br><br>
+			firstName: <input style="width:150px;height: 25px;" type="text" name="firstName"><br><br><br>
+			lastName: <input style="width:150px;height: 25px;" type="text" name="lastName"><br><br><br>
+			adress: <input style="width:150px;height: 25px;" type="text" name="adress"><br><br><br>
+			<input type="checkbox" name="values" id="values" onclick="verifyCheck()"><a href="Conditions.html" >Conditions of utilisation</a> <br><br><br>
+			<input class="btn btn-primary" style=" margin-left: 70px; height: 30px; width: 100px" type="submit" value="submit" id="submit" disabled="disabled">
+
+			<script type="text/javascript">
+				function verifyCheck(){
+
+					if (document.getElementById("values").checked) {
+						document.getElementById("submit").disabled=false;
+					}else{
+						document.getElementById("submit").disabled=true;
+					}
+					}
+			</script>
 		
 	</form>
-<h5>Click the following button to access to the seller's page register:</h5>
-<button onclick="window.location.href = 'sign-inSeller.html';">Sign-in to sell</button><br>
+	</div>
 
-<h5>Click the following button to access to the seller's page register if you are a buyer:</h5>
-<button onclick="window.location.href = 'sign-inSellerforbuyers.html';">Sign-in to sell</button>
+
+	<div class="  col-6 mx-auto border-start border-end border-2 ">
+		<div style="margin-top: 100px">
+			<h4>Click the following button to access to the seller's page register:</h4><br>
+		<button class="btn btn-primary"style="margin-left: 200px;height: 30px; width: 100px" onclick="window.location.href = 'sign-inSeller.html';">Sign-in to sell</button><br>
+		</div>
+	
+		<div style="margin-top: 100px">
+			<h4>Click the following button to access to the seller's page register if you are a buyer:</h4><br>
+			<button class="btn btn-primary"style="margin-left: 200px;height: 30px; width: 100px" onclick="window.location.href = 'sign-inSellerforbuyers.html';">Sign-in to sell</button>
+		</div>
+	
+	</div>
+</div>
+
 
 </body>
 </html>
