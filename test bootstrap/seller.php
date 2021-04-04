@@ -28,27 +28,85 @@
 <div class="d-flex justify-content-between bg-secondary col-10 mx-auto p-0 m-0" style="height:45px;">
 		
 			<div class="d-flex flex-wrap">
-				<a href="admin.php"role="button" class="btn btn-dark rounded-0 pt-3 fs-4 border-start border-end border-1 text-center">Home</a>
-				<a href="adminGetSeller.html"role="button" class="btn btn-secondary pt-3 fs-4 border-start border-end border-1 text-center">Seller's Info</a>
-				<a href="adminAddSeller.html."role="button" class="btn btn-secondary pt-3 fs-4 border-start border-end border-1 text-center">Add a seller</a>
-				<a href="adminDeleteSeller.html"role="button" class="btn btn-secondary pt-3 fs-4 border-start border-end border-1 text-center">Delete a seller</a>
-				<a href="adminAddItem.html"role="button" class="btn btn-secondary pt-3 fs-4 border-start border-end border-1 text-center">Add an item</a>
-				<a href="adminDeleteItem.html"role="button" class="btn btn-secondary pt-3 fs-4 border-start border-end border-1 text-center">Delete an item</a>
 				
 
+				<?php 
+	          if(isset($_GET["id"])) {
+	          	echo "<a href='seller.php?id=".$_GET['id']."&seller' role='button' class='btn btn-dark pt-3 fs-4 border-start border-end border-1 text-center'>Home</a>";
+	            echo "<a href='sellerAddItem.php?id=".$_GET['id']."&seller' role='button' class='btn btn-secondary pt-3 fs-4 border-start border-end border-1 text-center'>Add an item</a>";
+	            echo "<a href='sellerDeleteItem.php?id=".$_GET['id']."&seller' role='button' class='btn btn-secondary pt-3 fs-4 border-start border-end border-1 text-center'>Delete an item</a>";
+	          }
+
+	        ?>
+			
 			</div>
 		</div>
 
-		<div class="col-2 mx-auto justify-content-between mt-5">
-			<h1>Welcome Seller !!!</h1>
+		<?php
+				include "config.php";
+
+				$sql="SELECT * FROM `sellinglicense` WHERE fk_account_email ='$_GET[id]'";
+				$result1=$mysqli->query($sql);
+				while ($row1= $result1->fetch_assoc()) {
+				
+				$adress=$row1['adress'];
+				$firstName=$row1['firstName'];
+				$lastName=$row1['lastName'];	
+				$dateofbirth=$row1['dateofbirth'];
+				$phoneNumber=$row1['phoneNumber'];		
+				$photo=$row1['photo'];		
+				$background=$row1['background'];	
+				$email=$row1['fk_account_email'];	
+				}
+		?>
+
+
+		<div class="d-flex col-10  mx-auto my-3 ">
+			<?php
+				
+					echo "<div class='card image justify-content-center align-self-center overflow-hidden pt-3 ' style='width:800px;height:215px;'><img src=data:image/jpeg;charset=utf8;base64," .base64_encode($background) ."></div>";
+					
+				 ?>
+	
+		<div class="d-flex col-7  mx-auto my-3" style="margin-top: 7%">
+			<div class="col-10 mx-auto text-center mt-5">
+
+
+				<?php 
+					echo ("<h1>Welcome ".$_GET['id']. "!!!</h1>");
+					echo "<br><h3> Here You can manage offers with differents possibilities.</h3>";
+					echo "<br><h2> Your account's information:.</h2><br>";
+					echo "<br><div><h5>First Name: &emsp;".$firstName."</h5></div>";
+					echo "<br><div><h5>Last Name: &emsp;".$lastName."</h5></div>";
+					echo "<br><div><h5>Email: &emsp;".$email."</h5></div>";
+					echo "<br><div><h5>Birthdate: &emsp;".$dateofbirth."</h5></div>";
+					echo "<br><div><h5>Phone Number: &emsp;".$phoneNumber."</h5></div>";
+					echo "<br><div><h5>Adress: &emsp;".$adress."</h5></div>";
+
+				 ?>
+				
+				
+			</div>
+
+			<div class="col-2 mx-auto justify-content-between mt-1">
+
+				<?php
+				
+					echo "<div class='card image justify-content-center align-self-center overflow-hidden pt-3 border border-1' style='width:215px;height:215px;'><img src=data:image/jpeg;charset=utf8;base64," .base64_encode($photo) ."></div>";
+					
+				 ?>
+				
+			</div>
 		</div>
-		<div class="col-4 mx-auto justify-content-between mt-5">
-			<h3>Here You can manage the website with differents possibilities.</h3>
+		
+			
+		
+			
 		</div>
 
-		<div class="col-2 mx-auto justify-content-between mt-5">
-			<h2>Here Some info of the site on live:</h2>
-		</div>
+		
+
+		
 
 		
 

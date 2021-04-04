@@ -103,8 +103,8 @@
 	
 			$sql3="UPDATE `account` SET `fk_idsellingLicense`=$rep WHERE email='$_POST[email]' ";	
 			$mysqli->query($sql3);
-			
- header('Location: admin.php');
+
+		 header('Location: admin.php');
 			 ?>
 
 

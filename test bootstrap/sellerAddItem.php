@@ -29,12 +29,14 @@
 <div class="d-flex justify-content-between bg-secondary col-10 mx-auto p-0 m-0" style="height:45px;">
 		
 			<div class="d-flex flex-wrap">
-				<a href="admin.php"role="button" class="btn btn-secondary rounded-0 pt-3 fs-4 border-start border-end border-1 text-center">Home</a>
-				<a href="adminGetSeller.html"role="button" class="btn btn-secondary pt-3 fs-4 border-start border-end border-1 text-center">Seller's Info</a>
-				<a href="adminAddSeller.html."role="button" class="btn btn-secondary pt-3 fs-4 border-start border-end border-1 text-center">Add a seller</a>
-				<a href="adminDeleteSeller.html"role="button" class="btn btn-secondary pt-3 fs-4 border-start border-end border-1 text-center">Delete a seller</a>
-				<a href="adminAddItem.html"role="button" class="btn btn-dark pt-3 fs-4 border-start border-end border-1 text-center">Add an item</a>
-				<a href="adminDeleteItem.html"role="button" class="btn btn-secondary pt-3 fs-4 border-start border-end border-1 text-center">Delete an item</a>
+				<?php 
+	          if(isset($_GET["id"])) {
+	          	echo "<a href='seller.php?id=".$_GET['id']."&seller' role='button' class='btn btn-secondary pt-3 fs-4 border-start border-end border-1 text-center'>Home</a>";
+	            echo "<a href='sellerAddItem.php?id=".$_GET['id']."&seller' role='button' class='btn btn-dark pt-3 fs-4 border-start border-end border-1 text-center'>Add an item</a>";
+	            echo "<a href='sellerDeleteItem.php?id=".$_GET['id']."&seller' role='button' class='btn btn-secondary pt-3 fs-4 border-start border-end border-1 text-center'>Delete an item</a>";
+	          }
+
+	        ?>
 				
 
 			</div>
@@ -50,10 +52,10 @@
 
 
 
-	<form class="d-flex col-6  mx-auto my-3" action="adminAddItem.php" method="post" enctype="multipart/form-data" onsubmit="return Verify()">
+	<form class="d-flex col-6  mx-auto my-3" action="<?php echo('adminAddItem.php?id='.$_GET['id'].'&seller')?>" method="post" enctype="multipart/form-data">
 
 	<div class="d-flex flex-column col-6 px-auto border-start border-end border-2 justify-content-center align-items-center">
-			<div>Email of the seller: <input style="width:150px;height: 25px; " type="text" name="email"><br><br><br></div>
+			<div>Email of the seller: <input style="width:150px;height: 25px; " type="text" name="email" value=<?php echo("'".$_GET['id']."'"." readonly='readonly'"); ?>  >    <br><br><br></div>
 			<div>Name: <input style="width:150px;height: 25px;" type="text" name="name"><br><br><br></div>
 			<div>Description: <textarea name="description"></textarea></div><br><br><br>
 			<div>Date of Publication: <input style="width:150px;height: 25px; " type="Date" name="date"></div><br><br><br>
@@ -92,11 +94,11 @@
 			<div>Select a SubCategory :&emsp;&emsp;
 
 				
-				  <input type="radio" id="keyboard" name="SubCategory2" value="1" disabled="true" checked>
+				  <input type="radio" id="keyboard" name="SubCategory2" value="1"checked disabled="true">
 				  <label for="keyboard">keyboard</label>
-				  <input type="radio" id="mouse" name="SubCategory2" value="2"disabled="true" >
+				  <input type="radio" id="mouse" name="SubCategory2" value="2"disabled="true">
 				  <label for="mouse">Mouse</label>
-				  <input type="radio" id="headset" name="SubCategory2" value="3"disabled="true" >
+				  <input type="radio" id="headset" name="SubCategory2" value="3"disabled="true">
 				  <label for="Headset">Headset</label>
 			</div>	<br><br>
 
@@ -133,18 +135,6 @@
 						document.getElementById("headset").disabled=false;
 					}
 				}
-				function Verify(){
-					alert("zizi");
-
-					if (	((document.getElementsByName('email').value).equals(''))||((document.getElementsByName('name').value).equals(''))||((document.getElementsByName('description').value).equals(''))||((document.getElementsByName('date').value).equals(''))||((document.getElementsByName('condition').value).equals(''))||((document.getElementsByName('price').value).equals('')) 	)
-					 {
-						alert("zizi1");
-						return false;
-					}else{
-						alert("zizi2");
-						return true;
-					}
-				}
 			</script>
 
 		
@@ -152,6 +142,8 @@
 	</div>
 
 	</form>
+
+	
 
 
 </body>

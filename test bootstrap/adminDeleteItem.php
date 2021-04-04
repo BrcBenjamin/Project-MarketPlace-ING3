@@ -15,7 +15,12 @@
 
 			 $mysqli->query($sql);	
 			 
-			 header('Location: admin.php');
+			if(isset($_GET["seller"])) {
+        header('Location: seller.php?id='.$_GET['id'].'&seller'); 
+
+      }else{
+      	header('Location: admin.php');
+      }
 			?>
 
 </body>

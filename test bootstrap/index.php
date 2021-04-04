@@ -27,7 +27,7 @@
 			<div class="buttons align-self-center">
        <?php 
           if(isset($_GET["seller"])) {
-            echo "<a href='seller.php?id=".$_GET['email']."?seller' type='button' class='btn btn-success'>Sell</a>";
+            echo "<a href='seller.php?id=".$_GET['email']."&seller' type='button' class='btn btn-success'>Sell</a>";
           }
 
         ?>
