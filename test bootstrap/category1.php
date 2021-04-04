@@ -1,3 +1,6 @@
+<?php include "config.php"; ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -150,29 +153,15 @@
     <div class="d-flex flex-wrap col-10 px-3 py-4">
 
     <?php
-      /*
-      * Change the value of $password if you have set a password on the root userid
-      * Change NULL to port number to use DBMS other than the default using port 3306
-      *
-      */
-      $user = 'root';
-      $password = ''; //To be completed if you have set a password to root
-      $database = 'yourmarket'; //To be completed to connect to a database. The database must exist.
-      $port = 3308; //Default must be NULL to use default port
-      $mysqli = new mysqli('127.0.0.1', $user, $password, $database, $port);
-
-      if ($mysqli->connect_error) {
-          die('Connect Error adzDZADAZDAZ (' . $mysqli->connect_errno . ') '
-                  . $mysqli->connect_error);
-      }
       $sql = "SELECT * FROM item";
       $result = $mysqli->query($sql);
       //echo "number of row".$result->num_rows;
       if ($result->num_rows > 0) {
         // output data of each row
         while($row = $result->fetch_assoc()) {
-          echo "<a href='#' class='card shadow-sm col-3'>
-          <div class='card image justify-content-center align-self-center overflow-hidden pt-3 border-top border-1' style='width:215px;height:215px;'>
+          $id=$row["iditem"];
+          echo "<a href='#'class='card shadow-sm col-3'>
+          <div class='card image justify-content-center align-self-center overflow-hidden pt-3 border border-1' style='width:215px;height:215px;'>
             <img src=data:image/jpeg;charset=utf8;base64," .base64_encode($row["photo"]) .">
           </div>
             
@@ -181,7 +170,7 @@
             <div class='d-flex justify-content-between align-items-center'>
               <span class='price'>9 mins</span>
               <div class='btn-group'>
-                <button type='button' class='btn btn-sm btn-outline-secondary'>View</button>
+                <button data-id='".$id."' class='iteminfo'>View</button>
                 <button type='button' class='btn btn-sm btn-outline-secondary'>Edit</button>
               </div>
             </div>
@@ -344,6 +333,51 @@
   </div>
 
 </div>
+
+<!--Modal Interactif-->
+<div class="container">
+  <div class="modal" id="itemModal" role="dialog">
+    <div class="modal-dialog">
+ 
+     <!-- Modal content-->
+     <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Article information</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <div class="modal-body">
+      
+      </div>
+      <div class="modal-footer">
+       <button type="button" class="btn btn-primary" data-dismiss="modal">Add to Cart</button>
+      </div>
+     </div>
+    </div>
+  </div>
+</div>
+
+  <script type='text/javascript'>
+    $(document).ready(function(){
+      $('.iteminfo').click(function(){
+        var itemid = $(this).data('id');
+
+        // AJAX request
+        $.ajax({
+          url: 'viewOfferModal.php',
+          type: 'post',
+          data: {itemid: itemid},
+          success: function(response){ 
+            // Add response in Modal body
+            $('.modal-body').html(response);
+
+            // Display Modal
+            $('#itemModal').modal('show'); 
+          }
+        });
+      });
+    });
+  </script>
+
 
 
 <?php include "./footer.php" ?>
