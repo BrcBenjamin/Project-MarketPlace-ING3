@@ -72,118 +72,126 @@
     </div>
   </div>
 
-<div class="d-flex flex-row col-10 mx-auto px-0 m-0 border-start border-end border-bottom border-1">
+  <div class="d-flex flex-column col-10 mx-auto px-0 py-5 m-0 border-start border-end border-1">
 
-  <div class="d-flex flex-column col-2 px-0 py-4 m-0 text-dark">
+<div class="container marketing p-5">
 
-            <div class="d-flex align-items-center pt-3 ps-4 pb-2 text-dark border-top border-end border-1">
-              <span class="fs-3">Subcategories</span>
-            </div>
-            
-            <div class="container pt-3 border-end border-bottom border-1">
-              <ul class="list-unstyled d-flex flex-column fs-4 pb-3 ms-5">
-              <li class="list-item mb-3 mb-md-0 align-items-center">
-                  <a href="#" class="text-dark">
-                     Keyboards
-                  </a>
-              </li>
-              <li>
-                  <a href="#" class="text-dark">
-                      Mouses
-                  </a>
-              </li>
-              <li>
-                  <a href="#" class="text-dark">
-                      Headsets
-                  </a>
-              </li>
-             
-              </ul>
-            </div>
+    <!-- Three columns of text below the carousel -->
+    <div class="row justify-content-between">
+      <div class="col-2 margin-start-1">
+        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
 
-            <div class="d-flex align-items-center pt-3 ps-4 pb-2 text-dark border-end border-1">
-              <span class="fs-3">Filters</span>
-            </div>
-            
-            <div class="container pt-3 border-end border-bottom border-1">
-              <ul class="list-unstyled d-flex flex-column fs-4 pb-3 ms-3">
-              <li class="list-item mb-3 mb-md-0 align-items-center">
-                <input type="checkbox" autocomplete="off">
-                Checkbox 1
-                  
-              </li>
-              <li class="list-item mb-3 mb-md-0 align-items-center">
-                <input type="checkbox" autocomplete="off">
-                Checkbox 1
-                  
-              </li>
-              <li class="list-item mb-3 mb-md-0 align-items-center">
-                <input type="checkbox" autocomplete="off">
-                Checkbox 1
-                  
-              </li>
-              <li class="list-item mb-3 mb-md-0 align-items-center">
-                <input type="checkbox" autocomplete="off">
-                Checkbox 1
-                  
-              </li>
-              <li class="list-item mb-3 mb-md-0 align-items-center">
-                <input type="checkbox" autocomplete="off">
-                Checkbox 1
-                  
-              </li>
-              </ul>
-            </div>
-            
-  </div>
+        <h2>Heading</h2>
+        <p>Some representative placeholder content for the three columns of text below the carousel. This is the first column.</p>
+        <p><a class="btn btn-secondary" href="#">View details »</a></p>
+      </div><!-- /.col-lg-4 -->
+      <div class="col-2">
+        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+
+        <h2>Heading</h2>
+        <p>Another exciting bit of representative placeholder content. This time, we've moved on to the second column.</p>
+        <p><a class="btn btn-secondary" href="#">View details »</a></p>
+      </div><!-- /.col-lg-4 -->
+      <div class="col-2">
+        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+
+        <h2>Heading</h2>
+        <p>And lastly this, the third column of representative placeholder content.</p>
+        <p><a class="btn btn-secondary" href="#">View details »</a></p>
+      </div><!-- /.col-lg-4 -->
+
+      <div class="col-2 margin-end-1">
+        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+
+        <h2>Heading</h2>
+        <p>And lastly this, the third column of representative placeholder content.</p>
+        <p><a class="btn btn-secondary" href="#">View details »</a></p>
+      </div><!-- /.col-lg-4 -->
+    </div><!-- /.row -->
 
 
-    <div class="d-flex flex-wrap col-10 px-3 py-4">
+    </div><!-- /.row -->
 
-    <?php
-     include "config.php";
+    
 
-     
-      $sql = "SELECT * FROM item WHERE category=2";
-      $result = $mysqli->query($sql);
-      //echo "number of row".$result->num_rows;
-      if ($result->num_rows > 0) {
-        // output data of each row
-        while($row = $result->fetch_assoc()) {
-          echo "<a href='#' class='card shadow-sm col-3'>
-          <div class='card image justify-content-center align-self-center overflow-hidden pt-3 border-top border-1' style='width:215px;height:215px;'>
-            <img src=data:image/jpeg;charset=utf8;base64," .base64_encode($row["photo"]) .">
-          </div>
-            
-          <div class='card-body'>
-            <p class='card-text'>" .$row["name"] ."</p>
-            <div class='d-flex justify-content-between align-items-center'>
-              <span class='price'>9 mins</span>
-              <div class='btn-group'>
-                <button type='button' class='btn btn-sm btn-outline-secondary'>View</button>
-                <button type='button' class='btn btn-sm btn-outline-secondary'>Edit</button>
-              </div>
-            </div>
-          </div>
-        </a> 
-          
-          
-          ";
-        }
-      } else {
-        echo "<h4>Sorry, there are 0 results for you research.<h4/>";
-      }
-      $mysqli->close();
-    ?>
 
-      
+    <!-- START THE FEATURETTES -->
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette p-5">
+      <div class="col-md-7">
+        <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It’ll blow your mind.</span></h2>
+        <p class="lead">Some great placeholder content for the first featurette here. Imagine some exciting prose here.</p>
+      </div>
+      <div class="col-md-5">
+        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"></rect><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
+
+      </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette p-5">
+      <div class="col-md-7 order-md-2">
+        <h2 class="featurette-heading">Oh yeah, it’s that good. <span class="text-muted">See for yourself.</span></h2>
+        <p class="lead">Another featurette? Of course. More placeholder content here to give you an idea of how this layout would work with some actual real-world content in place.</p>
+      </div>
+      <div class="col-md-5 order-md-1">
+        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"></rect><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
+
+      </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <div class="row featurette p-5">
+      <div class="col-md-7">
+        <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
+        <p class="lead">And yes, this is the last block of representative placeholder content. Again, not really intended to be actually read, simply here to give you a better view of what this would look like with some actual content. Your content.</p>
+      </div>
+      <div class="col-md-5">
+        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"></rect><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
+
+      </div>
+    </div>
+
+    <hr class="featurette-divider">
+
+    <!-- /END THE FEATURETTES -->
 
   </div>
 
-</div>
 
 
-<?php include "./footer.php" ?>
+    <div class="d-flex justify-content-between col-10 mx-auto px-0 py-4 m-0 border-start border-end border-bottom border-1">
+
+    <div class="col-2 text-center">
+      <h3>Column 1555555</h3>
+      <p>Lorem ipsum dolor..</p>
+    </div>
+    <div class="col-2 text-center">
+      <h3>Column 2</h3>
+      <p>Lorem ipsum dolor..</p>
+    </div>
+    <div class="col-2 text-center">
+      <h3>Column 3</h3>
+      <p>Lorem ipsum dolor..</p>
+    </div>
+    <div class="col-2 text-center">
+      <h3>Column 4</h3>
+      <p>Lorem ipsum dolor..</p>
+    </div>
+    <div class="col-2 text-center">
+      <h3>Column 5555555</h3>
+      <p>Lorem ipsum dolor..</p>
+    </div>
+  </div>
+
+
+
+
+  <?php include "./footer.php" ?>
 
 	
 
