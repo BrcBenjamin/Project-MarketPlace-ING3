@@ -165,35 +165,22 @@
         // output data of each row
         while($row = $result->fetch_assoc()) {
           $id=$row["iditem"];
-<<<<<<< HEAD
-          echo "<div class='card shadow-sm col-3'>
-=======
           echo "<a href='#'class='card shadow-sm col-3'>
->>>>>>> parent of 80f4c21 (Merge branch 'a' into c)
           <div class='card image border-0 justify-content-center align-self-center overflow-hidden pt-3 border border-1' style='width:215px;height:215px;'>
             <img src=data:image/jpeg;charset=utf8;base64," .base64_encode($row["photo"]) ." class='img-fluid'>
           </div>
             
           <div class='card-body'>
-<<<<<<< HEAD
-            <a href='#' class='card-text fs-4' style='height:59px;'>" .$row["name"] ."</a>
-            <div class='d-flex justify-content-between align-items-center'>
-              <span class='price'>9 mins</span>
-              <div class='btn-group'>
-                <button data-id='".$id."' id='iteminfo' class='btn'>View</button>
-=======
             <p class='card-text text-reset fs-4' style='height:59px;color:black;'>" .$row["name"] ."</p>
             <div class='d-flex justify-content-between align-items-center'>
               <span class='price'>9 mins</span>
               <div class='btn-group align-self-end'>
                 <button data-id='".$id."' class='btn btn-sm btn-outline-secondary' id='iteminfo'>View</button>
->>>>>>> parent of 80f4c21 (Merge branch 'a' into c)
                 <button type='button' class='btn btn-sm btn-outline-secondary'>Edit</button>
               </div>
             </div>
           </div>
-        </div> 
-          
+        
           
           ";
         }
