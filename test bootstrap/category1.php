@@ -166,15 +166,15 @@
         while($row = $result->fetch_assoc()) {
           $id=$row["iditem"];
           echo "<a href='#'class='card shadow-sm col-3'>
-          <div class='card image justify-content-center align-self-center overflow-hidden pt-3 border border-1' style='width:215px;height:215px;'>
-            <img src=data:image/jpeg;charset=utf8;base64," .base64_encode($row["photo"]) .">
+          <div class='card image border-0 justify-content-center align-self-center overflow-hidden pt-3 border border-1' style='width:215px;height:215px;'>
+            <img src=data:image/jpeg;charset=utf8;base64," .base64_encode($row["photo"]) ." class='img-fluid'>
           </div>
             
           <div class='card-body'>
-            <p class='card-text'>" .$row["description"] ."</p>
+            <p class='card-text' style='height:35px;'>" .$row["description"] ."</p>
             <div class='d-flex justify-content-between align-items-center'>
               <span class='price'>9 mins</span>
-              <div class='btn-group'>
+              <div class='btn-group align-self-end'>
                 <button data-id='".$id."' class='iteminfo'>View</button>
                 <button type='button' class='btn btn-sm btn-outline-secondary'>Edit</button>
               </div>
@@ -192,7 +192,7 @@
     ?>
 
       <a href='#' class='card shadow-sm col-3'>
-        <div class='card image justify-content-center align-self-center overflow-hidden pt-3 border-top border-1' style='width:215px;height:215px;'>
+        <div class='card image border-0 justify-content-center align-self-center overflow-hidden pt-3 border-top border-1' style='width:215px;height:215px;'>
           <img src="s-l1600.png">
         </div>
         <div class='card-body'>
