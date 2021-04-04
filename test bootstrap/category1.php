@@ -171,11 +171,11 @@
           </div>
             
           <div class='card-body'>
-            <p class='card-text' style='height:35px;'>" .$row["description"] ."</p>
+            <p class='card-text text-reset fs-4' style='height:59px;color:black;'>" .$row["name"] ."</p>
             <div class='d-flex justify-content-between align-items-center'>
               <span class='price'>9 mins</span>
               <div class='btn-group align-self-end'>
-                <button data-id='".$id."' class='iteminfo'>View</button>
+                <button data-id='".$id."' class='btn btn-sm btn-outline-secondary' id='iteminfo'>View</button>
                 <button type='button' class='btn btn-sm btn-outline-secondary'>Edit</button>
               </div>
             </div>
@@ -346,7 +346,7 @@
 
     $(document).ready(function(){
 
-      $('.iteminfo').click(function(){
+      $('#iteminfo').click(function(){
         
 
         var itemid = $(this).data('id');
