@@ -63,10 +63,14 @@
 
 		<div class="d-flex col-10  mx-auto my-3 ">
 			<?php
-				
-					echo "<div class='card image justify-content-center align-self-center overflow-hidden pt-3 ' style='width:800px;height:215px;'><img src=data:image/jpeg;charset=utf8;base64," .base64_encode($background) ."></div>";
 					
-				 ?>
+						echo "<div class='card image justify-content-center align-self-center overflow-hidden pt-3 ' style='width:1800px;height:215px;'><img alt='star' src=data:image/jpeg;charset=utf8;base64," .base64_encode($background) ."></div>";
+						
+					 ?>
+		</div>
+
+		<div class="d-flex col-10  mx-auto my-3 ">
+			
 	
 		<div class="d-flex col-7  mx-auto my-3" style="margin-top: 7%">
 			<div class="col-10 mx-auto text-center mt-5">
