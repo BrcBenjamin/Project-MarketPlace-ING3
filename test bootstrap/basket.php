@@ -104,7 +104,7 @@
 
                           <div class='d-flex flex-column align-self-end justify-content-end'>
                             
-                            <div class='align-self-start mb-5 pb-5 fs-2'>" .$row["price"] ."€</div>
+                            <div class='align-self-start mb-5 pb-5 fs-2'>" .number_format($row["price"]) ."€</div>
 
                             <div class='align-self-end pe-5 fs-4 mb-4'>
                               <a href='category1.php' class=''>Remove from basket</a>
@@ -125,6 +125,8 @@
         if ($result2->num_rows > 0) {
           // output data of each row
           $totalPrice=0;
+          $paymentURL= 'payment.php?id='.$email;
+          $i = 1;
           echo "
                           <div class='panel-body'> 
                             <div class='row text-600 text-white bg-primary py-3 fs-3'>
@@ -133,7 +135,9 @@
                               
                               <div class='d-flex flex-column justify-content-between col-12 gap-3'>";
           while($row = $result2->fetch_assoc()) {
-            $totalPrice+=$row["price"];
+            $totalPrice += $row["price"];
+            $paymentURL .= '&iditems[]=' .$row["iditem"];
+
           echo "
 
                       <div class='d-flex my-2 col-12 justify-content-between border border-1'>
@@ -151,7 +155,7 @@
 
                         <div class='d-flex flex-column align-self-end justify-content-end'>
                           
-                          <div class='align-self-start mb-5 pb-5 fs-2'>" .$row["price"] ."€</div>
+                          <div class='align-self-start mb-5 pb-5 fs-2'>" .number_format($row["price"]) ."€</div>
 
                           <div class='align-self-end pe-5 fs-4 mb-4'>
                             <a href='category1.php' class=''>Remove from basket</a>
@@ -168,7 +172,7 @@
               <p><span class='fw-bold'>Total: </span>" .number_format($totalPrice) ." €</p>
             </div>
             <div class=''>
-              <a href='payment.php' class='btn btn-success fs-3'>Go to checkout</a>
+              <a href='" .$paymentURL ."' class='btn btn-success fs-3'>Go to checkout</a>
             </div>
           </div>
   

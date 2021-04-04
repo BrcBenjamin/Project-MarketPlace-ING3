@@ -18,7 +18,6 @@
 </head>
 
 <body style="padding:0;margin:0;">
-	
 <header>
 	<div class="container-fluid bg-light align-items-center py-2 border-bottom border-1">
 		<div class="d-flex col-10 mx-auto align-items-center justify-content-between">
