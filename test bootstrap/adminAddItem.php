@@ -7,16 +7,7 @@
 <body>
 	<?php
 
-			$user = 'root';
-			$password = ''; //To be completed if you have set a password to root
-			$database = 'yourmarket'; //To be completed to connect to a database. The database must exist.
-			$port = NULL; //Default must be NULL to use default port
-			$mysqli = new mysqli('127.0.0.1', $user, $password, $database, $port);
-
-			if ($mysqli->connect_error) {
-			    die('Connect Error (' . $mysqli->connect_errno . ') '
-			            . $mysqli->connect_error);
-			}
+			include "config.php";
 			echo "1";
 			if ($_POST["Category"]==1) {
 				$Subcategory=$_POST["SubCategory1"];
@@ -42,7 +33,7 @@
 			            $imgContent = addslashes(file_get_contents($image)); 
 			         
 			            // Insert image content into database 
-			            $sql = "INSERT INTO `item`(`name`, `purchaseCategory`, `category`, `subcategory`, `price`, `description`, `publicationDateTime`, `availability`, `photo`, `account_email`) VALUES ('$_POST[name]','$_POST[PurchaseCategory]','$_POST[Category]','$Subcategory','$_POST[price]','$_POST[description]','$_POST[date]','1','$imgContent','$_POST[email]')";
+			            $sql = "INSERT INTO `item`(`name`, `purchaseCategory`, `category`, `subcategory`, `price`, `description`,`conditionn`, `publicationDateTime`, `availability`, `photo`, `account_email`) VALUES ('$_POST[name]','$_POST[PurchaseCategory]','$_POST[Category]','$Subcategory','$_POST[price]','$_POST[description]','$_POST[condition]','$_POST[date]','1','$imgContent','$_POST[email]')";
 
 			 			$insert=$mysqli->query($sql);	
 			             

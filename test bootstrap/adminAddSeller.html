@@ -44,12 +44,12 @@
 		</div>
 
 
-<h1 class="d-flex col-3  mx-auto text-center" style="margin-top: 5%">&emsp;&emsp;&emsp;&emsp;Create a seller's account:</h1><br>
+<h1 class="d-flex col-3  mx-auto text-center" style="margin-top: 4%">&emsp;&emsp;&emsp;&emsp;Create a seller's account:</h1><br>
 
 
 <div class="d-flex col-3  mx-auto my-3 justify-content-center border-start border-end border-2"  >
 
-<form action="adminAddSeller.php" method="post">
+<form action="adminAddSeller.php" method="post" enctype="multipart/form-data">
 		Email: <input style="width:150px;height: 25px; " type="text" name="email"><br><br><br>
 		Username: <input style="width:150px;height: 25px; " type="text" name="username"><br><br><br>
 		Password: <input style="width:150px;height: 25px; " type="password" name="password"><br><br><br>
@@ -58,9 +58,14 @@
 		Adress: <input style="width:150px;height: 25px; " type="text" name="adress"><br><br><br>
 		Date of birth (YYYY-MM-DD): <input style="width:150px;height: 25px; " type="text" name="dateofbirth"><br><br><br>
 		Phone Number: <input style="width:150px;height: 25px; " type="text" name="phoneNumber"><br><br><br>
+		Select Photo File:<div><input type="file" name="image"></div><br>
+
+		Select Background File:<div><input type="file" name="background"></div><br>
+
+
 		<input type="checkbox" name="license" id="license" onclick="verifyCheck()">	<a href="License.html" >License for sellers</a> <br><br>
 		<input type="checkbox" name="values" id="values" onclick="verifyCheck()"><a href="Conditions.html" >Conditions of utilisation</a> <br><br><br>
-		<input class="btn btn-primary" style=" margin-left: 100px; height: 30px; width: 100px"type="submit" value="submit" id="submit" disabled="disabled">
+		<input class="btn btn-primary" style=" margin-left: 100px; height: 30px; width: 100px"type="submit" value="submit" name="submit" id="submit" disabled="disabled">
 
 		<script type="text/javascript">
 			function verifyCheck(){

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,7 +13,6 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.min.js" integrity="sha384-j0CNLUeiqtyaRmlzUHCPZ+Gy5fQu0dQ6eZ/xAww941Ai1SxSY+0EQqNXNE6DZiVc" crossorigin="anonymous"></script>
 
 	<script src="http://code.jquery.com/jquery-latest.js"></script>
-  <link rel="stylesheet" href="popupcss.css" type="text/css">
 
 </head>
 
@@ -38,8 +36,8 @@
 		
 			<div class="d-flex flex-wrap">
 				<a href="index.php"role="button" class="btn btn-secondary rounded-0 pt-3 fs-4 border-start border-end border-1 text-center">Home</a>
-				<a href="category1.php"role="button" class="btn btn-dark pt-3 fs-4 border-start border-end border-1 text-center">Components</a>
-				<a href="category2.php"role="button" class="btn btn-secondary pt-3 fs-4 border-start border-end border-1 text-center">Devices</a>
+				<a href="category1.php"role="button" class="btn btn-secondary pt-3 fs-4 border-start border-end border-1 text-center">Components</a>
+				<a href="category2.php"role="button" class="btn btn-dark pt-3 fs-4 border-start border-end border-1 text-center">Devices</a>
 			</div>
 
 
@@ -94,24 +92,23 @@
             <div class="container pt-3 border-end border-bottom border-1">
               <ul class="list-unstyled d-flex flex-column fs-4 pb-3 ms-5">
               <li class="list-item mb-3 mb-md-0 align-items-center">
-                  <a href="#" class="text-dark" >
-                      Graphic Cards
+                  <a href="#" class="text-dark">
+                     Keyboards
                   </a>
               </li>
               <li>
                   <a href="#" class="text-dark">
-                      MotherBoards
+                      Mouses
                   </a>
               </li>
               <li>
                   <a href="#" class="text-dark">
-                      Processors
+                      Headsets
                   </a>
               </li>
              
               </ul>
             </div>
-
 
             <div class="d-flex align-items-center pt-3 ps-4 pb-2 text-dark border-end border-1">
               <span class="fs-3">Filters</span>
@@ -153,9 +150,10 @@
     <div class="d-flex flex-wrap col-10 px-3 py-4">
 
     <?php
-      include "config.php";
-      
-      $sql = "SELECT * FROM item WHERE category=1";
+     include "config.php";
+
+     
+      $sql = "SELECT * FROM item WHERE category=2";
       $result = $mysqli->query($sql);
       //echo "number of row".$result->num_rows;
       if ($result->num_rows > 0) {
@@ -187,55 +185,11 @@
       $mysqli->close();
     ?>
 
- 
-
-  </div>
-
-</div>
-
-<!--Modal Interactif-->
-<div class="container">
-  <div class="modal" id="itemModal" role="dialog">
-    <div class="modal-dialog">
- 
-     <!-- Modal content-->
-     <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title">Article information</h4>
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-      </div>
-      <div class="modal-body">
       
-      </div>
-      <div class="modal-footer">
-       <button type="button" class="btn btn-primary" data-dismiss="modal">Add to Cart</button>
-      </div>
-     </div>
-    </div>
+
   </div>
+
 </div>
-
-  <script type='text/javascript'>
-    $(document).ready(function(){
-      $('.iteminfo').click(function(){
-        var itemid = $(this).data('id');
-
-        // AJAX request
-        $.ajax({
-          url: 'ajaxfile.php',
-          type: 'post',
-          data: {itemid: itemid},
-          success: function(response){ 
-            // Add response in Modal body
-            $('.modal-body').html(response);
-
-            // Display Modal
-            $('#itemModal').modal('show'); 
-          }
-        });
-      });
-    });
-  </script>
 
 
   <footer class="container-fluid pt-3 bg-dark text-white">
