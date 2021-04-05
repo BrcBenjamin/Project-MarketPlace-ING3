@@ -93,14 +93,24 @@
                             if(isset($_GET["seller"])) {
                                 echo "&seller";
                             }
+                            if(isset($_POST["searchText"])) {
+                              if(isset($_GET["id"])) {
+                                echo "&searchText=" .$_POST["searchText"];
+                              } else {
+                                echo "?searchText=" .$_POST["searchText"];
+                              }
+                                
+                              } elseif(isset($_GET["searchText"])) {
+                                if(isset($_GET["id"])) {
+                                  echo "&searchText=" .$_GET["searchText"];
+                                } else {
+                                  echo "?searchText=" .$_GET["searchText"];
+                                }
+                              }
                             if(isset($_GET["category"])) {
                               echo "&category=" .$_GET["category"];
                           }
-                          if(isset($_POST["searchText"])) {
-                            echo "&searchText=" .$_POST["searchText"];
-                            } elseif(isset($_GET["searchText"])) {
-                                echo "&searchText=" .$_GET["searchText"];
-                            }
+
                             echo"&subcategory=" .$row["subcategory"] ."' class='text-dark'>
                               " .$row["subcategory"] ."
                           </a>
@@ -125,13 +135,24 @@
                       if(isset($_GET["seller"])) {
                           echo "&seller";
                       }
+
+                      if(isset($_POST["searchText"])) {
+                        if(isset($_GET["id"])) {
+                          echo "&searchText=" .$_POST["searchText"];
+                        } else {
+                          echo "?searchText=" .$_POST["searchText"];
+                        }
+                          
+                        } elseif(isset($_GET["searchText"])) {
+                          if(isset($_GET["id"])) {
+                            echo "&searchText=" .$_GET["searchText"];
+                          } else {
+                            echo "?searchText=" .$_GET["searchText"];
+                          }
+                        }
+
                       if(isset($_GET["subcategory"])) {
                         echo "&subcategory=" .$_GET["subcategory"];
-                    }
-                    if(isset($_POST["searchText"])) {
-                        echo "&searchText=" .$_POST["searchText"];
-                    } elseif(isset($_GET["searchText"])) {
-                        echo "&searchText=" .$_GET["searchText"];
                     }
                       ?>' class='text-dark'>All
                   </a>
@@ -145,13 +166,24 @@
                       if(isset($_GET["seller"])) {
                           echo "&seller";
                       }
+
+                      if(isset($_POST["searchText"])) {
+                        if(isset($_GET["id"])) {
+                          echo "&searchText=" .$_POST["searchText"];
+                        } else {
+                          echo "?searchText=" .$_POST["searchText"];
+                        }
+                          
+                        } elseif(isset($_GET["searchText"])) {
+                          if(isset($_GET["id"])) {
+                            echo "&searchText=" .$_GET["searchText"];
+                          } else {
+                            echo "?searchText=" .$_GET["searchText"];
+                          }
+                        }
+
                       if(isset($_GET["subcategory"])) {
                         echo "&subcategory=" .$_GET["subcategory"];
-                    }
-                    if(isset($_POST["searchText"])) {
-                        echo "&searchText=" .$_POST["searchText"];
-                    } elseif(isset($_GET["searchText"])) {
-                        echo "&searchText=" .$_GET["searchText"];
                     }
                       echo"&category=1"; 
                       ?>' class='text-dark'>Auction
@@ -165,13 +197,24 @@
                       if(isset($_GET["seller"])) {
                           echo "&seller";
                       }
+
+                      if(isset($_POST["searchText"])) {
+                        if(isset($_GET["id"])) {
+                          echo "&searchText=" .$_POST["searchText"];
+                        } else {
+                          echo "?searchText=" .$_POST["searchText"];
+                        }
+                          
+                        } elseif(isset($_GET["searchText"])) {
+                          if(isset($_GET["id"])) {
+                            echo "&searchText=" .$_GET["searchText"];
+                          } else {
+                            echo "?searchText=" .$_GET["searchText"];
+                          }
+                        }
+
                       if(isset($_GET["subcategory"])) {
                         echo "&subcategory=" .$_GET["subcategory"];
-                    }
-                    if(isset($_POST["searchText"])) {
-                        echo "&searchText=" .$_POST["searchText"];
-                    } elseif(isset($_GET["searchText"])) {
-                        echo "&searchText=" .$_GET["searchText"];
                     }
                       echo"&category=2"; 
                       ?>' class='text-dark'>Buy it now
@@ -185,14 +228,26 @@
                       if(isset($_GET["seller"])) {
                           echo "&seller";
                       }
+
+                      if(isset($_POST["searchText"])) {
+                        if(isset($_GET["id"])) {
+                          echo "&searchText=" .$_POST["searchText"];
+                        } else {
+                          echo "?searchText=" .$_POST["searchText"];
+                        }
+                          
+                        } elseif(isset($_GET["searchText"])) {
+                          if(isset($_GET["id"])) {
+                            echo "&searchText=" .$_GET["searchText"];
+                          } else {
+                            echo "?searchText=" .$_GET["searchText"];
+                          }
+                        }
+
                       if(isset($_GET["subcategory"])) {
                         echo "&subcategory=" .$_GET["subcategory"];
                     }
-                    if(isset($_POST["searchText"])) {
-                        echo "&searchText=" .$_POST["searchText"];
-                    } elseif(isset($_GET["searchText"])) {
-                        echo "&searchText=" .$_GET["searchText"];
-                    }
+                    
                       echo"&category=3"; 
                       ?>' class='text-dark'>Best Offer
                   </a>
