@@ -31,22 +31,61 @@
   }
 ?>
 		
-		<div class="d-flex justify-content-between bg-secondary col-10 mx-auto p-0 m-0" style="height:45px;">
+    <div class="d-flex justify-content-between bg-secondary col-10 mx-auto p-0 m-0" style="height:45px;">
 		
-			<div class="d-flex flex-wrap">
-				<a href="index.php<?php if(isset($_GET['id'])) { echo"?id=".$_GET['id']; } ?>"role="button" class="btn btn-secondary rounded-0 pt-3 fs-4 border-end border-1 text-center">Home</a>
-				<a href="category1.php<?php if(isset($_GET['id'])) { echo"?id=".$_GET['id']; } ?>"role="button" class="btn btn-dark pt-3 fs-4 border-end border-1 text-center">Category 1</a>
-				<a href="category2.php<?php if(isset($_GET['id'])) { echo"?id=".$_GET['id']; } ?>"role="button" class="btn btn-secondary pt-3 fs-4 border-end border-1 text-center">Category 2</a>
-			</div>
+    <div class="d-flex flex-wrap">
+        <a href="index.php<?php 
+            if(isset($_GET["id"])) {
+                echo "?id=" .$_GET["id"];
+            }
+            if(isset($_GET["seller"])) {
+                echo "&seller";
+            }
+            ?>"role="button" class="btn btn-secondary rounded-0 pt-3 fs-4 border-end border-1 text-center">Home</a>
+        <a href="category1.php<?php 
+            if(isset($_GET["id"])) {
+                echo "?id=" .$_GET["id"];
+            }
+            if(isset($_GET["seller"])) {
+                echo "&seller";
+            }
+            ?>"role="button" class="btn btn-dark pt-3 fs-4 border-end border-1 text-center">Components</a>
+        <a href="category2.php<?php 
+            if(isset($_GET["id"])) {
+                echo "?id=" .$_GET["id"];
+            }
+            if(isset($_GET["seller"])) {
+                echo "&seller";
+            }
+            ?>"role="button" class="btn btn-secondary pt-3 fs-4 border-end border-1 text-center">Devices</a>
+    </div>
 
 
-			<form-inline class="d-flex gap-2 align-self-center pe-3">
-				<input style="width:240px;height: 30px;" class="align-self-center" type="text" placeholder="Search" aria-label="Search">
-				<button class="btn btn-dark align-self-center margin-left" type="submit">Search</button>
-			</form>
-			
-			
-		</div>
+    <form method="post" onsubmit="return checkSearch()" action="search.php<?php 
+            if(isset($_GET["id"])) {
+                echo "?id=" .$_GET["id"];
+            }
+            if(isset($_GET["seller"])) {
+                echo "&seller";
+            }
+            ?>" class="d-flex gap-2 align-self-center pe-3">
+        <input style="width:240px;height: 30px;" class="align-self-center" id="search" name="searchText" type="text" placeholder="Search" aria-label="Search">
+        <button class="btn btn-dark align-self-center margin-left" type="submit">Search</button>
+    </form>
+    
+</div>
+
+<script type='text/javascript'>
+
+            function checkSearch() {
+                if($("#search").val().length == 0) {
+                    return false;
+                }
+                else {
+                    return true;
+                }
+            }
+</script>
 
 	
 
@@ -90,65 +129,103 @@
             
             <div class="container pt-3 border-end border-bottom border-1">
               <ul class="list-unstyled d-flex flex-column fs-4 pb-3 ms-5">
-              <li class="list-item mb-3 mb-md-0 align-items-center">
-                  <a href="#" class="text-dark">
-                      Subcat1
-                  </a>
-              </li>
-              <li>
-                  <a href="#" class="text-dark">
-                      Subcat1
-                  </a>
-              </li>
-              <li>
-                  <a href="#" class="text-dark">
-                      Subcat2
-                  </a>
-              </li>
-              <li>
-                  <a href="#" class="text-dark">
-                      Subcat3
-                  </a>
-              </li>
-              <li>
-                  <a href="#" class="text-dark">
-                      Subcat4
-                  </a>
-              </li>
+
+                <?php
+
+                  include "config.php";
+
+                  $sql="SELECT DISTINCT subcategory FROM `item` WHERE category=1";
+                  $result=$mysqli->query($sql);
+                  
+                  while ($row= $result->fetch_assoc()) {
+                      
+                      echo "<li>
+                      <a href='category1.php"; 
+                            if(isset($_GET["id"])) {
+                                echo "?id=" .$_GET["id"];
+                            }
+                            if(isset($_GET["seller"])) {
+                                echo "&seller";
+                            }
+                            if(isset($_GET["category"])) {
+                              echo "&category=" .$_GET["category"];
+                          }
+                            echo"&subcategory=" .$row["subcategory"] ."' class='text-dark'>
+                              " .$row["subcategory"] ."
+                          </a>
+                          </li>";
+                  }
+
+                ?>
               </ul>
             </div>
 
             <div class="d-flex align-items-center pt-3 ps-4 pb-2 text-dark border-end border-1">
-              <span class="fs-3">Filters</span>
+              <span class="fs-3">Buying category</span>
             </div>
             
             <div class="container pt-3 border-end border-bottom border-1">
               <ul class="list-unstyled d-flex flex-column fs-4 pb-3 ms-3">
-              <li class="list-item mb-3 mb-md-0 align-items-center">
-                <input type="checkbox" autocomplete="off">
-                Checkbox 1
-                  
-              </li>
-              <li class="list-item mb-3 mb-md-0 align-items-center">
-                <input type="checkbox" autocomplete="off">
-                Checkbox 1
-                  
-              </li>
-              <li class="list-item mb-3 mb-md-0 align-items-center">
-                <input type="checkbox" autocomplete="off">
-                Checkbox 1
-                  
-              </li>
-              <li class="list-item mb-3 mb-md-0 align-items-center">
-                <input type="checkbox" autocomplete="off">
-                Checkbox 1
-                  
-              </li>
-              <li class="list-item mb-3 mb-md-0 align-items-center">
-                <input type="checkbox" autocomplete="off">
-                Checkbox 1
-                  
-              </li>
+              <li>
+                  <a href='category1.php<?php
+                    if(isset($_GET["id"])) {
+                      echo "?id=" .$_GET["id"];
+                    }
+                      if(isset($_GET["seller"])) {
+                          echo "&seller";
+                      }
+                      if(isset($_GET["subcategory"])) {
+                        echo "&subcategory=" .$_GET["subcategory"];
+                    }
+                      ?>' class='text-dark'>All
+                  </a>
+                </li>
+
+              <li>
+                  <a href='category1.php<?php
+                    if(isset($_GET["id"])) {
+                      echo "?id=" .$_GET["id"];
+                    }
+                      if(isset($_GET["seller"])) {
+                          echo "&seller";
+                      }
+                      if(isset($_GET["subcategory"])) {
+                        echo "&subcategory=" .$_GET["subcategory"];
+                    }
+                      echo"&category=1"; 
+                      ?>' class='text-dark'>Auction
+                  </a>
+                </li>
+                <li>
+                  <a href='category1.php<?php
+                    if(isset($_GET["id"])) {
+                      echo "?id=" .$_GET["id"];
+                    }
+                      if(isset($_GET["seller"])) {
+                          echo "&seller";
+                      }
+                      if(isset($_GET["subcategory"])) {
+                        echo "&subcategory=" .$_GET["subcategory"];
+                    }
+                      echo"&category=2"; 
+                      ?>' class='text-dark'>Buy it now
+                  </a>
+                </li>
+                <li>
+                  <a href='category1.php<?php
+                    if(isset($_GET["id"])) {
+                      echo "?id=" .$_GET["id"];
+                    }
+                      if(isset($_GET["seller"])) {
+                          echo "&seller";
+                      }
+                      if(isset($_GET["subcategory"])) {
+                        echo "&subcategory=" .$_GET["subcategory"];
+                    }
+                      echo"&category=3"; 
+                      ?>' class='text-dark'>Best Offer
+                  </a>
+                </li>
               </ul>
             </div>
             
@@ -158,25 +235,33 @@
     <div class="d-flex flex-wrap col-10 px-3 py-4">
 
     <?php
-      $sql = "SELECT * FROM item";
+
+      
+
+      $sql = "SELECT * FROM item WHERE category=1";
+      if(isset($_GET["subcategory"])) {
+        $sql .= " AND subcategory='" .$_GET["subcategory"] ."'"; 
+      }
+      if(isset($_GET["category"])) {
+        $sql .= " AND purchaseCategory=" .$_GET["category"]; 
+      }
       $result = $mysqli->query($sql);
       //echo "number of row".$result->num_rows;
       if ($result->num_rows > 0) {
         // output data of each row
         while($row = $result->fetch_assoc()) {
           $id=$row["iditem"];
-          echo "<div class='card shadow-sm col-3'> 
-          <div class='card image justify-content-center align-self-center overflow-hidden pt-3 border border-1' style='width:215px;height:215px;'>
-            <img src=data:image/jpeg;charset=utf8;base64," .base64_encode($row["photo"]) .">
+          echo "<div class='card shadow-sm col-3'>
+          <div class='card image border-0 justify-content-center align-self-center overflow-hidden pt-3 border border-1' style='width:215px;height:215px;'>
+            <img src=data:image/jpeg;charset=utf8;base64," .base64_encode($row["photo"]) ." class='img-fluid'>
           </div>
             
           <div class='card-body'>
-            <a href='itemInterface.php?iditem=".$id."'>
-            <p class='card-text'>" .$row["description"] ."</p></a>
+            <div class='card-text fs-4' style='height:59px;'><a href='itemInterface.php?iditem=".$id."'>" .$row["name"] ."</a></div>
             <div class='d-flex justify-content-between align-items-center'>
               <span class='price'>9 mins</span>
-              <div class='btn-group align-self-end'>
-                <button data-id='".$id."' class='btn btn-sm btn-outline-secondary' id='iteminfo'>View</button>
+              <div class='btn-group'>
+                <button data-id='".$id."' name='iteminfo' class='btn btn-sm btn-outline-secondary'>View</button>
                 <button type='button' class='btn btn-sm btn-outline-secondary'>Edit</button>
               </div>
             </div>
@@ -185,155 +270,14 @@
           ";
         }
       } else {
-        echo "0 results";
+        //echo $sql;
+        echo "<div class='justify-content-center mx-auto fs-1 align-self-center'><div class='mx-auto' style='height:200px;width:200px;'><img src='sorry-images-hd.jpg' class='img-fluid'></div> <br> Sorry, there are 0 results for you research.
+        </div>";
       }
       $mysqli->close();
     ?>
 
-      <a href='#' class='card shadow-sm col-3'>
-        <div class='card image border-0 justify-content-center align-self-center overflow-hidden pt-3 border-top border-1' style='width:215px;height:215px;'>
-          <img src="s-l1600.png">
-        </div>
-        <div class='card-body'>
-          <p class='card-text'>This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          <div class='d-flex justify-content-between align-items-center'>
-            <span class='price'>9 mins</span>
-            <div class='btn-group'>
-              <button type='button' class='btn btn-sm btn-outline-secondary'>View</button>
-              <button type='button' class='btn btn-sm btn-outline-secondary'>Edit</button>
-            </div>
-          </div>
-        </div>
-      </a> 
-
-      <a href='#' class='card shadow-sm col-3'>
-        <div class='card image justify-content-center align-self-center overflow-hidden pt-3 border-top border-1' style='width:215px;height:215px;'>
-          <img src="s-l1600.png">
-        </div>
-        <div class='card-body'>
-          <p class='card-text'>This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          <div class='d-flex justify-content-between align-items-center'>
-            <span class='price'>9 mins</span>
-            <div class='btn-group'>
-              <button type='button' class='btn btn-sm btn-outline-secondary'>View</button>
-              <button type='button' class='btn btn-sm btn-outline-secondary'>Edit</button>
-            </div>
-          </div>
-        </div>
-      </a> 
-
-      <a href='#' class='card shadow-sm col-3'>
-        <div class='card image justify-content-center align-self-center overflow-hidden pt-3 border-top border-1' style='width:215px;height:215px;'>
-          <img src="s-l1600.png">
-        </div>
-        <div class='card-body'>
-          <p class='card-text'>This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          <div class='d-flex justify-content-between align-items-center'>
-            <span class='price'>9 mins</span>
-            <div class='btn-group'>
-              <button type='button' class='btn btn-sm btn-outline-secondary'>View</button>
-              <button type='button' class='btn btn-sm btn-outline-secondary'>Edit</button>
-            </div>
-          </div>
-        </div>
-      </a> 
-
-      <a href='#' class='card shadow-sm col-3'>
-        <div class='card image justify-content-center align-self-center overflow-hidden pt-3 border-top border-1' style='width:215px;height:215px;'>
-          <img src="s-l1600.png">
-        </div>
-        <div class='card-body'>
-          <p class='card-text'>This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          <div class='d-flex justify-content-between align-items-center'>
-            <span class='price'>9 mins</span>
-            <div class='btn-group'>
-              <button type='button' class='btn btn-sm btn-outline-secondary'>View</button>
-              <button type='button' class='btn btn-sm btn-outline-secondary'>Edit</button>
-            </div>
-          </div>
-        </div>
-      </a> 
-
-      <a href='#' class='card shadow-sm col-3'>
-        <div class='card image justify-content-center align-self-center overflow-hidden pt-3 border-top border-1' style='width:215px;height:215px;'>
-          <img src="s-l1600.png">
-        </div>
-        <div class='card-body'>
-          <p class='card-text'>This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          <div class='d-flex justify-content-between align-items-center'>
-            <span class='price'>9 mins</span>
-            <div class='btn-group'>
-              <button type='button' class='btn btn-sm btn-outline-secondary'>View</button>
-              <button type='button' class='btn btn-sm btn-outline-secondary'>Edit</button>
-            </div>
-          </div>
-        </div>
-      </a> 
-
-      <a href='#' class='card shadow-sm col-3'>
-        <div class='card image justify-content-center align-self-center overflow-hidden pt-3 border-top border-1' style='width:215px;height:215px;'>
-          <img src="s-l1600.png">
-        </div>
-        <div class='card-body'>
-          <p class='card-text'>This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          <div class='d-flex justify-content-between align-items-center'>
-            <span class='price'>9 mins</span>
-            <div class='btn-group'>
-              <button type='button' class='btn btn-sm btn-outline-secondary'>View</button>
-              <button type='button' class='btn btn-sm btn-outline-secondary'>Edit</button>
-            </div>
-          </div>
-        </div>
-      </a> 
-
-      <a href='#' class='card shadow-sm col-3'>
-        <div class='card image justify-content-center align-self-center overflow-hidden pt-3 border-top border-1' style='width:215px;height:215px;'>
-          <img src="s-l1600.png">
-        </div>
-        <div class='card-body'>
-          <p class='card-text'>This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          <div class='d-flex justify-content-between align-items-center'>
-            <span class='price'>9 mins</span>
-            <div class='btn-group'>
-              <button type='button' class='btn btn-sm btn-outline-secondary'>View</button>
-              <button type='button' class='btn btn-sm btn-outline-secondary'>Edit</button>
-            </div>
-          </div>
-        </div>
-      </a> 
-
-      <a href='#' class='card shadow-sm col-3'>
-        <div class='card image justify-content-center align-self-center overflow-hidden pt-3 border-top border-1' style='width:215px;height:215px;'>
-          <img src="s-l1600.png">
-        </div>
-        <div class='card-body'>
-          <p class='card-text'>This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          <div class='d-flex justify-content-between align-items-center'>
-            <span class='price'>9 mins</span>
-            <div class='btn-group'>
-              <button type='button' class='btn btn-sm btn-outline-secondary'>View</button>
-              <button type='button' class='btn btn-sm btn-outline-secondary'>Edit</button>
-            </div>
-          </div>
-        </div>
-      </a> 
-
-      <a href='#' class='card shadow-sm col-3'>
-        <div class='card image justify-content-center align-self-center overflow-hidden pt-3 border-top border-1' style='width:215px;height:215px;'>
-          <img src="s-l1600.png">
-        </div>
-        <div class='card-body'>
-          <p class='card-text'>This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-          <div class='d-flex justify-content-between align-items-center'>
-            <span class='price'>9 mins</span>
-            <div class='btn-group'>
-              <button type='button' class='btn btn-sm btn-outline-secondary'>View</button>
-              <button type='button' class='btn btn-sm btn-outline-secondary'>Edit</button>
-            </div>
-          </div>
-        </div>
-      </a> 
-
+      
   </div>
 
 </div>
@@ -345,7 +289,7 @@
 
     $(document).ready(function(){
 
-      $('#iteminfo').click(function(){
+      $('button[name="iteminfo"]').click(function(){
         
 
         var itemid = $(this).data('id');

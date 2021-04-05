@@ -34,13 +34,11 @@
         
 
     <?php
-        /*
-        * Change the value of $password if you have set a password on the root userid
-        * Change NULL to port number to use DBMS other than the default using port 3306
-        *
-        */
+        
         $email = $_GET['id'];
-        include "./config.php";
+
+        include "config.php";
+
         $sql = "SELECT * FROM basketitem, item WHERE fk_email='" .$email ."' AND fk_iditem=iditem AND (purchaseCategory=1 OR purchaseCategory=3)";
         $result = $mysqli->query($sql);
         //echo "number of row".$result->num_rows;
@@ -60,7 +58,7 @@
 
                           <div class='d-flex col-7 pt-4 align-self-start justify-content-center'>
                             <div class='card border-0 image justify-content-center align-self-center overflow-hidden'  style='width:300px;height:215px;'>
-                              <img src=data:image/jpeg;charset=utf8;base64," .base64_encode($row["photo"]) .">
+                              <img src=data:image/jpeg;charset=utf8;base64," .base64_encode($row["photo"]) ." class='img-fluid'>
                             </div>
                               
                             <div class='col-6 align-self-center ms-5 mb-5'>

@@ -44,9 +44,9 @@
 										            $imgContent1 = addslashes(file_get_contents($image1)); 
 										         
 										            // Insert image content into database 
-													$sql="INSERT INTO `sellinglicense`( `fk_account_email`, `adress`, `firstName`, `lastName`, `dateofbirth`, `phoneNumber`, `photo`,`background`) VALUES ('$_POST[email]','$_POST[adress]','$_POST[firstName]','$_POST[lastName]','$_POST[dateofbirth]','$_POST[phoneNumber]','$imgContent','$imgContent1')";
-														$insert=$mysqli->query($sql);
+										           	 $sql="INSERT INTO `sellinglicense`( `fk_account_email`, `adress`, `firstName`, `lastName`, `dateofbirth`, `phoneNumber`, `photo`,`background`) VALUES ('$_POST[email]','$_POST[adress]','$_POST[firstName]','$_POST[lastName]','$_POST[dateofbirth]','$_POST[phoneNumber]','$imgContent','$imgContent1')";
 
+													$insert=$mysqli->query($sql);	
 										             
 										            if($insert){ 
 										                $status1 = 'success'; 
@@ -84,6 +84,7 @@
 			
 			echo $statusMsg;
 
+			
 
 			 $sql3="SELECT `idsellingLicense` FROM `sellinglicense` WHERE fk_account_email='$_POST[email]'";
 			$result=$mysqli->query($sql3);
@@ -92,10 +93,11 @@
 				
 				$rep=$row['idsellingLicense'];	
 			}
-			
+			echo "".$rep."";
 	
 			$sql4="UPDATE `account` SET `fk_idsellingLicense`=$rep WHERE email='$_POST[email]' ";	
 			$mysqli->query($sql4);
+
 			header('Location: admin.php');
 			 
 			?>
