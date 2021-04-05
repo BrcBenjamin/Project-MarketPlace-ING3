@@ -116,21 +116,32 @@
                   
                   while ($row= $result->fetch_assoc()) {
                       
-                      echo "<li>
-                      <a href='category2.php"; 
-                            if(isset($_GET["id"])) {
-                                echo "?id=" .$_GET["id"];
-                            }
-                            if(isset($_GET["seller"])) {
-                                echo "&seller";
-                            }
-                            if(isset($_GET["category"])) {
-                              echo "&category=" .$_GET["category"];
+                    echo "<li>
+                    <a href='category2.php"; 
+                          if(isset($_GET["id"])) {
+                              echo "?id=" .$_GET["id"];
                           }
-                            echo"&subcategory=" .$row["subcategory"] ."' class='text-dark'>
-                              " .$row["subcategory"] ."
-                          </a>
-                          </li>";
+                          if(isset($_GET["seller"])) {
+                              echo "&seller";
+                          }
+                          if(isset($_GET["category"])) {
+                            if(isset($_GET["id"])) {
+                              echo "&category=" .$_GET["category"];
+                            } else {
+                              echo "?category=" .$_GET["category"];
+                            }
+                        }
+                        if(!isset($_GET["id"]) && !isset($_GET["category"])) {
+                          echo"?subcategory=" .$row["subcategory"] ."' class='text-dark'>
+                            " .$row["subcategory"];
+                        }
+                        else {
+                          echo"&subcategory=" .$row["subcategory"] ."' class='text-dark'>
+                            " .$row["subcategory"] ;
+                        }
+                          
+                        echo "</a>
+                        </li>";
                   }
 
                 ?>
@@ -145,7 +156,7 @@
             <div class="container pt-3 border-end border-bottom border-1">
               <ul class="list-unstyled d-flex flex-column fs-4 pb-3 ms-3">
               <li>
-                  <a href='category2.php<?php
+              <a href='category2.php<?php
                     if(isset($_GET["id"])) {
                       echo "?id=" .$_GET["id"];
                     }
@@ -153,24 +164,33 @@
                           echo "&seller";
                       }
                       if(isset($_GET["subcategory"])) {
-                        echo "&subcategory=" .$_GET["subcategory"];
+                        if(isset($_GET["id"])) {
+                          echo "&subcategory=" .$_GET["subcategory"];
+                        } else {
+                          echo "?subcategory=" .$_GET["subcategory"];
+                        }
                     }
                       ?>' class='text-dark'>All
                   </a>
                 </li>
 
               <li>
-                  <a href='category2.php<?php
+                <a href='category2.php<?php
                     if(isset($_GET["id"])) {
                       echo "?id=" .$_GET["id"];
                     }
                       if(isset($_GET["seller"])) {
                           echo "&seller";
                       }
+                        if(isset($_GET["id"])) {
+                          echo "&category=1";
+                        } else {
+                          echo "?category=1";
+                        }
                       if(isset($_GET["subcategory"])) {
                         echo "&subcategory=" .$_GET["subcategory"];
                     }
-                      echo"&category=1"; 
+                      
                       ?>' class='text-dark'>Auction
                   </a>
                 </li>
@@ -182,25 +202,35 @@
                       if(isset($_GET["seller"])) {
                           echo "&seller";
                       }
+                        if(isset($_GET["id"])) {
+                          echo "&category=2";
+                        } else {
+                          echo "?category=2";
+                        }
                       if(isset($_GET["subcategory"])) {
                         echo "&subcategory=" .$_GET["subcategory"];
                     }
-                      echo"&category=2"; 
+                      
                       ?>' class='text-dark'>Buy it now
                   </a>
                 </li>
                 <li>
-                  <a href='category2.php<?php
+                <a href='category2.php<?php
                     if(isset($_GET["id"])) {
                       echo "?id=" .$_GET["id"];
                     }
                       if(isset($_GET["seller"])) {
                           echo "&seller";
                       }
+                        if(isset($_GET["id"])) {
+                          echo "&category=3";
+                        } else {
+                          echo "?category=3";
+                        }
                       if(isset($_GET["subcategory"])) {
                         echo "&subcategory=" .$_GET["subcategory"];
                     }
-                      echo"&category=3"; 
+                      
                       ?>' class='text-dark'>Best Offer
                   </a>
                 </li>
