@@ -125,33 +125,115 @@
     <!-- Three columns of text below the carousel -->
     <div class="row justify-content-between">
       <div class="col-2 margin-start-1">
-        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+        <img src="indeximage/GraphicCard.jpg" class="bd-placeholder-img rounded-circle border border-primary" alt="Image couldn't load" width="140" height="140">
 
-        <h2>Heading</h2>
-        <p>Some representative placeholder content for the three columns of text below the carousel. This is the first column.</p>
-        <p><a class="btn btn-secondary" href="#">View details »</a></p>
+        <h2>GraphicCard</h2>
+        <p>A printed circuit board that controls the output to a display screen.</p>
+        <p><a class="btn btn-secondary" href="category1.php<?php 
+                    if(isset($_GET["id"])) {
+                        echo "?id=" .$_GET["id"];
+                    }
+                    if(isset($_GET["seller"])) {
+                        echo "&seller";
+                    }
+                      if(isset($_GET["id"])) {
+                        echo "&subcategory=GraphicCard";
+                      } else {
+                        echo "?subcategory=GraphicCard";
+                      }?>">View details »</a></p>
       </div><!-- /.col-lg-4 -->
       <div class="col-2">
-        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+      <img src="indeximage/MotherBoard.jpg" class="bd-placeholder-img rounded-circle border border-primary" alt="Image couldn't load" width="140" height="140">
 
-        <h2>Heading</h2>
-        <p>Another exciting bit of representative placeholder content. This time, we've moved on to the second column.</p>
-        <p><a class="btn btn-secondary" href="#">View details »</a></p>
+        <h2>MotherBoard</h2>
+        <p>A printed circuit board containing the principal components of a computer or other device, with connectors for other circuit boards to be slotted into.</p>
+        <p><a class="btn btn-secondary" href="category1.php<?php 
+                    if(isset($_GET["id"])) {
+                        echo "?id=" .$_GET["id"];
+                    }
+                    if(isset($_GET["seller"])) {
+                        echo "&seller";
+                    }
+                      if(isset($_GET["id"])) {
+                        echo "&subcategory=MotherBoard";
+                      } else {
+                        echo "?subcategory=MotherBoard";
+                      }?>">View details »</a></p>
       </div><!-- /.col-lg-4 -->
       <div class="col-2">
-        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+      <img src="indeximage/Processor.jpg" class="bd-placeholder-img rounded-circle border border-primary" alt="Image couldn't load" width="140" height="140">
 
-        <h2>Heading</h2>
-        <p>And lastly this, the third column of representative placeholder content.</p>
-        <p><a class="btn btn-secondary" href="#">View details »</a></p>
+        <h2>Processor</h2>
+        <p>A central processing unit.</p>
+        <p><a class="btn btn-secondary" href="category1.php<?php 
+                    if(isset($_GET["id"])) {
+                        echo "?id=" .$_GET["id"];
+                    }
+                    if(isset($_GET["seller"])) {
+                        echo "&seller";
+                    }
+                      if(isset($_GET["id"])) {
+                        echo "&subcategory=Processor";
+                      } else {
+                        echo "?subcategory=Processor";
+                      }?>">View details »</a></p>
+      </div><!-- /.col-lg-4 -->
+
+      <div class="col-2">
+      <img src="indeximage/Keyboard.jpg" class="bd-placeholder-img rounded-circle border border-primary" alt="Image couldn't load" width="140" height="140">
+
+        <h2>Keyboard</h2>
+        <p>A panel of keys that operate a computer or typewriter..</p>
+        <p><a class="btn btn-secondary" href="category2.php<?php 
+                    if(isset($_GET["id"])) {
+                        echo "?id=" .$_GET["id"];
+                    }
+                    if(isset($_GET["seller"])) {
+                        echo "&seller";
+                    }
+                      if(isset($_GET["id"])) {
+                        echo "&subcategory=Keyboard";
+                      } else {
+                        echo "?subcategory=Keyboard";
+                      }?>">View details »</a></p>
+      </div><!-- /.col-lg-4 -->
+
+      <div class="col-2">
+      <img src="indeximage/Mouse.jpg" class="bd-placeholder-img rounded-circle border border-primary" alt="Image couldn't load" width="140" height="140">
+
+      <h2>Mouse</h2>
+      <p>A small handheld device which is moved across a mat or flat surface to move the cursor on a computer screen.</p>
+      <p><a class="btn btn-secondary" href="category2.php<?php 
+                  if(isset($_GET["id"])) {
+                      echo "?id=" .$_GET["id"];
+                  }
+                  if(isset($_GET["seller"])) {
+                      echo "&seller";
+                  }
+                    if(isset($_GET["id"])) {
+                      echo "&subcategory=Mouse";
+                    } else {
+                      echo "?subcategory=Mouse";
+                    }?>">View details »</a></p>
       </div><!-- /.col-lg-4 -->
 
       <div class="col-2 margin-end-1">
-        <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
+      <img src="indeximage/Headset.png" class="bd-placeholder-img rounded-circle border border-primary" alt="Image couldn't load" width="140" height="140">
 
-        <h2>Heading</h2>
-        <p>And lastly this, the third column of representative placeholder content.</p>
-        <p><a class="btn btn-secondary" href="#">View details »</a></p>
+      <h2>Headset</h2>
+      <p>A set of headphones, typically with a microphone attached, used especially in telephony and radio communication.</p>
+      <p><a class="btn btn-secondary" href="category2.php<?php 
+                  if(isset($_GET["id"])) {
+                      echo "?id=" .$_GET["id"];
+                  }
+                  if(isset($_GET["seller"])) {
+                      echo "&seller";
+                  }
+                    if(isset($_GET["id"])) {
+                      echo "&subcategory=Headset";
+                    } else {
+                      echo "?subcategory=Headset";
+                    }?>">View details »</a></p>
       </div><!-- /.col-lg-4 -->
     </div><!-- /.row -->
 
@@ -167,12 +249,16 @@
 
     <div class="row featurette p-5">
       <div class="col-md-7">
-        <h2 class="featurette-heading">First featurette heading. <span class="text-muted">It’ll blow your mind.</span></h2>
-        <p class="lead">Some great placeholder content for the first featurette here. Imagine some exciting prose here.</p>
+        <h2 class="featurette-heading" style="font-size:x-large;">Welcome to our website. <span class="text-muted">Purchasing Methods.</span></h2>
+        <p class="lead" style="font-size:large;"><br>We offer you three purchasing methods:<br><br>
+          The most standard one is Buy it Now, if you are interested in an item and it is available in Buy it Now you can add it to your cart and pay for it instantly.<br><br>
+
+          But we also offer great deals, thanks to negotiations with sellers, you can propose up to five prices for an item and the seller can accept or make a counter offer.<br><br>
+
+          Finally, for those who love to bargain, you can buy great products through our limited time auction system.</p>
       </div>
       <div class="col-md-5">
-        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"></rect><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
-
+        <img src="indeximage/Auction.jpg" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" alt="Image couldn't load" width="500" height="500">      
       </div>
     </div>
 
@@ -180,11 +266,11 @@
 
     <div class="row featurette p-5">
       <div class="col-md-7 order-md-2">
-        <h2 class="featurette-heading">Oh yeah, it’s that good. <span class="text-muted">See for yourself.</span></h2>
-        <p class="lead">Another featurette? Of course. More placeholder content here to give you an idea of how this layout would work with some actual real-world content in place.</p>
+        <h2 class="featurette-heading" style="font-size:x-large;">Don't worry! <span class="text-muted">Our website is secure.</span></h2>
+        <p class="lead" style="font-size:large;"><br>All transactions are verified by us, whether you are a buyer or a seller, we guarantee you complete security.</p>
       </div>
       <div class="col-md-5 order-md-1">
-        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"></rect><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
+        <img src="indeximage/secure.jpg" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" alt="Image couldn't load" width="500" height="500"> 
 
       </div>
     </div>
@@ -193,8 +279,11 @@
 
     <div class="row featurette p-5">
       <div class="col-md-7">
-        <h2 class="featurette-heading">And lastly, this one. <span class="text-muted">Checkmate.</span></h2>
-        <p class="lead">And yes, this is the last block of representative placeholder content. Again, not really intended to be actually read, simply here to give you a better view of what this would look like with some actual content. Your content.</p>
+        <h2 class="featurette-heading" style="font-size:x-large;">Our team : <span class="text-muted">Chems,Abbas,Ben.</span></h2>
+        <p class="lead" style="font-size:large;"><br>Our team consists of :<br><br>
+          Brahim Khlil Chems Eddine, Project Manager<br>
+          Jiar Abbas, Administrative Department<br>
+          Brice Benjamin, Legal Department.</p>
       </div>
       <div class="col-md-5">
         <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"></rect><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>

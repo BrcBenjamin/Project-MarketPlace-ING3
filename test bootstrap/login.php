@@ -33,7 +33,7 @@
 
     if (($emailAccount== $_POST['email'])&&($passwordAccount== $_POST['password'])&&($username==$_POST['username'])&&(is_null($idselling)) ) {
         
-       header('Location: index.php?email='.$email);
+       header('Location: index.php?id='.$email);
        echo '<script language="Javascript">    alert ("Connexion Success." )      </script>';
     }
 
