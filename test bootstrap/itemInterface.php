@@ -61,13 +61,32 @@
 					<div class='product-desc'style='font-weight:400;font-size:large;'>".$row['description']."</div>
 					<div class='product-price'style='font-weight:1000;font-size:xx-large;color:green;'>".$row['price']."$</div>
 					<div class='product-stock'>Number in stock: ".$row['availability']."</div>
-					<hr>
-					<div class='btn-group cart'>
+					<hr>";
+					///IF AUCTIONS
+					if($row['purchaseCategory']==1){
+					echo"<div class='btn-group cart'>
                         <button type='button' class='btn btn-success'>
-                            Add to cart 
+                            Bid 
                         </button>
-					</div>
-					<div class='btn-group wishlist'>
+					</div>";
+					}
+					///IF Buy It Now
+					else if($row['purchaseCategory']==2){
+						echo"<div class='btn-group cart'>
+							<button type='button' class='btn btn-success'>
+								AddToCart
+							</button>
+						</div>";
+					}
+					///IF Best Offer
+					else if($row['purchaseCategory']==3){
+						echo"<div class='btn-group cart'>
+							<button type='button' class='btn btn-success'>
+								MakeAnOffer 
+							</button>
+						</div>";
+					}
+					echo"<div class='btn-group wishlist'>
 						<button type='button' class='btn btn-danger'>
 							Add to wishlist 
 						</button>

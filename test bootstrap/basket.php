@@ -40,16 +40,7 @@
         *
         */
         $email = $_GET['id'];
-        $user = 'root';
-        $password = ''; //To be completed if you have set a password to root
-        $database = 'yourmarket'; //To be completed to connect to a database. The database must exist.
-        $port = 3308; //Default must be NULL to use default port
-        $mysqli = new mysqli('127.0.0.1', $user, $password, $database, $port);
-
-        if ($mysqli->connect_error) {
-            die('Connect Error adzDZADAZDAZ (' . $mysqli->connect_errno . ') '
-                    . $mysqli->connect_error);
-        }
+        include "./config.php";
         $sql = "SELECT * FROM basketitem, item WHERE fk_email='" .$email ."' AND fk_iditem=iditem AND (purchaseCategory=1 OR purchaseCategory=3)";
         $result = $mysqli->query($sql);
         //echo "number of row".$result->num_rows;

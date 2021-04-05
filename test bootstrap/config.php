@@ -1,11 +1,5 @@
 <?php
-<<<<<<< Updated upstream
-$host = "localhost"; /* Host name */
-$user = "root"; /* User */
-$password = ""; /* Password */
-$dbname = "yourmarket"; /* Database name */
-=======
-    /*
+       /*
     * Change the value of $password if you have set a password on the root userid
     * Change NULL to port number to use DBMS other than the default using port 3306
     *
@@ -20,11 +14,5 @@ $dbname = "yourmarket"; /* Database name */
         die('Connect Error adzDZADAZDAZ (' . $mysqli->connect_errno . ') '
                 . $mysqli->connect_error);
     }
->>>>>>> Stashed changes
 
-$con = mysqli_connect($host, $user, $password,$dbname);
-// Check connection
-if (!$con) {
- die("Connection failed: " . mysqli_connect_error());
-}
 ?>
