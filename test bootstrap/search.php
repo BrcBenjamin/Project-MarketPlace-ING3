@@ -1,3 +1,6 @@
+<?php include "config.php"; ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,49 +25,14 @@
   <?php include "./header.php" ?>
 </header>
 
-<div class="d-flex justify-content-between bg-secondary col-10 mx-auto p-0 m-0" style="height:45px;">
+<?php 
+  if(isset($_GET['id'])) { 
+    $email = $_GET['id']; 
+  }
+?>
 		
-    <div class="d-flex flex-wrap">
-        <a href="index.php<?php 
-            if(isset($_GET["id"])) {
-                echo "?id=" .$_GET["id"];
-            }
-            if(isset($_GET["seller"])) {
-                echo "&seller";
-            }
-            ?>"role="button" class="btn btn-secondary rounded-0 pt-3 fs-4 border-end border-1 text-center">Home</a>
-        <a href="category1.php<?php 
-            if(isset($_GET["id"])) {
-                echo "?id=" .$_GET["id"];
-            }
-            if(isset($_GET["seller"])) {
-                echo "&seller";
-            }
-            ?>"role="button" class="btn btn-secondary pt-3 fs-4 border-end border-1 text-center">Components</a>
-        <a href="category2.php<?php 
-            if(isset($_GET["id"])) {
-                echo "?id=" .$_GET["id"];
-            }
-            if(isset($_GET["seller"])) {
-                echo "&seller";
-            }
-            ?>"role="button" class="btn btn-dark pt-3 fs-4 border-end border-1 text-center">Devices</a>
-    </div>
+<?php include "./navbar.php" ?>
 
-
-    <form method="post" onsubmit="return checkSearch()" action="search.php<?php 
-            if(isset($_GET["id"])) {
-                echo "?id=" .$_GET["id"];
-            }
-            if(isset($_GET["seller"])) {
-                echo "&seller";
-            }
-            ?>" class="d-flex gap-2 align-self-center pe-3">
-        <input style="width:240px;height: 30px;" class="align-self-center" id="search" name="searchText" type="text" placeholder="Search" aria-label="Search">
-        <button class="btn btn-dark align-self-center margin-left" type="submit">Search</button>
-    </form>
-    
-</div>
 	
 
 <div id="myCarousel" class="carousel slide col-10 mx-auto pt-3 border-start border-end border-1" data-bs-ride="carousel">
@@ -107,17 +75,18 @@
             
             <div class="container pt-3 border-end border-bottom border-1">
               <ul class="list-unstyled d-flex flex-column fs-4 pb-3 ms-5">
-              <?php
+
+                <?php
 
                   include "config.php";
 
-                  $sql="SELECT DISTINCT subcategory FROM `item` WHERE category=2";
+                  $sql="SELECT DISTINCT subcategory FROM `item`";
                   $result=$mysqli->query($sql);
                   
                   while ($row= $result->fetch_assoc()) {
                       
                       echo "<li>
-                      <a href='category2.php"; 
+                      <a href='search.php"; 
                             if(isset($_GET["id"])) {
                                 echo "?id=" .$_GET["id"];
                             }
@@ -127,6 +96,11 @@
                             if(isset($_GET["category"])) {
                               echo "&category=" .$_GET["category"];
                           }
+                          if(isset($_POST["searchText"])) {
+                            echo "&searchText=" .$_POST["searchText"];
+                            } elseif(isset($_GET["searchText"])) {
+                                echo "&searchText=" .$_GET["searchText"];
+                            }
                             echo"&subcategory=" .$row["subcategory"] ."' class='text-dark'>
                               " .$row["subcategory"] ."
                           </a>
@@ -134,7 +108,6 @@
                   }
 
                 ?>
-             
               </ul>
             </div>
 
@@ -145,7 +118,7 @@
             <div class="container pt-3 border-end border-bottom border-1">
               <ul class="list-unstyled d-flex flex-column fs-4 pb-3 ms-3">
               <li>
-                  <a href='category2.php<?php
+                  <a href='search.php<?php
                     if(isset($_GET["id"])) {
                       echo "?id=" .$_GET["id"];
                     }
@@ -154,13 +127,18 @@
                       }
                       if(isset($_GET["subcategory"])) {
                         echo "&subcategory=" .$_GET["subcategory"];
+                    }
+                    if(isset($_POST["searchText"])) {
+                        echo "&searchText=" .$_POST["searchText"];
+                    } elseif(isset($_GET["searchText"])) {
+                        echo "&searchText=" .$_GET["searchText"];
                     }
                       ?>' class='text-dark'>All
                   </a>
                 </li>
 
               <li>
-                  <a href='category2.php<?php
+                  <a href='search.php<?php
                     if(isset($_GET["id"])) {
                       echo "?id=" .$_GET["id"];
                     }
@@ -169,13 +147,18 @@
                       }
                       if(isset($_GET["subcategory"])) {
                         echo "&subcategory=" .$_GET["subcategory"];
+                    }
+                    if(isset($_POST["searchText"])) {
+                        echo "&searchText=" .$_POST["searchText"];
+                    } elseif(isset($_GET["searchText"])) {
+                        echo "&searchText=" .$_GET["searchText"];
                     }
                       echo"&category=1"; 
                       ?>' class='text-dark'>Auction
                   </a>
                 </li>
                 <li>
-                  <a href='category2.php<?php
+                  <a href='search.php<?php
                     if(isset($_GET["id"])) {
                       echo "?id=" .$_GET["id"];
                     }
@@ -184,13 +167,18 @@
                       }
                       if(isset($_GET["subcategory"])) {
                         echo "&subcategory=" .$_GET["subcategory"];
+                    }
+                    if(isset($_POST["searchText"])) {
+                        echo "&searchText=" .$_POST["searchText"];
+                    } elseif(isset($_GET["searchText"])) {
+                        echo "&searchText=" .$_GET["searchText"];
                     }
                       echo"&category=2"; 
                       ?>' class='text-dark'>Buy it now
                   </a>
                 </li>
                 <li>
-                  <a href='category2.php<?php
+                  <a href='search.php<?php
                     if(isset($_GET["id"])) {
                       echo "?id=" .$_GET["id"];
                     }
@@ -199,6 +187,11 @@
                       }
                       if(isset($_GET["subcategory"])) {
                         echo "&subcategory=" .$_GET["subcategory"];
+                    }
+                    if(isset($_POST["searchText"])) {
+                        echo "&searchText=" .$_POST["searchText"];
+                    } elseif(isset($_GET["searchText"])) {
+                        echo "&searchText=" .$_GET["searchText"];
                     }
                       echo"&category=3"; 
                       ?>' class='text-dark'>Best Offer
@@ -213,10 +206,17 @@
     <div class="d-flex flex-wrap col-10 px-3 py-4">
 
     <?php
-     include "config.php";
 
-     
-      $sql = "SELECT * FROM item WHERE category=2";
+      
+      $sql = "SELECT * FROM item ";
+
+      if(isset($_POST["searchText"])) {
+            $searchText=$_POST["searchText"];
+            $sql .=  "WHERE name like '%" .$searchText ."%'";
+        } elseif(isset($_GET["searchText"])) {
+            $searchText=$_GET["searchText"];;
+            $sql .=  "WHERE name like '%" .$searchText ."%'";
+        }
       if(isset($_GET["subcategory"])) {
         $sql .= " AND subcategory='" .$_GET["subcategory"] ."'"; 
       }
@@ -245,11 +245,12 @@
             </div>
           </div>
           </div>
-          
+        
           
           ";
         }
       } else {
+        //echo $sql;
         echo "<div class='justify-content-center mx-auto fs-1 align-self-center'><div class='mx-auto' style='height:200px;width:200px;'><img src='sorry-images-hd.jpg' class='img-fluid'></div> <br> Sorry, there are 0 results for you research.
         </div>";
       }
@@ -257,11 +258,9 @@
     ?>
 
       
-
   </div>
 
 </div>
-
 
 <!--Modal Interactif-->
 <div class="modal1"></div>
@@ -291,6 +290,8 @@
       });
     });
   </script>
+
+
 
 <?php include "./footer.php" ?>
 
