@@ -104,7 +104,9 @@
 			$sql3="UPDATE `account` SET `fk_idsellingLicense`=$rep WHERE email='$_POST[email]' ";	
 			$mysqli->query($sql3);
 
+
 		 header('Location: index.php?id=' .$_POST['email'] ."&seller");
+
 			 ?>
 
 

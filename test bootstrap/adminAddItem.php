@@ -6,18 +6,21 @@
 </head>
 <body>
 <?php
-
+		#include the connection with DataBase
 		include "config.php";
-		echo "1";
+		
+		#Choose the good Subcategory depending of what the user choosed
 		if ($_POST["Category"]==1) {
 			$Subcategory=$_POST["SubCategory1"];
 		}
-		echo "2";
+		
 		if ($_POST["Category"]==2) {
 			$Subcategory=$_POST["SubCategory2"];
 		}
-		echo "3".$_POST['email'];
+		
 
+
+		#Code to Insert an image in the DB
 		$status = $statusMsg = ''; 
 		if(isset($_POST["submit"])){ 
 		    $status = 'error'; 
