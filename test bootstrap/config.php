@@ -1,5 +1,5 @@
 <?php
-    /*
+       /*
     * Change the value of $password if you have set a password on the root userid
     * Change NULL to port number to use DBMS other than the default using port 3306
     *

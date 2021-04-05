@@ -257,7 +257,7 @@
           </div>
             
           <div class='card-body'>
-            <div class='card-text fs-4' style='height:59px;'><a href=''>" .$row["name"] ."</a></div>
+            <div class='card-text fs-4' style='height:59px;'><a href='itemInterface.php?iditem=".$id."'>" .$row["name"] ."</a></div>
             <div class='d-flex justify-content-between align-items-center'>
               <span class='price'>9 mins</span>
               <div class='btn-group'>
@@ -267,8 +267,6 @@
             </div>
           </div>
           </div>
-        
-          
           ";
         }
       } else {
