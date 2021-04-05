@@ -33,17 +33,9 @@
   }
 ?>
 		
-	<div class="d-flex justify-content-between bg-secondary col-10 mx-auto p-0 m-0" style="height:45px;">
-		<div class="d-flex flex-wrap">
-			<a href="index.php<?php if(isset($_GET['id'])) { echo"?id=".$_GET['id']; } ?>"role="button" class="btn btn-secondary rounded-0 pt-3 fs-4 border-end border-1 text-center">Home</a>
-			<a href="category1.php<?php if(isset($_GET['id'])) { echo"?id=".$_GET['id']; } ?>"role="button" class="btn btn-dark pt-3 fs-4 border-end border-1 text-center">Category 1</a>
-			<a href="category2.php<?php if(isset($_GET['id'])) { echo"?id=".$_GET['id']; } ?>"role="button" class="btn btn-secondary pt-3 fs-4 border-end border-1 text-center">Category 2</a>
-		</div>
-		<form-inline class="d-flex gap-2 align-self-center pe-3">
-			<input style="width:240px;height: 30px;" class="align-self-center" type="text" placeholder="Search" aria-label="Search">
-			<button class="btn btn-dark align-self-center margin-left" type="submit">Search</button>
-		</form>		
-	</div>
+		<?php include "./navbar.php" ?>
+
+	<div class="col-10 mx-auto px-0 m-0 pt-5 border-start border-end border-bottom border-1">
 
 <?php
     $itemid= $_GET['iditem'];
@@ -53,10 +45,10 @@
     if ($result->num_rows > 0) {
         // output data of each row
         while($row = $result->fetch_assoc()) {
-        echo"<div class='card image justify-content-center align-self-center overflow-hidden pt-3 border border-1' style='width:400px;height:400px;position:relative;left:50px;'>
+        echo"<div class='card image justify-content-center align-self-center overflow-hidden border border-1' style='width:400px;height:400px;position:relative;left:50px;'>
                 <img src=data:image/jpeg;charset=utf8;base64," .base64_encode($row["photo"]) .">
             </div>
-            <div class='col-md-7' style='position:relative;left:500px;top:-300px;'>
+            <div class='col-7' style='position:relative;left:500px;top:-300px;'>
 					<div class='product-title' style='font-weight:1000;font-size:xx-large;'>".$row['name']."</div>
 					<div class='product-desc'style='font-weight:400;font-size:large;'>".$row['description']."</div>
 					<div class='product-price'style='font-weight:1000;font-size:xx-large;color:green;'>".$row['price']."$</div>
@@ -102,6 +94,12 @@
     $mysqli->close();
 ?>
 
-<?php include "./footer.php" ?>
+<footer class="container-fluid pt-3 bg-dark text-white" style="position:absolute; bottom:0;">
+    <div class="container">
+      <p class="float-end"><a class="text-white" href="#">Back to top</a></p>
+      <p>© 2017–2021 Company, Inc. · <a href="#">Privacy</a> · <a href="#">Terms</a></p>
+    </div>
+    
+  </footer>
 </body>
 </html>
