@@ -24,6 +24,7 @@
                 include "checkIsSeller.php";
                 if($isSeller == true) {
                     echo "<a href='seller.php?id=" .$_GET["id"] ."&seller' type='button' class='btn btn-success fs-5'>Sell</a>";
+                    echo "<a href='offers.php?id=" .$_GET["id"] ."&seller' type='button' class='btn btn-warning fs-5'>Offers</a>";
                 }
                 echo "<a href='index.php' type='button' class='btn btn-primary fs-5'>Logout</a>";
 

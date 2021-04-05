@@ -42,25 +42,47 @@
     $sql = "SELECT * FROM item WHERE iditem=".$itemid;
     $result = mysqli_query($mysqli,$sql);
     //echo "number of row".$result->num_rows;
+	$sql1="SELECT offer.*, MAX(price) FROM offer WHERE item_iditem =$itemid";
+    $result1=$mysqli->query($sql1);
+
     if ($result->num_rows > 0) {
         // output data of each row
         while($row = $result->fetch_assoc()) {
+        	if ($result1->num_rows ==0) {
+        		echo("There is no bid for this item");
+        	}else{
+        		while($row1 = $result1->fetch_assoc())
+        		{
+
         echo"<div class='card image justify-content-center align-self-center overflow-hidden border border-1' style='width:400px;height:400px;position:relative;left:50px;'>
                 <img src=data:image/jpeg;charset=utf8;base64," .base64_encode($row["photo"]) .">
             </div>
             <div class='col-7' style='position:relative;left:500px;top:-300px;'>
 					<div class='product-title' style='font-weight:1000;font-size:xx-large;'>".$row['name']."</div>
 					<div class='product-desc'style='font-weight:400;font-size:large;'>".$row['description']."</div>
-					<div class='product-price'style='font-weight:1000;font-size:xx-large;color:green;'>".$row['price']."$</div>
+					<div class='product-price'style='font-weight:1000;font-size:xx-large;color:green;'>".number_format($row['price']) ."$</div>
+					<div class='product-price-bid'style='font-weight:500;font-size:large;color:red;'> Actual bid: ".number_format($row1['MAX(price)']) ."$</div>
 					<div class='product-stock'>Number in stock: ".$row['availability']."</div>
 					<hr>";
 					///IF AUCTIONS
 					if($row['purchaseCategory']==1){
-					echo"<div class='btn-group cart'>
-                        <button type='button' class='btn btn-success'>
-                            Bid 
-                        </button>
-					</div>";
+					echo "<form action='bid.php?id=".$email ."&iditems[]=" .$itemid ."' method='post'>
+					Enter the amount of your Bid:&emsp;<input type='text' name='bid'>&emsp;&emsp;
+					<input type='checkbox' name='verify' onclick='Verify()'>&emsp;Automatic Bid<br>
+					Enter the max of your bid:&emsp; <input type='text' name='maxbid' id='maxbid' disabled ='disabled'>
+					<div class='btn-group cart'>
+					&emsp;&emsp;<input class='btn btn-success' type='submit' name='submit' value='Bid'> 
+					</div>
+				</form>
+				<script type='text/javascript'>
+					function Verify(){
+						if (!document.getElementsByName('verify').checked) {
+							document.getElementById('maxbid').disabled=false;
+						}else{
+							document.getElementById('maxbid').disabled=true;
+						}
+					}
+				</script>";
 					}
 					///IF Buy It Now
 					else if($row['purchaseCategory']==2){
@@ -86,6 +108,8 @@
 				</div>
             </div>
             ";
+				}
+			}
         }
     }
     else {

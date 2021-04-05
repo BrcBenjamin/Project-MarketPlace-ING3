@@ -39,7 +39,7 @@
 
         include "config.php";
 
-        $sql = "SELECT * FROM basketitem, item WHERE fk_email='" .$email ."' AND fk_iditem=iditem AND (purchaseCategory=1 OR purchaseCategory=3)";
+        $sql = "SELECT * FROM offer, item WHERE fk_seller_email='" .$email ."' AND item_iditem=iditem AND purchaseCategory=3";
         $result = $mysqli->query($sql);
         //echo "number of row".$result->num_rows;
         if ($result->num_rows > 0) {
@@ -62,14 +62,7 @@
                             </div>
                               
                             <div class='col-6 align-self-center ms-5 mb-5'>
-                              <a href='itemInterface.php?"; 
-                              if(isset($_GET["id"])) {
-                                  echo "id=" .$_GET["id"] ."&";
-                              }
-                              if(isset($_GET["seller"])) {
-                                  echo "seller&";
-                              }
-                              echo"iditem=" .$row["iditem"] ."' class='fs-3 text-reset'>" .$row["name"] ."</a>
+                              <a href='category1.php' class='fs-3 text-reset'>" .$row["name"] ."</a>
                               <p class='pt-2 fs-5'>Condition: " .$row["conditionn"] .".<br>" .$row["description"] ."</p>";
                               if($row["availability"] == 0) { 
                                 echo "<p class='pt-2 fs-5 text-danger'>This item is unavailable.</p>"; 
@@ -95,90 +88,15 @@
             </div>
           </div>";
 
-        }
-
-        $sql = "SELECT * FROM basketitem, item WHERE fk_email='" .$email ."' AND fk_iditem=iditem AND purchaseCategory=2";
-        $result2 = $mysqli->query($sql);
-        if ($result2->num_rows > 0) {
-          // output data of each row
-          $totalPrice=0;
-          $paymentURL= 'payment.php?id='.$email;
-          $i = 1;
-          echo "
-                          <div class='panel-body'> 
-                            <div class='row text-600 text-white bg-primary py-3 fs-3'>
-                                <div class='col-9 col-sm-5'>Buyable now</div>
-                            </div>
-                              
-                              <div class='d-flex flex-column justify-content-between col-12 gap-3'>";
-          $allAvailable = true;                              
-          while($row = $result2->fetch_assoc()) {
-            $totalPrice += $row["price"];
-            if($row["availability"] == 1) {
-              $paymentURL .= '&iditems[]=' .$row["iditem"];
-            }
-            
-
-          echo "
-
-                      <div class='d-flex my-2 col-12 justify-content-between border border-1'>
-                          <!--<div><input type='checkbox' name='buy'>Yes</div>-->
-                        <div class='d-flex col-7 pt-4 align-self-start justify-content-center'>
-                          <div class='card border-0 image justify-content-center align-self-center overflow-hidden'  style='width:300px;height:215px;'>
-                            <img src=data:image/jpeg;charset=utf8;base64," .base64_encode($row["photo"]) .">
-                          </div>
-                            
-                          <div class='col-6 align-self-center ms-5 mb-5'>
-                            <a href='itemInterface.php?"; 
-                            if(isset($_GET["id"])) {
-                                echo "id=" .$_GET["id"] ."&";
-                            }
-                            if(isset($_GET["seller"])) {
-                                echo "seller&";
-                            }
-                            echo"iditem=" .$row["iditem"] ."' class='fs-3 text-reset'>" .$row["name"] ."</a>
-                            <p class='pt-2 fs-5'>Condition: " .$row["conditionn"] .".<br>" .$row["description"] ."</p>";
-                            if($row["availability"] == 0) { 
-                              $allAvailable = false;
-                              echo "<p class='pt-2 fs-5 text-danger'>This item is unavailable.</p>"; 
-                            }
-
-                          echo "</div>
-                        </div>
-
-                        <div class='d-flex flex-column align-self-end justify-content-end'>
-                          
-                          <div class='align-self-start mb-5 pb-5 fs-2'>" .number_format($row["price"]) ."€</div>
-
-                          <div class='align-self-end pe-5 fs-4 mb-4'>
-                            <a href='' onclick='javascript:removeFromBasket(" .$row["idbasket"] .")' class=''>Remove from basket</a>
-                          </div>
-
-                        </div>
-
-                      </div>";
-          }
-          echo "  <div class='d-flex align-self-end me-4 mb-3 justify-content-end'>
-                          
-          <div class='panel-body d-flex flex-column p-3 align-items-center'>
-            <div class='fs-1 border-bottom border-1 mb-4'>
-              <p><span class='fw-bold'>Total: </span>" .number_format($totalPrice) ." €</p>
-            </div>
-            <div class=''>
-              <a href='" .$paymentURL ."' class='btn ";
-              if($allAvailable == false) {
-                echo " disabled ";
-              }
-              echo "btn-success fs-3'>Go to checkout</a>
-            </div>
-          </div>
-  
-          </div>
+          echo " 
   
         </div>
             </div>
           </div>";
 
+      } else {
+          echo "<div class='justify-content-center mx-auto my-5 fs-1 align-self-center text-center'><div class='mx-auto' style='height:200px;width:200px;'><img src='images/768px-Sad_smiley_yellow_simple.svg.png' class='img-fluid'></div> <br> No offers for now.
+          </div>";
       }
         $mysqli->close();
     ?>

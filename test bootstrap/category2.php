@@ -246,7 +246,7 @@
      include "config.php";
 
      
-      $sql = "SELECT * FROM item WHERE category=2";
+      $sql = "SELECT * FROM item WHERE availability=1 AND category=2";
       if(isset($_GET["subcategory"])) {
         $sql .= " AND subcategory='" .$_GET["subcategory"] ."'"; 
       }
