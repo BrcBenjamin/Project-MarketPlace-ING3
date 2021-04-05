@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<!-- All includes-->
 	<meta charset="utf-8">   
 	<meta name="viewport" content="width =device-width , initial-scale = 1">
 
@@ -20,7 +21,7 @@
 <header>
 	<div class="container-fluid bg-light align-items-center py-2 ">
 		<div class="d-flex col-10 mx-auto align-items-center justify-content-between">
-			<a class="navbar-brand align-self-center" style="height: 30px;" href="index.html">Yourmarket</a>
+			<a class="navbar-brand align-self-center" style="height: 30px;" href="index.php">Yourmarket</a>
 		</div>
 	</div>
 </header>
@@ -43,7 +44,7 @@
 		</div>
 
 
-<h1 class="d-flex col-3  mx-auto text-center" style="margin-top: 7%">&emsp;&emsp;Delete a seller account with the id:</h1><br>
+<h1 class="d-flex col-3  mx-auto text-center" style="margin-top: 7%">&emsp;&emsp;&emsp;&emsp;&emsp;Delete an Item with the id:</h1><br>
 
 
 <div class="d-flex col-3  mx-auto my-3 justify-content-center border-start border-end border-2"  >

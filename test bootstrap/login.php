@@ -29,25 +29,27 @@
                 $passwordAccount=$row['password'];
                 $idselling=$row["fk_idsellingLicense"];
                 $username=$row["username"];
-            }
 
-    if (($emailAccount== $_POST['email'])&&($passwordAccount== $_POST['password'])&&($username==$_POST['username'])&&(is_null($idselling)) ) {
-        
-       header('Location: index.php?email='.$email);
-       echo '<script language="Javascript">    alert ("Connexion Success." )      </script>';
-    }
-
-
-    if (($emailAccount== $_POST['email'])&&($passwordAccount== $_POST['password'])&&($username==$_POST['username'])&&(!is_null($idselling)) ) {
-        
-      header('Location: index.php?id='.$email.'&seller=1');
-    }
+                if (($emailAccount== $_POST['email'])&&($passwordAccount== $_POST['password'])&&($username==$_POST['username'])&&(is_null($idselling)) ) {
+                  
+                 header('Location: index.php?id='.$email);
+                 echo '<script language="Javascript">    alert ("Connexion Success." )      </script>';
+              }
 
 
-    if ((($emailAccount!= $_POST['email'])&&($passwordAccount!= $_POST['password'])&&($username!=$_POST['username'])&&(is_null($idselling)))&&(($email!= "admin@admin.com")&&($pass!= "a"))&&!(($emailAccount== $_POST['email'])&&($passwordAccount== $_POST['password'])&&(!is_null($idselling)) ) ){
-        echo '<script language="Javascript">    alert ("Email or password wrong, please try again." )      </script>';
-       header('Location: login.html');
-    }
+              if (($emailAccount== $_POST['email'])&&($passwordAccount== $_POST['password'])&&($username==$_POST['username'])&&(!is_null($idselling)) ) {
+                  
+                header('Location: index.php?id='.$email.'&seller=1');
+              }
+
+
+              if ( (($emailAccount!= $_POST['email'])||($passwordAccount!= $_POST['password'])||($username!=$_POST['username']))&& (($email!= "admin@admin.com")&&($pass!= "abbasleboss"))  ){
+                  echo '<script language="Javascript">    alert ("Email or password wrong, please try again." )      </script>';
+                 header('Location: login.html');
+              }
+          }
+
+    echo "Error please try again";
 	
 	?>
 </body>
