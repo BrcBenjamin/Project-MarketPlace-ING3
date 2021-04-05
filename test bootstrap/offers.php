@@ -39,19 +39,27 @@
 
         include "config.php";
 
-        $sql = "SELECT * FROM offer, item WHERE fk_seller_email='" .$email ."' AND item_iditem=iditem AND purchaseCategory=3";
+        $sql = "SELECT * FROM offer, item WHERE fk_seller_email='" .$email ."' AND item_iditem=iditem AND purchaseCategory=3 AND state=2";
         $result = $mysqli->query($sql);
+        
+        
         //echo "number of row".$result->num_rows;
         if ($result->num_rows > 0) {
+            
+
             // output data of each row
             echo "
                             <div class='panel-body'> 
                               <div class='row text-600 text-white bg-primary py-3 fs-3'>
-                                  <div class='col-9 col-sm-5'>Bid or offer to be made</div>
+                                  <div class='col-9 col-sm-5'>Received offers on Best Offer items</div>
                               </div>
                                 
                                 <div class='d-flex flex-column justify-content-between col-12 gap-3'>";
             while($row = $result->fetch_assoc()) {
+                $sql2 = "SELECT * FROM offer WHERE idoffer=" .$row["idoffer"];
+                $result2 = $mysqli->query($sql2);
+                while($row2 = $result2->fetch_assoc()) { $priceoffer = $row2["price"]; }
+
             echo "
 
                         <div class='d-flex my-2 col-12 justify-content-between border border-1'>
@@ -74,15 +82,19 @@
 
                           <div class='d-flex flex-column align-self-end justify-content-end'>
                             
-                            <div class='align-self-start mb-5 pb-5 fs-2'>" .number_format($row["price"]) ."€</div>
+                            <div class='align-self-center border-bottom border-1 mb-5 rounded-3 fs-2'>" .number_format($priceoffer) ."€</div>
 
-                            <div class='align-self-end pe-5 fs-4 mb-4'>
-                              <a href='' onclick='javascript:removeFromBasket(" .$row["idbasket"] .")' class=''>Remove from basket</a>
+                            <div class='align-self-end pe-5 mt-5 fs-4 mb-4'>
+                                <a href='' onclick='declineOffer(" .$row["idoffer"] .");' class='btn btn-danger'>Decline offer</a>
+                                </form>
+                                <a href='' onclick='acceptOffer(" .$row["idoffer"] .", " .$row["iditem"] .");' class='btn btn-success'>Accept offer</a>
+                                <a href='' onclick='' class='btn btn-primary'>Counter-offer</a>
                             </div>
 
                           </div>
 
                         </div>";
+                        
             }
             echo "
             </div>
@@ -95,7 +107,7 @@
           </div>";
 
       } else {
-          echo "<div class='justify-content-center mx-auto my-5 fs-1 align-self-center text-center'><div class='mx-auto' style='height:200px;width:200px;'><img src='images/768px-Sad_smiley_yellow_simple.svg.png' class='img-fluid'></div> <br> No offers for now.
+          echo "<div class='justify-content-center mx-auto my-5 fs-1 align-self-center text-center'><div class='mx-auto' style='height:200px;width:200px;'><img src='images/768px-Sad_smiley_yellow_simple.svg.png' class='img-fluid'></div> <br> No offers to respond to for now.
           </div>";
       }
         $mysqli->close();
@@ -103,18 +115,38 @@
 
 
 <script>
-    function removeFromBasket(idbasket) {
 
-      console.log(idbasket);
-      $.ajax({
-        url:'removeFromBasket.php?idbasket=' +idbasket,
+
+    function acceptOffer(idoffer, iditem) {
+
+        console.log(idoffer);
+        $.ajax({
+        url:'acceptOffer.php?idoffer=' +idoffer +'&iditem=' +iditem,
         type:'get',
         success: function(response){
-        console.log("Ajax remove from basket get method success.");
+        console.log("Ajax accept offer get method success.");
         },
         error: function(response){
         //as far as i know, this function will only get triggered if there are some request errors (f.e: 404) or if the response is not in the expected format provided by the dataType parameter
-            console.log("something went wrong in remove from basket");
+            console.log("something went wrong in accept offer");
+        }
+        });
+            console.log("PAS 0");
+    }
+
+
+    function declineOffer(idoffer) {
+
+      console.log(idoffer);
+      $.ajax({
+        url:'declineOffer.php?idoffer=' +idoffer,
+        type:'get',
+        success: function(response){
+        console.log("Ajax decline offer get method success.");
+        },
+        error: function(response){
+        //as far as i know, this function will only get triggered if there are some request errors (f.e: 404) or if the response is not in the expected format provided by the dataType parameter
+            console.log("something went wrong in decline offer");
         }
         });
           console.log("PAS 0");

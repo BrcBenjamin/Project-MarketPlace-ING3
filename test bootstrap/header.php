@@ -1,4 +1,17 @@
 
+<?php 
+
+if(isset($_GET["id"])) {
+    include "checkIsSeller.php"; 
+}
+
+if(!isset($_GET["id"])) {
+    $isSeller = false;
+}
+
+?>
+
+
 
 <div class="container-fluid bg-light align-items-center py-2 border-bottom border-1">
 		<div class="d-flex col-10 mx-auto align-items-center justify-content-between">
@@ -6,7 +19,7 @@
                 if(isset($_GET["id"])) {
                     echo "?id=" .$_GET["id"];
                 }
-                if(isset($_GET["seller"])) {
+                if($isSeller == true) {
                     echo "&seller";
                 }
                 ?>">Yourmarket</a>
@@ -21,7 +34,7 @@
         ?>
             <?php 
             if(isset($_GET["id"])) {
-                include "checkIsSeller.php";
+                
                 if($isSeller == true) {
                     echo "<a href='seller.php?id=" .$_GET["id"] ."&seller' type='button' class='btn btn-success fs-5'>Sell</a>";
                     echo "<a href='offers.php?id=" .$_GET["id"] ."&seller' type='button' class='btn btn-warning fs-5'>Offers</a>";

@@ -265,7 +265,14 @@
           </div>
             
           <div class='card-body'>
-            <div class='card-text fs-4' style='height:59px;'><a href=''>" .$row["name"] ."</a></div>
+            <div class='card-text fs-4' style='height:59px;'><a href='itemInterface.php?"; 
+            if(isset($_GET["id"])) {
+                echo "id=" .$_GET["id"] ."&";
+            }
+            if(isset($_GET["seller"])) {
+                echo "seller&";
+            }
+            echo"iditem=".$id."'>" .$row["name"] ."</a></div>
             <div class='d-flex justify-content-between align-items-center'>
               <span class='price'>";
               ///IF AUCTIONS

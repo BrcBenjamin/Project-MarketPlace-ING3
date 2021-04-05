@@ -9,7 +9,7 @@
     $email = $_GET['id'];
     $iditems = $_GET['iditems'];
 
-    $bid = $_GET["bid"];
+    $bid = $_GET["offer"];
     
 
     if(isset($_POST["cardType"])) { $cardType =  $_POST["cardType"]; } else { $cardType = "Visa"; }
@@ -49,12 +49,12 @@
         $result = $mysqli->query($sql);
         while ($row2 = $result->fetch_assoc()) {
             $sql = "INSERT INTO `offer`(`fk_buyer_email`, `item_iditem`, `fk_seller_email`, `fk_idcreditcard`, `price`, `type`, `state`) 
-            VALUES ('" .$email ."', " .$iditems[$i] ." ,'"  .$row2["account_email"] ."'," .$idPayment ."," .$bid .", 1, 2)";
+            VALUES ('" .$email ."', " .$iditems[$i] ." ,'"  .$row2["account_email"] ."'," .$idPayment ."," .$bid .", 3, 2)";
 
              echo $row2["account_email"];
 
             if ($mysqli->query($sql) === TRUE) {
-                echo "New bid added successfully!";
+                echo "New offer added successfully!";
             } else {
                 echo "Error: " . $sql . "<br>" . $mysqli->error;
             }

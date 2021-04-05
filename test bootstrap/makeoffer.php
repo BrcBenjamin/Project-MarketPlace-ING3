@@ -41,7 +41,7 @@
                 $email = $_GET['id'];
                 $iditems = $_GET['iditems'];
                 
-                $bid = $_POST["bid"];
+                $offer = $_POST["offer"];
 
                 for($i=0 ; $i < count($iditems) ; ++$i) {
 
@@ -92,7 +92,7 @@
                           
                         <div class='panel-body d-flex flex-column px-3 pt-3 align-items-center'>
                             <div class='fs-3 border-bottom border-1'>
-                            <p><span class='fw-bold'>Bid: </span>" .number_format($bid) ." €</p>
+                            <p><span class='fw-bold'>Offer: </span>" .number_format($offer) ." €</p>
                             </div>
                         </div>
                 
@@ -121,7 +121,7 @@
                         } else {
                             $("#myModal2").modal("toggle"); 
                             $.ajax({
-                                url:'doBid.php?id=<?php echo $email; ?><?php for($i=0;$i<count($iditems);++$i) {  echo '&iditems[]='.$iditems[$i]."&bid=".$bid;  } ?>',
+                                url:'doOffer.php?id=<?php echo $email; ?><?php for($i=0;$i<count($iditems);++$i) {  echo '&iditems[]='.$iditems[$i]."&offer=".$offer;  } ?>',
                                 type:'post',
                                 data: $("#myForm").serialize(),
                                 success: function(response){
@@ -243,7 +243,7 @@
             </div>
         </div>
         <div class="card-body mt-3">
-                <div class='pb-5 fs-3'><span class='fw-bold'>Bid: </span><?php echo number_format($bid); ?> €</div>
+                <div class='pb-5 fs-3'><span class='fw-bold'>Offer: </span><?php echo number_format($offer); ?> €</div>
 
                     <div class="d-flex flex-column gap-3 col-7 mb-5 mx-auto justify-content-center">                        
                         
@@ -295,7 +295,7 @@
 
         <div class="card-footer">
             <div class="d-flex flex-column col-lg-12 my-3 mx-auto justify-content-end align-content-center">
-            <input type="submit" class="btn btn-success align-self-end fs-3 text-center" value="Confirm Bid" name="submit">
+            <input type="submit" class="btn btn-success align-self-end fs-3 text-center" value="Confirm Offer" name="submit">
             </div>
         </div>
 

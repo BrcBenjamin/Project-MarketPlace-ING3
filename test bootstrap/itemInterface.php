@@ -60,12 +60,14 @@
             <div class='col-7' style='position:relative;left:500px;top:-300px;'>
 					<div class='product-title' style='font-weight:1000;font-size:xx-large;'>".$row['name']."</div>
 					<div class='product-desc'style='font-weight:400;font-size:large;'>".$row['description']."</div>
-					<div class='product-price'style='font-weight:1000;font-size:xx-large;color:green;'>".number_format($row['price']) ."$</div>
-					<div class='product-price-bid'style='font-weight:500;font-size:large;color:red;'> Actual bid: ".number_format($row1['MAX(price)']) ."$</div>
-					<div class='product-stock'>Number in stock: ".$row['availability']."</div>
-					<hr>";
+					<div class='product-price'style='font-weight:1000;font-size:xx-large;color:green;'>".number_format($row['price']) ."$</div>";
+					if($row["availability"] == 0) {
+						echo"<p class='pt-2 fs-5 text-danger'>This item is unavailable.</p>";
+					}
+					echo"<hr>";
 					///IF AUCTIONS
 					if($row['purchaseCategory']==1){
+						echo"<div class='product-price-bid'style='font-weight:500;font-size:large;color:red;'> Actual bid: ".number_format($row1['MAX(price)']) ."$</div>";
 					echo "<form action='bid.php?id=".$email ."&iditems[]=" .$itemid ."' method='post'>
 					Enter the amount of your Bid:&emsp;<input type='text' name='bid'>&emsp;&emsp;
 					<input type='checkbox' name='verify' onclick='Verify()'>&emsp;Automatic Bid<br>
@@ -94,11 +96,29 @@
 					}
 					///IF Best Offer
 					else if($row['purchaseCategory']==3){
-						echo"<div class='btn-group cart'>
+						echo"<div class='btn-group gap-1 cart'>";
+						echo "<form action='makeoffer.php?id=".$email ."&iditems[]=" .$itemid ."' method='post'>
+						<input type='text' name='offer'>
+						<input class='btn btn-success ";
+						if($row["availability"] == 0) {
+							echo"disabled";
+						}
+						echo"' type='submit' name='submit' value='Make an offer'> 
+						</div>
+					</form>
+					<script type='text/javascript'>
+						function Verify(){
+							if (!document.getElementsByName('verify').checked) {
+								document.getElementById('maxbid').disabled=false;
+							}else{
+								document.getElementById('maxbid').disabled=true;
+							}
+						}
+					</script>
 							<button type='button' class='btn btn-success'>
-								MakeAnOffer 
+								AddToCart
 							</button>
-						</div>";
+						";
 					}
 					echo"<div class='btn-group wishlist'>
 						<button type='button' class='btn btn-danger'>

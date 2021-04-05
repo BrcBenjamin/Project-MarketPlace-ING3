@@ -180,6 +180,13 @@
           </div>";
 
       }
+
+      if($result->num_rows==0 && $result2->num_rows==0) {
+        echo "<div class='justify-content-center mx-auto my-5 fs-1 align-self-center text-center'><div class='mx-auto' style='height:200px;width:200px;'><img src='images/shopping-basket-icon-800x566.jpg' class='img-fluid'></div> Basket empty.
+          </div>";
+      }
+
+
         $mysqli->close();
     ?>
 

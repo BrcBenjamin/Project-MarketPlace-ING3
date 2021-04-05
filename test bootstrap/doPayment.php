@@ -32,7 +32,7 @@
     }
 
     // output data of each row
-    $sql = "INSERT INTO `payment` (`cardNumber`, `expiryDate`, `securityCode`, `cardType`) VALUES ('"  .$cardNumber ."', '"  .$expirationDate ."-00', '"  .$securityCode ."', '"  .$cardType ."') ";
+    $sql = "INSERT INTO `payment` (`cardNumber`, `expiryDate`, `securityCode`, `cardType`) VALUES ('"  .$cardNumber ."', '"  .$expirationDate ."-01', '"  .$securityCode ."', '"  .$cardType ."') ";
 
     if ($mysqli->query($sql) === TRUE) {
         echo "New payment added successfully!";
