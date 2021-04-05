@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<!-- All includes-->
 	<meta charset="utf-8">   
 	<meta name="viewport" content="width =device-width , initial-scale = 1">
 
@@ -17,10 +18,13 @@
 
 </head>
 <body style="padding:0;margin:0;">
+
+	<!-- The header-->
 <header>
 	<?php include "./header.php" ?>
-</header>
 
+
+<!--Menu -->
 <div class="d-flex justify-content-between bg-secondary col-10 mx-auto p-0 m-0" style="height:45px;">
 		
 			<div class="d-flex flex-wrap">
@@ -35,6 +39,7 @@
 			</div>
 		</div>
 
+		<!-- Information of the admin -->
 		<div class="col-2 mx-auto justify-content-between mt-5">
 			<h1>Welcome Admin !!!</h1>
 		</div>
@@ -47,7 +52,7 @@
 		</div>
 
 		
-
+			<!-- All information given in live-->
 		<?php
 
 			include "config.php";

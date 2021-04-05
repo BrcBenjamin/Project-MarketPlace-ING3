@@ -67,21 +67,20 @@
 
 		<div class="d-flex col-10  mx-auto my-3 ">
 			
-	
 		<div class="d-flex col-7  mx-auto my-3" style="margin-top: 7%">
 			<div class="col-10 mx-auto text-center mt-5">
 
 
 				<?php 
-					echo ("<h1>Welcome ".$_GET['id']. "!!!</h1>");
+					echo ("<p style='font-size: 30pt'>Welcome ".$_GET['id']. "!!!</p>");
 					echo "<br><h3> Here You can manage offers with differents possibilities.</h3>";
-					echo "<br><h2> Your account's information:.</h2><br>";
-					echo "<br><div><h5>First Name: &emsp;".$firstName."</h5></div>";
+					echo "<br><h2 style='text-decoration: underline;'> Your account's information:</h2><br>";
+					echo "<div style='border :2px red dashed; border-radius: 10px; font-weight: bold'><br><div><h5>First Name: &emsp;".$firstName."</h5></div>";
 					echo "<br><div><h5>Last Name: &emsp;".$lastName."</h5></div>";
 					echo "<br><div><h5>Email: &emsp;".$email."</h5></div>";
 					echo "<br><div><h5>Birthdate: &emsp;".$dateofbirth."</h5></div>";
 					echo "<br><div><h5>Phone Number: &emsp;".$phoneNumber."</h5></div>";
-					echo "<br><div><h5>Adress: &emsp;".$adress."</h5></div>";
+					echo "<br><div><h5>Adress: &emsp;".$adress."</h5></div></div>";
 
 				 ?>
 				
