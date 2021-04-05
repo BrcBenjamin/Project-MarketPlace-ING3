@@ -183,7 +183,7 @@
       <img src="indeximage/Keyboard.jpg" class="bd-placeholder-img rounded-circle border border-primary" alt="Image couldn't load" width="140" height="140">
 
         <h2>Keyboard</h2>
-        <p>A panel of keys that operate a computer or typewriter..</p>
+        <p>A panel of keys that operate a computer or typewriter.</p>
         <p><a class="btn btn-secondary" href="category2.php<?php 
                     if(isset($_GET["id"])) {
                         echo "?id=" .$_GET["id"];
@@ -286,7 +286,7 @@
           Brice Benjamin, Legal Department.</p>
       </div>
       <div class="col-md-5">
-        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"></rect><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg>
+      <img src="indeximage/equipe.jpg" class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" alt="Image couldn't load" width="500" height="500">
 
       </div>
     </div>
