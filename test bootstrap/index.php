@@ -43,7 +43,7 @@
             ?>"role="button" class="btn btn-dark rounded-0 pt-3 fs-4 border-end border-1 text-center">Home</a>
         <a href="category1.php<?php 
             if(isset($_GET["id"])) {
-                echo "?id=" .$_GET["id"];
+                echo "?id=" .$_GET['id'];
             }
             if(isset($_GET["seller"])) {
                 echo "&seller";
