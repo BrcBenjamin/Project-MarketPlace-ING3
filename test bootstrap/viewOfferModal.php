@@ -26,10 +26,30 @@ while( $row = $result->fetch_assoc()){
  $date = $row['publicationDateTime'];
  $price = $row['price'];
  $availability= $row['availability'];
+ $pCty=$row['purchaseCategory'];
 
  $response .= "<tr>";
- $response .= "<td><div class='card image justify-content-center align-self-center overflow-hidden pt-3 border border-1' style='width:215px;height:215px;'><img src=data:image/jpeg;charset=utf8;base64," .base64_encode($row["photo"]) ."></div></td><td>".$name."</td>";
+ $response .= "<td rowspan='2'><div class='card image justify-content-center align-self-center overflow-hidden pt-3 border border-1' style='width:215px;height:215px;'><img src=data:image/jpeg;charset=utf8;base64," .base64_encode($row["photo"]) ."></div></td><td style='font-weight:1000;font-size:large;'>".$name."</td>";
  $response .= "</tr>";
+
+ ///AUCTIONS
+if($pCty==1){
+   $response .= "<tr>"; 
+   $response .= "<td style='font-weight:400;font-size:medium;'>Auctions</td>"; 
+   $response .= "</tr>";
+}
+///BUT IT NOW
+else if($pCty==2){
+   $response .= "<tr>"; 
+   $response .= "<td style='font-weight:400;font-size:medium;'>Buy It Now</td>"; 
+   $response .= "</tr>";
+}
+///BEST OFFER
+else if($pCty==2){
+   $response .= "<tr>"; 
+   $response .= "<td style='font-weight:400;font-size:medium;'>BestOffer</td>"; 
+   $response .= "</tr>";
+}
 
  $response .= "<tr>";
  $response .= "<td colspan='2'>".$description."</td>";
@@ -46,7 +66,6 @@ while( $row = $result->fetch_assoc()){
  $response .= "<tr>"; 
  $response .= "<td>Date of publication : </td><td>".$date."</td>"; 
  $response .= "</tr>";
-
 }
 $response .= "</table></div> <div class='modal-footer'>
 <button type='button' id='close' class='btn btn-primary ";
