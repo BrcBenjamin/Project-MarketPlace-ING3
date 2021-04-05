@@ -87,7 +87,7 @@
 </script>
 	
 
-<div id="myCarousel" class="carousel slide col-10 mx-auto pt-3 px-0 border-start border-end border-1" data-bs-ride="carousel">
+<div id="myCarousel" class="carousel slide col-10 mx-auto px-0" data-bs-ride="carousel">
 
     <div class="carousel-indicators">
       <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" aria-label="Slide 1" class="active" aria-current="true"></button>
@@ -124,11 +124,11 @@
 
     <!-- Three columns of text below the carousel -->
     <div class="row justify-content-between">
-      <div class="col-2 margin-start-1">
+      <div class="d-flex flex-column col-2 align-items-center mx-auto margin-start-1">
         <img src="indeximage/GraphicCard.jpg" class="bd-placeholder-img rounded-circle border border-primary" alt="Image couldn't load" width="140" height="140">
 
-        <h2>GraphicCard</h2>
-        <p>A printed circuit board that controls the output to a display screen.</p>
+        <h2 class="py-3">GraphicCard</h2>
+        <p style="height:60px;">A printed circuit board that controls the output to a display screen.</p>
         <p><a class="btn btn-secondary" href="category1.php<?php 
                     if(isset($_GET["id"])) {
                         echo "?id=" .$_GET["id"];
@@ -142,11 +142,11 @@
                         echo "?subcategory=GraphicCard";
                       }?>">View details »</a></p>
       </div><!-- /.col-lg-4 -->
-      <div class="col-2">
+      <div class="d-flex flex-column col-2 align-items-center mx-auto">
       <img src="indeximage/MotherBoard.jpg" class="bd-placeholder-img rounded-circle border border-primary" alt="Image couldn't load" width="140" height="140">
 
-        <h2>MotherBoard</h2>
-        <p>A printed circuit board containing the principal components of a computer or other device, with connectors for other circuit boards to be slotted into.</p>
+        <h2 class="py-3">MotherBoard</h2>
+        <p class="mb-2" style="height:60px;">A printed circuit board containing the principal components of a computer or other device, with connectors for other circuit boards to be slotted into.</p>
         <p><a class="btn btn-secondary" href="category1.php<?php 
                     if(isset($_GET["id"])) {
                         echo "?id=" .$_GET["id"];
@@ -160,11 +160,11 @@
                         echo "?subcategory=MotherBoard";
                       }?>">View details »</a></p>
       </div><!-- /.col-lg-4 -->
-      <div class="col-2">
+      <div class="d-flex flex-column col-2 align-items-center mx-auto">
       <img src="indeximage/Processor.jpg" class="bd-placeholder-img rounded-circle border border-primary" alt="Image couldn't load" width="140" height="140">
 
-        <h2>Processor</h2>
-        <p>A central processing unit.</p>
+        <h2 class="py-3">Processor</h2>
+        <p class="mb-2" style="height:60px;">A central processing unit.</p>
         <p><a class="btn btn-secondary" href="category1.php<?php 
                     if(isset($_GET["id"])) {
                         echo "?id=" .$_GET["id"];
@@ -179,11 +179,11 @@
                       }?>">View details »</a></p>
       </div><!-- /.col-lg-4 -->
 
-      <div class="col-2">
+      <div class="d-flex flex-column col-2 align-items-center mx-auto">
       <img src="indeximage/Keyboard.jpg" class="bd-placeholder-img rounded-circle border border-primary" alt="Image couldn't load" width="140" height="140">
 
-        <h2>Keyboard</h2>
-        <p>A panel of keys that operate a computer or typewriter..</p>
+        <h2 class="py-3">Keyboard</h2>
+        <p class="mb-2" style="height:60px;">A panel of keys that operate a computer or typewriter..</p>
         <p><a class="btn btn-secondary" href="category2.php<?php 
                     if(isset($_GET["id"])) {
                         echo "?id=" .$_GET["id"];
@@ -198,11 +198,11 @@
                       }?>">View details »</a></p>
       </div><!-- /.col-lg-4 -->
 
-      <div class="col-2">
+      <div class="d-flex flex-column col-2 align-items-center mx-auto">
       <img src="indeximage/Mouse.jpg" class="bd-placeholder-img rounded-circle border border-primary" alt="Image couldn't load" width="140" height="140">
 
-      <h2>Mouse</h2>
-      <p>A small handheld device which is moved across a mat or flat surface to move the cursor on a computer screen.</p>
+      <h2 class="py-3">Mouse</h2>
+      <p class="mb-2" style="height:60px;">A small handheld device which is moved across a mat or flat surface to move the cursor on a computer screen.</p>
       <p><a class="btn btn-secondary" href="category2.php<?php 
                   if(isset($_GET["id"])) {
                       echo "?id=" .$_GET["id"];
@@ -217,11 +217,11 @@
                     }?>">View details »</a></p>
       </div><!-- /.col-lg-4 -->
 
-      <div class="col-2 margin-end-1">
+      <div class="d-flex flex-column col-2 align-items-center mx-auto margin-end-1">
       <img src="indeximage/Headset.png" class="bd-placeholder-img rounded-circle border border-primary" alt="Image couldn't load" width="140" height="140">
 
-      <h2>Headset</h2>
-      <p>A set of headphones, typically with a microphone attached, used especially in telephony and radio communication.</p>
+      <h2 class="py-3">Headset</h2>
+      <p class="mb-2" style="height:60px;">A set of headphones, typically with a microphone attached, used especially in telephony and radio communication.</p>
       <p><a class="btn btn-secondary" href="category2.php<?php 
                   if(isset($_GET["id"])) {
                       echo "?id=" .$_GET["id"];

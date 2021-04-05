@@ -295,7 +295,17 @@
             }
             echo"iditem=".$id."'>" .$row["name"] ."</a></div>
             <div class='d-flex justify-content-between align-items-center'>
-              <span class='price'>9 mins</span>
+              <span class='price'>";
+              ///IF AUCTIONS
+              if($row['purchaseCategory']==1){
+              echo"Auction";
+              } elseif($row['purchaseCategory']==2) {
+                echo"Buy it now";
+              }
+              elseif($row['purchaseCategory']==3) {
+                echo"Best offer";
+              }
+              echo"</span>
               <div class='btn-group'>
                 <button data-id='".$id."' name='iteminfo' class='btn btn-sm btn-outline-secondary'>View</button>
                 <button type='button' class='btn btn-sm btn-outline-secondary'>Edit</button>
