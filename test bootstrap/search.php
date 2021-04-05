@@ -84,7 +84,7 @@
                   $result=$mysqli->query($sql);
                   
                   while ($row= $result->fetch_assoc()) {
-                      
+
                       echo "<li>
                       <a href='search.php"; 
                             if(isset($_GET["id"])) {
