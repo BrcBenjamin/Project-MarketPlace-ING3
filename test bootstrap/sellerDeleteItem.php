@@ -44,7 +44,7 @@
 		</div>
 
 
-<h1 class="d-flex col-3  mx-auto text-center" style="margin-top: 7%">&emsp;&emsp;Delete a seller account with the id:</h1><br>
+<h1 class="d-flex col-3  mx-auto text-center" style="margin-top: 7%">&emsp;&emsp;&emsp;&emsp;&emsp;Delete an Item with the id:</h1><br>
 
 
 <div class="d-flex col-3  mx-auto my-3 justify-content-center border-start border-end border-2"  >
