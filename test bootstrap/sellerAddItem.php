@@ -106,9 +106,9 @@
 			<div>Select a Category of Purchase:&emsp;&emsp;
 
 				
-				  <input type="radio" id="Buy It now" name="PurchaseCategory" value="1"checked>
+				  <input type="radio" id="Buy It now" name="PurchaseCategory" value="2"checked>
 				  <label for="Buy It now">Buy It now</label>
-				  <input type="radio" id="Bid" name="PurchaseCategory" value="2">
+				  <input type="radio" id="Bid" name="PurchaseCategory" value="1">
 				  <label for="Bid">Bid</label>
 				  <input type="radio" id="Offer" name="PurchaseCategory" value="3">
 				  <label for="Offer">Offer</label>
