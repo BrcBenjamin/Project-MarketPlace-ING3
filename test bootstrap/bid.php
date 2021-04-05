@@ -40,7 +40,8 @@
             $totalPrice=0;  
                 $email = $_GET['id'];
                 $iditems = $_GET['iditems'];
-                $totalPrice=0;
+                
+                $bid = $_POST["bid"];
 
                 for($i=0 ; $i < count($iditems) ; ++$i) {
 
@@ -51,8 +52,7 @@
                     if ($result2->num_rows > 0) {
                         // output data of each row
                         while($row = $result2->fetch_assoc()) {
-                            $totalPrice += $row["price"];
-                            $itemsNames[] = $row["name"];
+                            
                                 echo "<div class='d-flex flex-column justify-content-between col-12 gap-3'>
 
                                 <div class='d-flex my-2 col-12 justify-content-between border border-1'>
@@ -70,14 +70,14 @@
                                                 if(isset($_GET["seller"])) {
                                                     echo "seller&";
                                                 }
-                                                echo"iditem=" .$row["iditem"] ."' class='fs-4 text-reset' style='font-weight:500;'>" .$row["name"] ."</a>
+                                                echo"iditem=".$iditems[$i] ."' class='fs-4 text-reset' style='font-weight:500;'>" .$row["name"] ."</a>
                                                 <p class='pt-2 fs-5'>Condition: " .$row["conditionn"] .".<br>" .$row["description"] ."</p>
                                             </div>
                                         </div>
             
                                         <div class='d-flex flex-column pe-5 align-self-center justify-content-end'>
                                                 
-                                            <div class='pb-5 fs-3'>" .number_format($row["price"]) ."€</div>
+                                            <div class='pb-5 fs-3'>Base price: " .number_format($row["price"]) ."€</div>
             
                                         </div>
                                 </div>
@@ -92,7 +92,7 @@
                           
                         <div class='panel-body d-flex flex-column px-3 pt-3 align-items-center'>
                             <div class='fs-3 border-bottom border-1'>
-                            <p><span class='fw-bold'>Total: </span>" .number_format($totalPrice) ." €</p>
+                            <p><span class='fw-bold'>Bid: </span>" .number_format($bid) ." €</p>
                             </div>
                         </div>
                 
@@ -121,7 +121,7 @@
                         } else {
                             $("#myModal2").modal("toggle"); 
                             $.ajax({
-                                url:'doPayment.php?id=<?php echo $email; ?><?php for($i=0;$i<count($iditems);++$i) {  echo '&iditems[]='.$iditems[$i];  } ?>',
+                                url:'doBid.php?id=<?php echo $email; ?><?php for($i=0;$i<count($iditems);++$i) {  echo '&iditems[]='.$iditems[$i]."&bid=".$bid;  } ?>',
                                 type:'post',
                                 data: $("#myForm").serialize(),
                                 success: function(response){
@@ -165,12 +165,7 @@
       <div class="modal-body fs-3">
         <p>The purchase of 
             <?php 
-            for($i=0 ; $i<count($itemsNames) ; ++$i) { 
-                echo $itemsNames[$i]; 
-                if($i<count($itemsNames)-1) { 
-                    echo " and "; 
-                } 
-            } 
+                echo $row["name"];
         ?> is a success.</p>
 
       </div>
@@ -181,9 +176,8 @@
   </div>
 </div>
 
-
             
-<form id="myForm" action="doPayment.php?id=<?php echo $email; ?><?php for($i=0;$i<count($iditems);++$i) {  echo '&iditems[]='.$iditems[$i];  } ?>" onsubmit="return checkform()">
+<form id="myForm" onsubmit="return checkform()">
 
     <div class="card bg-default my-3 mx-3">
         <div class="card-header thin-card-header">
@@ -242,7 +236,7 @@
             </div>
         </div>
         <div class="card-body mt-3">
-                <div class='pb-5 fs-3'><span class='fw-bold'>Total Price: </span><?php echo number_format($totalPrice); ?> €</div>
+                <div class='pb-5 fs-3'><span class='fw-bold'>Bid: </span><?php echo number_format($bid); ?> €</div>
 
                     <div class="d-flex flex-column gap-3 col-7 mb-5 mx-auto justify-content-center">                        
                         
@@ -294,7 +288,7 @@
 
         <div class="card-footer">
             <div class="d-flex flex-column col-lg-12 my-3 mx-auto justify-content-end align-content-center">
-            <input type="submit" class="btn btn-success align-self-end fs-3 text-center" value="Confirm Payment" name="submit">
+            <input type="submit" class="btn btn-success align-self-end fs-3 text-center" value="Confirm Bid" name="submit">
             </div>
         </div>
 

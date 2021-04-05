@@ -73,7 +73,7 @@ $response .= "</table></div> <div class='modal-footer'>
 $mysqli->close();
 
 if(!isset($_GET['id'])) { 
-   echo "disabled' data-dismiss='modal' data-bs-dismiss='modal'>Connect to add to basket</button></div>"; 
+   $response .= "disabled' data-dismiss='modal' data-bs-dismiss='modal'>Connect to add to basket</button></div>"; 
 }
 else {
    include "config.php";

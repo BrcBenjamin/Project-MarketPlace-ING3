@@ -263,7 +263,7 @@
     <?php
 
       
-      $sql = "SELECT * FROM item ";
+      $sql = "SELECT * FROM item WHERE availability=1 ";
 
       if(isset($_POST["searchText"])) {
             $searchText=$_POST["searchText"];

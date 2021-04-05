@@ -267,7 +267,7 @@
 
       
 
-      $sql = "SELECT * FROM item WHERE category=1";
+      $sql = "SELECT * FROM item WHERE availability=1 AND category=1";
       if(isset($_GET["subcategory"])) {
         $sql .= " AND subcategory='" .$_GET["subcategory"] ."'"; 
       }

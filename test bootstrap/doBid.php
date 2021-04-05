@@ -9,6 +9,9 @@
     $email = $_GET['id'];
     $iditems = $_GET['iditems'];
 
+    $bid = $_GET["bid"];
+    
+
     if(isset($_POST["cardType"])) { $cardType =  $_POST["cardType"]; } else { $cardType = "Visa"; }
     $cardNumber =  $_POST["cardNumber"];
     $name =  $_POST["name"];
@@ -46,22 +49,14 @@
         $result = $mysqli->query($sql);
         while ($row2 = $result->fetch_assoc()) {
             $sql = "INSERT INTO `offer`(`fk_buyer_email`, `item_iditem`, `fk_seller_email`, `fk_idcreditcard`, `price`, `type`, `state`) 
-            VALUES ('" .$email ."', " .$iditems[$i] ." ,'"  .$row2["account_email"] ."'," .$idPayment ."," .$row2["price"] .", 2, 1)";
+            VALUES ('" .$email ."', " .$iditems[$i] ." ,'"  .$row2["account_email"] ."'," .$idPayment ."," .$bid .", 1, 2)";
 
              echo $row2["account_email"];
 
             if ($mysqli->query($sql) === TRUE) {
-                echo "New offer added successfully!";
+                echo "New bid added successfully!";
             } else {
                 echo "Error: " . $sql . "<br>" . $mysqli->error;
-            }
-
-            $sql2 = "UPDATE `item` SET `availability`=0 WHERE iditem=" .$iditems[$i];
-            if ($mysqli->query($sql2) === TRUE) {
-                echo "Set availability 0 succesfully for item n°" .$iditems[$i] ."!";
-            } else {
-                echo "Error: " . $sql2 . "<br>" . $mysqli->error;
-
             }
         }
 
