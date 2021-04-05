@@ -58,7 +58,7 @@
 
                           <div class='d-flex col-7 pt-4 align-self-start justify-content-center'>
                             <div class='card border-0 image justify-content-center align-self-center overflow-hidden'  style='width:300px;height:215px;'>
-                              <img src=data:image/jpeg;charset=utf8;base64," .base64_encode($row["photo"]) .">
+                              <img src=data:image/jpeg;charset=utf8;base64," .base64_encode($row["photo"]) ." class='img-fluid'>
                             </div>
                               
                             <div class='col-6 align-self-center ms-5 mb-5'>

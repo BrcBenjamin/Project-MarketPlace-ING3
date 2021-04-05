@@ -2,9 +2,30 @@
 <div class="d-flex justify-content-between bg-secondary col-10 mx-auto p-0 m-0" style="height:45px;">
 		
         <div class="d-flex flex-wrap">
-            <a href="index.php<?php if(isset($_GET['id'])) { echo"?id=".$_GET['id']; } ?>"role="button" class="btn btn-secondary rounded-0 pt-3 fs-4 border-end border-1 text-center">Home</a>
-            <a href="category1.php<?php if(isset($_GET['id'])) { echo"?id=".$_GET['id']; } ?>"role="button" class="btn btn-secondary pt-3 fs-4 border-end border-1 text-center">Category 1</a>
-            <a href="category2.php<?php if(isset($_GET['id'])) { echo"?id=".$_GET['id']; } ?>"role="button" class="btn btn-secondary pt-3 fs-4 border-end border-1 text-center">Category 2</a>
+            <a href="index.php<?php 
+                if(isset($_GET["id"])) {
+                    echo "?id=" .$_GET["id"];
+                }
+                if(isset($_GET["seller"])) {
+                    echo "&seller";
+                }
+                ?>"role="button" class="btn btn-secondary rounded-0 pt-3 fs-4 border-end border-1 text-center">Home</a>
+            <a href="category1.php<?php 
+                if(isset($_GET["id"])) {
+                    echo "?id=" .$_GET["id"];
+                }
+                if(isset($_GET["seller"])) {
+                    echo "&seller";
+                }
+                ?>"role="button" class="btn btn-secondary pt-3 fs-4 border-end border-1 text-center">Components</a>
+            <a href="category2.php<<?php 
+                if(isset($_GET["id"])) {
+                    echo "?id=" .$_GET["id"];
+                }
+                if(isset($_GET["seller"])) {
+                    echo "&seller";
+                }
+                ?>"role="button" class="btn btn-secondary pt-3 fs-4 border-end border-1 text-center">Devices</a>
         </div>
 
 

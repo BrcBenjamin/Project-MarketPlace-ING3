@@ -40,7 +40,7 @@
 
     if (($emailAccount== $_POST['email'])&&($passwordAccount== $_POST['password'])&&($username==$_POST['username'])&&(!is_null($idselling)) ) {
         
-      header('Location: index.php?email='.$email.'&seller=1');
+      header('Location: index.php?id='.$email.'&seller=1');
     }
 
 

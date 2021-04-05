@@ -18,11 +18,7 @@
 </head>
 <body style="padding:0;margin:0;">
 <header>
-	<div class="container-fluid bg-light align-items-center py-2 ">
-		<div class="d-flex col-10 mx-auto align-items-center justify-content-between">
-			<a class="navbar-brand align-self-center" style="height: 30px;" href="index.html">Yourmarket</a>
-		</div>
-	</div>
+	<?php include "./header.php" ?>
 </header>
 
 <div class="d-flex justify-content-between bg-secondary col-10 mx-auto p-0 m-0" style="height:45px;">

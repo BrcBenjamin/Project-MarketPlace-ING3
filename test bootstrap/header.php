@@ -1,24 +1,43 @@
 
+
 <div class="container-fluid bg-light align-items-center py-2 border-bottom border-1">
 		<div class="d-flex col-10 mx-auto align-items-center justify-content-between">
-			<a class="navbar-brand align-self-center" style="height: 30px;" href="index.php">Yourmarket</a>
+			<a class="navbar-brand align-self-center fs-2" style="height: 30px;" href="index.php<?php 
+                if(isset($_GET["id"])) {
+                    echo "?id=" .$_GET["id"];
+                }
+                if(isset($_GET["seller"])) {
+                    echo "&seller";
+                }
+                ?>">Yourmarket</a>
 
 			<div class="d-flex align-self-center gap-2">
 
         <?php 
-          if(isset($_GET["seller"])) {
+          /*if(isset($_GET["seller"])) {
             echo "<a href='basket.php?id=fzefzef&seller' type='button' class='btn btn-success'>Sell</a>";
-          }
+          }*/
 
         ?>
             <?php 
             if(isset($_GET["id"])) {
-                echo "<a href='index.php' type='button' class='btn btn-primary'>Logout</a>";
-                echo "<a href='basket.php?id=" .$_GET["id"] ." type='button' class='btn btn-dark'>Basket</a>";
+                include "checkIsSeller.php";
+                if($isSeller == true) {
+                    echo "<a href='seller.php?id=" .$_GET["id"] ."&seller' type='button' class='btn btn-success fs-5'>Sell</a>";
+                }
+                echo "<a href='index.php' type='button' class='btn btn-primary fs-5'>Logout</a>";
+
+                if($isSeller == true) {
+                    echo "<a href='basket.php?id=" .$_GET["id"] ."&seller' type='button' class='btn btn-dark fs-5'>Basket</a>";
+                }
+                else {
+                    echo "<a href='basket.php?id=" .$_GET["id"] ."' type='button' class='btn btn-dark fs-5'>Basket</a>";
+                }
+                
             }
             else {
-                echo "<a href='login.html' type='button' class='btn btn-primary'>Login</a>";
-                echo "<a href='sign-inCustomer.html' type='button' class='btn btn-primary'>Sign In</a>";
+                echo "<a href='login.html' type='button' class='btn btn-primary fs-5'>Login</a>";
+                echo "<a href='sign-inCustomer.html' type='button' class='btn btn-primary fs-5'>Sign In</a>";
             }
 
             ?>

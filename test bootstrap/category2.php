@@ -26,9 +26,30 @@
 		<div class="d-flex justify-content-between bg-secondary col-10 mx-auto p-0 m-0" style="height:45px;">
 		
 			<div class="d-flex flex-wrap">
-				<a href="index.php<?php if(isset($_GET['id'])) { echo"?id=".$_GET['id']; } ?>"role="button" class="btn btn-secondary rounded-0 pt-3 fs-4 border-end border-1 text-center">Home</a>
-				<a href="category1.php<?php if(isset($_GET['id'])) { echo"?id=".$_GET['id']; } ?>"role="button" class="btn btn-secondary pt-3 fs-4 border-end border-1 text-center">Category 1</a>
-				<a href="category2.php<?php if(isset($_GET['id'])) { echo"?id=".$_GET['id']; } ?>"role="button" class="btn btn-dark pt-3 fs-4 border-end border-1 text-center">Category 2</a>
+				<a href="index.php<?php 
+                if(isset($_GET["id"])) {
+                    echo "?id=" .$_GET["id"];
+                }
+                if(isset($_GET["seller"])) {
+                    echo "&seller";
+                }
+                ?>"role="button" class="btn btn-secondary rounded-0 pt-3 fs-4 border-end border-1 text-center">Home</a>
+				<a href="category1.php<?php 
+                if(isset($_GET["id"])) {
+                    echo "?id=" .$_GET["id"];
+                }
+                if(isset($_GET["seller"])) {
+                    echo "&seller";
+                }
+                ?>"role="button" class="btn btn-secondary pt-3 fs-4 border-end border-1 text-center">Category 1</a>
+				<a href="category2.php<?php 
+                if(isset($_GET["id"])) {
+                    echo "?id=" .$_GET["id"];
+                }
+                if(isset($_GET["seller"])) {
+                    echo "&seller";
+                }
+                ?>"role="button" class="btn btn-dark pt-3 fs-4 border-end border-1 text-center">Category 2</a>
 			</div>
 
 
@@ -82,56 +103,103 @@
             
             <div class="container pt-3 border-end border-bottom border-1">
               <ul class="list-unstyled d-flex flex-column fs-4 pb-3 ms-5">
-              <li class="list-item mb-3 mb-md-0 align-items-center">
-                  <a href="#" class="text-dark">
-                     Keyboards
-                  </a>
-              </li>
-              <li>
-                  <a href="#" class="text-dark">
-                      Mouses
-                  </a>
-              </li>
-              <li>
-                  <a href="#" class="text-dark">
-                      Headsets
-                  </a>
-              </li>
+              <?php
+
+                  include "config.php";
+
+                  $sql="SELECT DISTINCT subcategory FROM `item` WHERE category=2";
+                  $result=$mysqli->query($sql);
+                  
+                  while ($row= $result->fetch_assoc()) {
+                      
+                      echo "<li>
+                      <a href='category2.php"; 
+                            if(isset($_GET["id"])) {
+                                echo "?id=" .$_GET["id"];
+                            }
+                            if(isset($_GET["seller"])) {
+                                echo "&seller";
+                            }
+                            if(isset($_GET["category"])) {
+                              echo "&category=" .$_GET["category"];
+                          }
+                            echo"&subcategory=" .$row["subcategory"] ."' class='text-dark'>
+                              " .$row["subcategory"] ."
+                          </a>
+                          </li>";
+                  }
+
+                ?>
              
               </ul>
             </div>
 
             <div class="d-flex align-items-center pt-3 ps-4 pb-2 text-dark border-end border-1">
-              <span class="fs-3">Filters</span>
+              <span class="fs-3">Buying category</span>
             </div>
             
             <div class="container pt-3 border-end border-bottom border-1">
               <ul class="list-unstyled d-flex flex-column fs-4 pb-3 ms-3">
-              <li class="list-item mb-3 mb-md-0 align-items-center">
-                <input type="checkbox" autocomplete="off">
-                Checkbox 1
-                  
-              </li>
-              <li class="list-item mb-3 mb-md-0 align-items-center">
-                <input type="checkbox" autocomplete="off">
-                Checkbox 1
-                  
-              </li>
-              <li class="list-item mb-3 mb-md-0 align-items-center">
-                <input type="checkbox" autocomplete="off">
-                Checkbox 1
-                  
-              </li>
-              <li class="list-item mb-3 mb-md-0 align-items-center">
-                <input type="checkbox" autocomplete="off">
-                Checkbox 1
-                  
-              </li>
-              <li class="list-item mb-3 mb-md-0 align-items-center">
-                <input type="checkbox" autocomplete="off">
-                Checkbox 1
-                  
-              </li>
+              <li>
+                  <a href='category2.php<?php
+                    if(isset($_GET["id"])) {
+                      echo "?id=" .$_GET["id"];
+                    }
+                      if(isset($_GET["seller"])) {
+                          echo "&seller";
+                      }
+                      if(isset($_GET["subcategory"])) {
+                        echo "&subcategory=" .$_GET["subcategory"];
+                    }
+                      ?>' class='text-dark'>All
+                  </a>
+                </li>
+
+              <li>
+                  <a href='category2.php<?php
+                    if(isset($_GET["id"])) {
+                      echo "?id=" .$_GET["id"];
+                    }
+                      if(isset($_GET["seller"])) {
+                          echo "&seller";
+                      }
+                      if(isset($_GET["subcategory"])) {
+                        echo "&subcategory=" .$_GET["subcategory"];
+                    }
+                      echo"&category=1"; 
+                      ?>' class='text-dark'>Auction
+                  </a>
+                </li>
+                <li>
+                  <a href='category2.php<?php
+                    if(isset($_GET["id"])) {
+                      echo "?id=" .$_GET["id"];
+                    }
+                      if(isset($_GET["seller"])) {
+                          echo "&seller";
+                      }
+                      if(isset($_GET["subcategory"])) {
+                        echo "&subcategory=" .$_GET["subcategory"];
+                    }
+                      echo"&category=2"; 
+                      ?>' class='text-dark'>Buy it now
+                  </a>
+                </li>
+                <li>
+                  <a href='category2.php<?php
+                    if(isset($_GET["id"])) {
+                      echo "?id=" .$_GET["id"];
+                    }
+                      if(isset($_GET["seller"])) {
+                          echo "&seller";
+                      }
+                      if(isset($_GET["subcategory"])) {
+                        echo "&subcategory=" .$_GET["subcategory"];
+                    }
+                      echo"&category=3"; 
+                      ?>' class='text-dark'>Best Offer
+                  </a>
+                </li>
               </ul>
             </div>
             
@@ -145,33 +213,41 @@
 
      
       $sql = "SELECT * FROM item WHERE category=2";
+      if(isset($_GET["subcategory"])) {
+        $sql .= " AND subcategory='" .$_GET["subcategory"] ."'"; 
+      }
+      if(isset($_GET["category"])) {
+        $sql .= " AND purchaseCategory=" .$_GET["category"]; 
+      }
       $result = $mysqli->query($sql);
       //echo "number of row".$result->num_rows;
       if ($result->num_rows > 0) {
         // output data of each row
         while($row = $result->fetch_assoc()) {
-          echo "<a href='#' class='card shadow-sm col-3'>
-          <div class='card image justify-content-center align-self-center overflow-hidden pt-3 border-top border-1' style='width:215px;height:215px;'>
-            <img src=data:image/jpeg;charset=utf8;base64," .base64_encode($row["photo"]) .">
+          $id=$row["iditem"];
+          echo "<div class='card shadow-sm col-3'>
+          <div class='card image border-0 justify-content-center align-self-center overflow-hidden pt-3 border border-1' style='width:215px;height:215px;'>
+            <img src=data:image/jpeg;charset=utf8;base64," .base64_encode($row["photo"]) ." class='img-fluid'>
           </div>
             
           <div class='card-body'>
-            <p class='card-text'>" .$row["name"] ."</p>
+            <div class='card-text fs-4' style='height:59px;'><a href=''>" .$row["name"] ."</a></div>
             <div class='d-flex justify-content-between align-items-center'>
               <span class='price'>9 mins</span>
               <div class='btn-group'>
-                <button type='button' class='btn btn-sm btn-outline-secondary'>View</button>
+                <button data-id='".$id."' name='iteminfo' class='btn btn-sm btn-outline-secondary'>View</button>
                 <button type='button' class='btn btn-sm btn-outline-secondary'>Edit</button>
               </div>
             </div>
           </div>
-        </a> 
+          </div>
           
           
           ";
         }
       } else {
-        echo "<h4>Sorry, there are 0 results for you research.<h4/>";
+        echo "<div class='justify-content-center mx-auto fs-1 align-self-center'><div class='mx-auto' style='height:200px;width:200px;'><img src='sorry-images-hd.jpg' class='img-fluid'></div> <br> Sorry, there are 0 results for you research.
+        </div>";
       }
       $mysqli->close();
     ?>
@@ -182,6 +258,35 @@
 
 </div>
 
+
+<!--Modal Interactif-->
+<div class="modal1"></div>
+
+  <script type='text/javascript'>
+
+    $(document).ready(function(){
+
+      $('button[name="iteminfo"]').click(function(){
+        
+
+        var itemid = $(this).data('id');
+        
+        // AJAX request
+        $.ajax({
+          url: 'viewOfferModal.php<?php if(isset($_GET['id'])) { echo"?id=".$_GET['id']; } ?>',
+          type: 'post',
+          data: {itemid: itemid},
+          success: function(response){ 
+            // Add response in Modal body
+            $('.modal1').html(response);
+
+            // Display Modal
+            $('#itemModal').modal('toggle'); 
+          }
+        });
+      });
+    });
+  </script>
 
 <?php include "./footer.php" ?>
 
