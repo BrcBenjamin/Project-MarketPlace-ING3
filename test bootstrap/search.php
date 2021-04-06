@@ -267,10 +267,10 @@
 
       if(isset($_POST["searchText"])) {
             $searchText=$_POST["searchText"];
-            $sql .=  "WHERE name like '%" .$searchText ."%'";
+            $sql .=  "AND name like '%" .$searchText ."%'";
         } elseif(isset($_GET["searchText"])) {
             $searchText=$_GET["searchText"];;
-            $sql .=  "WHERE name like '%" .$searchText ."%'";
+            $sql .=  "AND name like '%" .$searchText ."%'";
         }
       if(isset($_GET["subcategory"])) {
         $sql .= " AND subcategory='" .$_GET["subcategory"] ."'"; 
