@@ -163,10 +163,10 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body fs-3">
-        <p>The purchase of 
+        <p>The offer for 
             <?php 
                 echo $row["name"];
-        ?> is a success.</p>
+        ?> has been submitted.</p>
 
       </div>
       <div class="modal-footer">

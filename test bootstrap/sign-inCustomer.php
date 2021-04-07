@@ -15,7 +15,7 @@
 			 $mysqli->query($sql);	
 			 echo "Welcome $_POST[firstName] $_POST[lastName], You are a new buyer. Enjoy our website";
 
-			 header('Location: admin.php');
+			 header('Location: index.php');
 			?>
 
 </body>
